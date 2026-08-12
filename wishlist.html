@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <!-- ======================================================
+                        META TAGS
+    ======================================================= -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        Wishlist | SoleAI
+
+    </title>
+
+    <meta
+        name="description"
+        content="Your saved shoes, AI recommendations and price alerts.">
+
+    <!-- ======================================================
+                        FAVICON
+    ======================================================= -->
+
+    <link
+        rel="icon"
+        href="assets/images/logo/favicon.png">
+
+    <!-- ======================================================
+                    GOOGLE FONTS
+    ======================================================= -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ======================================================
+                    BOOTSTRAP ICONS
+    ======================================================= -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- ======================================================
+                    GLOBAL CSS
+    ======================================================= -->
+
+    <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/components.css">
+    <link rel="stylesheet" href="./assets/css/animations.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+    <!-- ======================================================
+                    PAGE CSS
+    ======================================================= -->
+
+    <link rel="stylesheet"
+        href="./assets/css/pages/wishlist.css">
+
+    <!-- ======================================================
+                    COMPONENT CSS
+    ======================================================= -->
+
+    <link rel="stylesheet"
+        href="./assets/css/navbar.css">
+
+    <link rel="stylesheet"
+        href="./assets/css/footer.css">
+
+    <link rel="stylesheet"
+        href="./assets/css/product-card.css">
+
+</head>
+
+<body>
+
+    <!-- Loader -->
+
+    <div id="loader-container"></div>
+
+    <!-- Navbar -->
+
+    <header>
+
+        <div id="navbar-container"></div>
+
+    </header>
+
+    <main>
+
+        <!-- ==================================================
+                    WISHLIST HERO
+        =================================================== -->
+
+        <section class="wishlist-hero">
+
+            <div class="container">
+
+                <div class="wishlist-hero-content">
+
+                    <span>
+
+                        ❤️ Your Personal Collection
+
+                    </span>
+
+                    <h1>
+
+                        Wishlist
+
+                    </h1>
+
+                    <p>
+
+                        Save your favorite shoes,
+                        receive AI price alerts,
+                        and compare products before buying.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================================================
+                    BREADCRUMB
+        =================================================== -->
+
+        <section class="breadcrumb-section">
+
+            <div class="container">
+
+                <div class="breadcrumb">
+
+                    <a href="index.html">
+
+                        Home
+
+                    </a>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>
+
+                        Wishlist
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================================================
+                    WISHLIST SUMMARY
+        =================================================== -->
+
+        <section class="wishlist-summary">
+
+            <div class="container">
+
+                <div class="summary-grid">
+
+                    <!-- Saved Products -->
+
+                    <div class="summary-card">
+
+                        <i class="bi bi-heart-fill"></i>
+
+                        <h3>
+
+                            12
+
+                        </h3>
+
+                        <p>
+
+                            Saved Products
+
+                        </p>
+
+                    </div>
+
+                    <!-- Estimated Price -->
+
+                    <div class="summary-card">
+
+                        <i class="bi bi-currency-rupee"></i>
+
+                        <h3>
+
+                            ₹82,450
+
+                        </h3>
+
+                        <p>
+
+                            Estimated Total
+
+                        </p>
+
+                    </div>
+
+                    <!-- AI Match -->
+
+                    <div class="summary-card">
+
+                        <i class="bi bi-stars"></i>
+
+                        <h3>
+
+                            96%
+
+                        </h3>
+
+                        <p>
+
+                            AI Match Score
+
+                        </p>
+
+                    </div>
+
+                    <!-- Price Alerts -->
+
+                    <div class="summary-card">
+
+                        <i class="bi bi-bell-fill"></i>
+
+                        <h3>
+
+                            4
+
+                        </h3>
+
+                        <p>
+
+                            Active Price Alerts
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+                <!-- ==================================================
+                    AI WISHLIST INSIGHTS
+        =================================================== -->
+
+        <section class="ai-wishlist">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+
+                        🤖 AI Insights
+
+                    </span>
+
+                    <h2>
+
+                        Smart Recommendations
+
+                    </h2>
+
+                    <p>
+
+                        AI analyzes your wishlist and provides
+                        personalized shopping insights.
+
+                    </p>
+
+                </div>
+
+                <div class="ai-grid">
+
+                    <!-- Price Prediction -->
+
+                    <div class="ai-card">
+
+                        <div class="ai-icon">
+
+                            <i class="bi bi-graph-down-arrow"></i>
+
+                        </div>
+
+                        <h3>
+
+                            Price Drop Prediction
+
+                        </h3>
+
+                        <h2>
+
+                            ↓ 12%
+
+                        </h2>
+
+                        <p>
+
+                            AI predicts that 4 shoes may
+                            drop in price within the next
+                            10 days.
+
+                        </p>
+
+                    </div>
+
+                    <!-- Alternatives -->
+
+                    <div class="ai-card">
+
+                        <div class="ai-icon">
+
+                            <i class="bi bi-arrow-repeat"></i>
+
+                        </div>
+
+                        <h3>
+
+                            Better Alternatives
+
+                        </h3>
+
+                        <ul>
+
+                            <li>Nike Pegasus 41 → Adidas Boston 13</li>
+
+                            <li>Puma Velocity → ASICS Gel Nimbus</li>
+
+                            <li>Jordan Low → New Balance 9060</li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Outfit Match -->
+
+                    <div class="ai-card">
+
+                        <div class="ai-icon">
+
+                            <i class="bi bi-palette-fill"></i>
+
+                        </div>
+
+                        <h3>
+
+                            Outfit Match
+
+                        </h3>
+
+                        <h2>
+
+                            95%
+
+                        </h2>
+
+                        <p>
+
+                            Your saved shoes perfectly
+                            match your preferred outfits.
+
+                        </p>
+
+                    </div>
+
+                    <!-- Wishlist Score -->
+
+                    <div class="ai-card">
+
+                        <div class="ai-icon">
+
+                            <i class="bi bi-stars"></i>
+
+                        </div>
+
+                        <h3>
+
+                            Wishlist Score
+
+                        </h3>
+
+                        <h2>
+
+                            A+
+
+                        </h2>
+
+                        <p>
+
+                            AI believes your wishlist has
+                            an excellent balance of
+                            comfort, style and value.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================================================
+                    SAVED PRODUCTS
+        =================================================== -->
+
+        <section class="wishlist-products">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+
+                        ❤️ Saved Shoes
+
+                    </span>
+
+                    <h2>
+
+                        Your Wishlist
+
+                    </h2>
+
+                </div>
+
+                <div class="products-grid">
+
+                    <div id="wishlist-product-1"></div>
+
+                    <div id="wishlist-product-2"></div>
+
+                    <div id="wishlist-product-3"></div>
+
+                    <div id="wishlist-product-4"></div>
+
+                    <div id="wishlist-product-5"></div>
+
+                    <div id="wishlist-product-6"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================================================
+                    QUICK ACTIONS
+        =================================================== -->
+
+        <section class="wishlist-actions">
+
+            <div class="container">
+
+                <div class="action-buttons">
+
+                    <button class="btn btn-primary">
+
+                        <i class="bi bi-bag-fill"></i>
+
+                        Move All To Cart
+
+                    </button>
+
+                    <button class="btn btn-secondary">
+
+                        <i class="bi bi-arrow-left-right"></i>
+
+                        Compare Selected
+
+                    </button>
+
+                    <button class="btn btn-outline">
+
+                        <i class="bi bi-trash"></i>
+
+                        Clear Wishlist
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+                <!-- ==================================================
+                    TRENDING FOR YOU
+        =================================================== -->
+
+        <section class="trending-recommendations">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+
+                        🔥 Trending For You
+
+                    </span>
+
+                    <h2>
+
+                        AI Recommended Picks
+
+                    </h2>
+
+                    <p>
+
+                        Based on your wishlist,
+                        purchase history,
+                        and current footwear trends.
+
+                    </p>
+
+                </div>
+
+                <div class="products-grid">
+
+                    <div id="recommended-product-1"></div>
+
+                    <div id="recommended-product-2"></div>
+
+                    <div id="recommended-product-3"></div>
+
+                    <div id="recommended-product-4"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================================================
+                    RECENTLY VIEWED
+        =================================================== -->
+
+        <section class="recently-viewed">
+
+            <div class="container">
+
+                <div class="section-title">
+
+                    <span>
+
+                        Recently Viewed
+
+                    </span>
+
+                    <h2>
+
+                        Continue Shopping
+
+                    </h2>
+
+                </div>
+
+                <div class="products-grid">
+
+                    <div id="recent-product-1"></div>
+
+                    <div id="recent-product-2"></div>
+
+                    <div id="recent-product-3"></div>
+
+                    <div id="recent-product-4"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ==================================================
+                    NEWSLETTER
+        =================================================== -->
+
+        <section class="newsletter">
+
+            <div class="container">
+
+                <div class="newsletter-content">
+
+                    <h2>
+
+                        Never Miss A Deal
+
+                    </h2>
+
+                    <p>
+
+                        Subscribe to receive AI-powered
+                        recommendations,
+                        exclusive discounts,
+                        and early access to new arrivals.
+
+                    </p>
+
+                    <form>
+
+                        <input
+                            type="email"
+                            placeholder="Enter your email">
+
+                        <button class="btn btn-primary">
+
+                            Subscribe
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ==================================================
+                    FOOTER
+    =================================================== -->
+
+    <footer>
+
+        <div id="footer-container"></div>
+
+    </footer>
+
+    <!-- ==================================================
+                    BACK TO TOP
+    =================================================== -->
+
+    <button id="backToTop">
+
+        <i class="bi bi-arrow-up"></i>
+
+    </button>
+
+    <!-- ==================================================
+                    GSAP
+    =================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"></script>
+
+    <!-- ==================================================
+                    COMPONENT JS
+    =================================================== -->
+
+    <script src="./components/navbar/navbar.js"></script>
+
+    <script src="./components/footer/footer.js"></script>
+
+    <script src="./components/product-card/product-card.js"></script>
+
+    <!-- ==================================================
+                    GLOBAL JS
+    =================================================== -->
+
+    <script src="./assets/js/main.js"></script>
+
+    <script src="./assets/js/animations.js"></script>
+
+    <script src="./assets/js/gsap-init.js"></script>
+
+    <!-- ==================================================
+                    PAGE JS
+    =================================================== -->
+
+    <script src="./assets/js/pages/wishlist.js"></script>
+
+</body>
+
+</html>

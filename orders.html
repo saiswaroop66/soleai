@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="View and track your SoleAI orders."
+    >
+
+    <title>My Orders | SoleAI</title>
+
+
+    <!-- Order Page CSS -->
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/order.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="site-header">
+
+        <div class="header-inner">
+
+
+            <!-- LOGO -->
+
+            <a
+                href="./index.html"
+                class="logo"
+            >
+
+                <span class="logo-mark">
+                    S
+                </span>
+
+                <span class="logo-text">
+                    SoleAI
+                </span>
+
+            </a>
+
+
+            <!-- DESKTOP NAV -->
+
+            <nav class="main-nav">
+
+                <a href="./index.html">
+                    Home
+                </a>
+
+                <a href="./shop.html">
+                    Shop
+                </a>
+
+                <a
+                    href="./orders.html"
+                    class="active"
+                >
+                    My Orders
+                </a>
+
+            </nav>
+
+
+            <!-- HEADER ACTIONS -->
+
+            <div class="header-actions">
+
+
+                <a
+                    href="./cart.html"
+                    class="header-icon"
+                    aria-label="Shopping cart"
+                >
+
+                    <span class="cart-icon">
+                        🛍
+                    </span>
+
+                    <span id="cartCount">
+                        0
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="./profile.html"
+                    class="profile-button"
+                >
+
+                    <span id="userInitials">
+                        U
+                    </span>
+
+                    <span id="headerUserName">
+                        Account
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         MOBILE NAV
+    ========================================== -->
+
+    <nav class="mobile-nav">
+
+        <a href="./index.html">
+
+            <span>
+                🏠
+            </span>
+
+            <span>
+                Home
+            </span>
+
+        </a>
+
+
+        <a href="./shop.html">
+
+            <span>
+                🛍
+            </span>
+
+            <span>
+                Shop
+            </span>
+
+        </a>
+
+
+        <a
+            href="./orders.html"
+            class="active"
+        >
+
+            <span>
+                📦
+            </span>
+
+            <span>
+                Orders
+            </span>
+
+        </a>
+
+
+        <a href="./profile.html">
+
+            <span>
+                👤
+            </span>
+
+            <span>
+                Profile
+            </span>
+
+        </a>
+
+    </nav>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="orders-page">
+
+        <div class="page-container">
+
+
+            <!-- =====================================
+                 PAGE HEADER
+            ====================================== -->
+
+            <section class="page-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        YOUR SHOPPING
+                    </span>
+
+                    <h1>
+                        My Orders
+                    </h1>
+
+                    <p>
+                        Track your purchases and manage
+                        your orders.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="./shop.html"
+                    class="shop-button"
+                >
+
+                    <span>
+                        🛍
+                    </span>
+
+                    Continue Shopping
+
+                </a>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 ORDER STATS
+            ====================================== -->
+
+            <section class="order-stats">
+
+
+                <!-- TOTAL -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        📦
+                    </div>
+
+                    <div>
+
+                        <span>
+                            TOTAL ORDERS
+                        </span>
+
+                        <strong id="totalOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PROCESSING -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ⏳
+                    </div>
+
+                    <div>
+
+                        <span>
+                            PROCESSING
+                        </span>
+
+                        <strong id="processingOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SHIPPED -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        🚚
+                    </div>
+
+                    <div>
+
+                        <span>
+                            SHIPPED
+                        </span>
+
+                        <strong id="shippedOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DELIVERED -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            DELIVERED
+                        </span>
+
+                        <strong id="deliveredOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =====================================
+                 ORDERS SECTION
+            ====================================== -->
+
+            <section class="orders-section">
+
+
+                <!-- TOOLBAR -->
+
+                <div class="orders-toolbar">
+
+
+                    <!-- TABS -->
+
+                    <div class="tabs">
+
+                        <button
+                            type="button"
+                            class="tab active"
+                            data-status="all"
+                        >
+                            All Orders
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="tab"
+                            data-status="Processing"
+                        >
+                            Processing
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="tab"
+                            data-status="Shipped"
+                        >
+                            Shipped
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="tab"
+                            data-status="Delivered"
+                        >
+                            Delivered
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="tab"
+                            data-status="Cancelled"
+                        >
+                            Cancelled
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- SEARCH -->
+
+                    <div class="search-box">
+
+                        <span class="search-icon">
+                            🔍
+                        </span>
+
+                        <input
+                            type="search"
+                            id="orderSearch"
+                            placeholder="Search orders..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ORDERS CONTAINER -->
+
+                <div
+                    id="ordersContainer"
+                    class="orders-container"
+                >
+                </div>
+
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    id="emptyState"
+                    class="empty-state"
+                    style="display: none;"
+                >
+
+                    <div class="empty-icon">
+                        📦
+                    </div>
+
+                    <h2>
+                        No orders found
+                    </h2>
+
+                    <p>
+                        You haven't placed any orders
+                        matching this filter.
+                    </p>
+
+                    <a
+                        href="./shop.html"
+                        class="shop-button"
+                    >
+                        Start Shopping
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         ORDER DETAILS MODAL
+    ========================================== -->
+
+    <div
+        id="orderModal"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalOrderId"
+        >
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span>
+                        ORDER DETAILS
+                    </span>
+
+                    <h2 id="modalOrderId">
+                        #SA-00000
+                    </h2>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="closeModal"
+                    class="close-modal"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- MODAL BODY -->
+
+            <div class="modal-body">
+
+
+                <!-- PRODUCT -->
+
+                <div class="modal-product">
+
+                    <div
+                        id="modalImage"
+                        class="modal-product-image"
+                    >
+                        📦
+                    </div>
+
+
+                    <div>
+
+                        <h3 id="modalProductName">
+                            Product
+                        </h3>
+
+                        <p id="modalProductInfo">
+                            Size 9 · Black · Qty 1
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ORDER INFO -->
+
+                <div class="modal-info-grid">
+
+
+                    <div>
+
+                        <span>
+                            ORDER DATE
+                        </span>
+
+                        <strong id="modalDate">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            TOTAL
+                        </span>
+
+                        <strong id="modalTotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            PAYMENT
+                        </span>
+
+                        <strong id="modalPayment">
+                            Paid
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            STATUS
+                        </span>
+
+                        <strong id="modalStatus">
+                            Processing
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TRACKING -->
+
+                <div class="tracking">
+
+                    <h3>
+                        Order Tracking
+                    </h3>
+
+
+                    <div class="tracking-line">
+
+
+                        <div class="tracking-step completed">
+
+                            <div class="tracking-dot">
+                                ✓
+                            </div>
+
+                            <span>
+                                Ordered
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="tracking-step">
+
+                            <div class="tracking-dot">
+                                📦
+                            </div>
+
+                            <span>
+                                Processing
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="tracking-step">
+
+                            <div class="tracking-dot">
+                                🚚
+                            </div>
+
+                            <span>
+                                Shipped
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="tracking-step">
+
+                            <div class="tracking-dot">
+                                🏠
+                            </div>
+
+                            <span>
+                                Delivered
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MODAL FOOTER -->
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    id="closeModalButton"
+                    class="secondary-button"
+                >
+                    Close
+                </button>
+
+
+                <button
+                    type="button"
+                    id="trackModalButton"
+                    class="primary-button"
+                >
+
+                    <span>
+                        📍
+                    </span>
+
+                    Track Order
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         TOAST
+    ========================================== -->
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    >
+
+        <span>
+            ✓
+        </span>
+
+        <span id="toastMessage">
+            Done
+        </span>
+
+    </div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="./assets/js/orders.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Virtual Try-On | SoleAI</title>
+
+    <meta
+        name="description"
+        content="Experience SoleAI Virtual Try-On and preview footwear before you buy.">
+
+    <link
+        rel="icon"
+        href="assets/images/logo/favicon.png">
+
+
+    <!-- =====================================================
+         GOOGLE FONT
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- =====================================================
+         GLOBAL CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/variables.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/components.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/animations.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/responsive.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/navbar.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/footer.css">
+
+
+    <!-- =====================================================
+         TRY ON CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/try-on.css">
+
+</head>
+
+
+<body class="try-on-page">
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header>
+
+        <div id="navbar-container"></div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="tryon-hero">
+
+            <div class="tryon-hero-glow"></div>
+
+            <div class="tryon-grid"></div>
+
+
+            <div class="container">
+
+
+                <!-- Breadcrumb -->
+
+                <div class="tryon-breadcrumb">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>
+                        Virtual Try-On
+                    </span>
+
+                </div>
+
+
+                <!-- Hero -->
+
+                <div class="tryon-hero-content">
+
+
+                    <div class="tryon-badge">
+
+                        <span></span>
+
+                        AI VIRTUAL TRY-ON
+
+                    </div>
+
+
+                    <h1>
+
+                        See it.
+
+                        <span>
+                            Wear it.
+                        </span>
+
+                        Love it.
+
+                    </h1>
+
+
+                    <p>
+
+                        Upload a photo and preview how your
+                        selected SoleAI footwear looks before
+                        you buy.
+
+                    </p>
+
+
+                    <a
+                        href="#tryon-studio"
+                        class="tryon-hero-btn">
+
+                        Start Virtual Try-On
+
+                        <i class="bi bi-arrow-down"></i>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TRY ON STUDIO
+        ================================================== -->
+
+        <section
+            id="tryon-studio"
+            class="tryon-studio-section">
+
+            <div class="container">
+
+
+                <div class="studio-heading">
+
+                    <div>
+
+                        <span>
+                            VIRTUAL FITTING STUDIO
+                        </span>
+
+                        <h2>
+                            Your digital fitting room.
+                        </h2>
+
+                    </div>
+
+                    <p>
+
+                        Select a shoe, upload your photo,
+                        and create your preview.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="tryon-layout">
+
+
+                    <!-- =====================================
+                         LEFT — PHOTO
+                    ====================================== -->
+
+                    <div class="tryon-preview-card">
+
+
+                        <div class="preview-topbar">
+
+                            <div>
+
+                                <span class="status-dot"></span>
+
+                                <strong>
+                                    YOUR PREVIEW
+                                </strong>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="clear-preview"
+                                class="icon-btn"
+                                title="Clear">
+
+                                <i class="bi bi-arrow-clockwise"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- Upload area -->
+
+                        <div
+                            id="upload-area"
+                            class="upload-area">
+
+
+                            <div
+                                id="uploaded-preview"
+                                class="uploaded-preview"
+                                style="display:none;">
+
+                                <img
+                                    id="user-photo"
+                                    src=""
+                                    alt="Your virtual try-on photo">
+
+                                <div class="preview-overlay">
+
+                                    <span>
+
+                                        <i class="bi bi-stars"></i>
+
+                                        AI PREVIEW
+
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                id="upload-placeholder"
+                                class="upload-placeholder">
+
+
+                                <div class="upload-icon">
+
+                                    <i class="bi bi-camera"></i>
+
+                                </div>
+
+
+                                <h3>
+                                    Upload your photo
+                                </h3>
+
+
+                                <p>
+
+                                    Upload a clear full-body
+                                    or footwear photo for the
+                                    best preview.
+
+                                </p>
+
+
+                                <label
+                                    for="photo-input"
+                                    class="upload-btn">
+
+                                    <i class="bi bi-upload"></i>
+
+                                    Choose Photo
+
+                                </label>
+
+
+                                <span class="upload-format">
+
+                                    JPG, PNG or WEBP · Max 10MB
+
+                                </span>
+
+                            </div>
+
+
+                            <input
+                                type="file"
+                                id="photo-input"
+                                accept="image/png,image/jpeg,image/webp"
+                                hidden>
+
+                        </div>
+
+
+                        <!-- Processing -->
+
+                        <div
+                            id="processing-state"
+                            class="processing-state"
+                            style="display:none;">
+
+                            <div class="processing-animation">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+
+                            <strong>
+                                Preparing your preview
+                            </strong>
+
+
+                            <p>
+                                SoleAI is analyzing your image...
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         RIGHT — CONTROLS
+                    ====================================== -->
+
+                    <aside class="tryon-controls">
+
+
+                        <!-- Step 1 -->
+
+                        <div class="control-section">
+
+
+                            <div class="control-step">
+
+                                <span>
+                                    01
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Choose your footwear
+                                    </strong>
+
+                                    <small>
+                                        Select a product to preview
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                id="shoe-selection"
+                                class="shoe-selection">
+
+                                <!-- JS products -->
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- Step 2 -->
+
+                        <div class="control-section">
+
+
+                            <div class="control-step">
+
+                                <span>
+                                    02
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Upload your photo
+                                    </strong>
+
+                                    <small>
+                                        Use a clear, well-lit image
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <label
+                                for="photo-input"
+                                class="photo-select-btn">
+
+                                <i class="bi bi-image"></i>
+
+                                <span>
+
+                                    <strong>
+                                        Select a photo
+                                    </strong>
+
+                                    <small>
+                                        JPG, PNG or WEBP
+                                    </small>
+
+                                </span>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </label>
+
+                        </div>
+
+
+
+                        <!-- Step 3 -->
+
+                        <div class="control-section">
+
+
+                            <div class="control-step">
+
+                                <span>
+                                    03
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        Generate preview
+                                    </strong>
+
+                                    <small>
+                                        Create your AI visualization
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                type="button"
+                                id="tryon-btn"
+                                class="tryon-btn">
+
+                                <i class="bi bi-stars"></i>
+
+                                Generate AI Try-On
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </button>
+
+
+                            <div
+                                id="tryon-message"
+                                class="tryon-message">
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- AI note -->
+
+                        <div class="ai-note">
+
+                            <div class="ai-note-icon">
+
+                                <i class="bi bi-shield-check"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    Your privacy matters
+                                </strong>
+
+                                <p>
+
+                                    Your uploaded photo stays
+                                    in your browser during this
+                                    demo experience.
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RESULT SECTION
+        ================================================== -->
+
+        <section
+            id="tryon-result"
+            class="tryon-result-section"
+            style="display:none;">
+
+            <div class="container">
+
+
+                <div class="result-heading">
+
+                    <span>
+                        YOUR AI PREVIEW
+                    </span>
+
+                    <h2>
+                        See how it looks.
+                    </h2>
+
+                    <p>
+                        Your selected SoleAI footwear is ready
+                        for your preview.
+                    </p>
+
+                </div>
+
+
+                <div class="tryon-result-card">
+
+
+                    <!-- Before -->
+
+                    <div class="result-image-box">
+
+                        <div class="result-label">
+
+                            <i class="bi bi-person"></i>
+
+                            YOUR PHOTO
+
+                        </div>
+
+
+                        <img
+                            id="before-image"
+                            src=""
+                            alt="Original photo">
+
+                    </div>
+
+
+
+                    <!-- Center -->
+
+                    <div class="result-divider">
+
+                        <span>
+                            <i class="bi bi-stars"></i>
+                        </span>
+
+                    </div>
+
+
+
+                    <!-- After -->
+
+                    <div class="result-image-box tryon-result-image">
+
+                        <div class="result-label">
+
+                            <i class="bi bi-stars"></i>
+
+                            AI TRY-ON
+
+                        </div>
+
+
+                        <img
+                            id="after-image"
+                            src=""
+                            alt="Virtual try-on preview">
+
+
+                        <div class="result-ai-badge">
+
+                            AI VISUALIZATION
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Product result -->
+
+                <div class="tryon-product-result">
+
+
+                    <div class="selected-product-image">
+
+                        <img
+                            id="result-product-image"
+                            src=""
+                            alt="Selected shoe">
+
+                    </div>
+
+
+                    <div class="selected-product-info">
+
+                        <span>
+                            SELECTED FOOTWEAR
+                        </span>
+
+                        <h3 id="result-product-name">
+                            SoleAI Shoe
+                        </h3>
+
+                        <p id="result-product-brand">
+                            SoleAI
+                        </p>
+
+                    </div>
+
+
+                    <div class="selected-product-price">
+
+                        <strong id="result-product-price">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-actions">
+
+                        <button
+                            type="button"
+                            id="wishlist-btn"
+                            class="result-icon-btn">
+
+                            <i class="bi bi-heart"></i>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="add-cart-btn"
+                            class="result-cart-btn">
+
+                            Add to Cart
+
+                            <i class="bi bi-bag"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             HOW IT WORKS
+        ================================================== -->
+
+        <section class="tryon-how-section">
+
+            <div class="container">
+
+
+                <div class="how-heading">
+
+                    <span>
+                        HOW IT WORKS
+                    </span>
+
+                    <h2>
+                        Try before you decide.
+                    </h2>
+
+                </div>
+
+
+                <div class="how-grid">
+
+
+                    <div class="how-card">
+
+                        <span>
+                            01
+                        </span>
+
+                        <div>
+
+                            <i class="bi bi-camera"></i>
+
+                        </div>
+
+                        <h3>
+                            Upload
+                        </h3>
+
+                        <p>
+
+                            Add a clear photo of yourself
+                            or your feet.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="how-card">
+
+                        <span>
+                            02
+                        </span>
+
+                        <div>
+
+                            <i class="bi bi-search"></i>
+
+                        </div>
+
+                        <h3>
+                            Select
+                        </h3>
+
+                        <p>
+
+                            Pick the SoleAI footwear
+                            you want to try.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="how-card">
+
+                        <span>
+                            03
+                        </span>
+
+                        <div>
+
+                            <i class="bi bi-stars"></i>
+
+                        </div>
+
+                        <h3>
+                            Visualize
+                        </h3>
+
+                        <p>
+
+                            Generate your virtual
+                            footwear preview.
+
+                        </p>
+
+                    </div>
+
+
+                    <div class="how-card">
+
+                        <span>
+                            04
+                        </span>
+
+                        <div>
+
+                            <i class="bi bi-bag-check"></i>
+
+                        </div>
+
+                        <h3>
+                            Decide
+                        </h3>
+
+                        <p>
+
+                            Love it? Add it straight
+                            to your cart.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DISCLAIMER
+        ================================================== -->
+
+        <section class="tryon-disclaimer">
+
+            <div class="container">
+
+                <i class="bi bi-info-circle"></i>
+
+                <p>
+
+                    Virtual Try-On is an AI visualization
+                    experience. Results are approximate and
+                    should not be considered an exact
+                    representation of physical fit, sizing,
+                    color or appearance.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div id="footer-container"></div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         BACK TO TOP
+    ====================================================== -->
+
+    <button
+        id="backToTop"
+        type="button"
+        aria-label="Back to top">
+
+        <i class="bi bi-arrow-up"></i>
+
+    </button>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="./assets/js/navbar.js"></script>
+
+    <script src="./assets/js/footer.js"></script>
+
+    <script src="./assets/js/product-data.js"></script>
+
+    <script src="./assets/js/try-on.js"></script>
+
+
+</body>
+
+</html>

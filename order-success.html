@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Order Confirmed | SoleAI</title>
+
+    <meta
+        name="description"
+        content="Your SoleAI order has been confirmed.">
+
+
+    <!-- ==========================================
+                    LOCAL CSS ONLY
+    =========================================== -->
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/variables.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/components.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/animations.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/responsive.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/order-success.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+                         LOADER
+    =========================================== -->
+
+    <div id="loader-container"></div>
+
+
+    <!-- ==========================================
+                         NAVBAR
+    =========================================== -->
+
+    <header>
+
+        <div id="navbar-container"></div>
+
+    </header>
+
+
+    <!-- ==========================================
+                           MAIN
+    =========================================== -->
+
+    <main>
+
+
+        <!-- ======================================
+                    SUCCESS HERO
+        ======================================= -->
+
+        <section class="order-success-hero">
+
+            <div class="container">
+
+                <div class="success-content">
+
+                    <div class="success-icon">
+                        <span>✓</span>
+                    </div>
+
+
+                    <span class="success-label">
+
+                        <span>✓</span>
+
+                        Order Confirmed
+
+                    </span>
+
+
+                    <h1>
+                        Thank You For Your Order! 🎉
+                    </h1>
+
+
+                    <p>
+                        Your order has been successfully placed.
+                        We'll keep you updated every step of the way.
+                    </p>
+
+
+                    <div class="order-id-box">
+
+                        <span>
+                            Order ID
+                        </span>
+
+                        <strong id="order-id">
+                            Loading...
+                        </strong>
+
+                        <button
+                            type="button"
+                            id="copy-order-id"
+                            aria-label="Copy order ID">
+
+                            Copy
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+                 ORDER INFORMATION
+        ======================================= -->
+
+        <section class="order-information">
+
+            <div class="container">
+
+                <div class="order-layout">
+
+
+                    <!-- ORDER DETAILS -->
+
+                    <div class="order-details-card">
+
+                        <div class="section-heading">
+
+                            <div>
+
+                                <span>
+                                    Order Details
+                                </span>
+
+                                <h2>
+                                    Your Purchase
+                                </h2>
+
+                            </div>
+
+                            <span
+                                class="order-status"
+                                id="order-status">
+
+                                Confirmed
+
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            id="success-order-items"
+                            class="success-order-items">
+                        </div>
+
+
+                        <div class="success-price-details">
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Subtotal
+                                </span>
+
+                                <strong id="success-subtotal">
+                                    ₹0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Discount
+                                </span>
+
+                                <strong id="success-discount">
+                                    - ₹0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span>
+                                    Shipping
+                                </span>
+
+                                <strong id="success-shipping">
+                                    Free
+                                </strong>
+
+                            </div>
+
+
+                            <div class="summary-row">
+
+                                <span>
+                                    GST
+                                </span>
+
+                                <strong id="success-tax">
+                                    ₹0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="success-divider"></div>
+
+
+                            <div class="success-total">
+
+                                <span>
+                                    Total Paid
+                                </span>
+
+                                <strong id="success-total">
+                                    ₹0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DELIVERY -->
+
+                    <div class="delivery-card">
+
+                        <div class="section-heading">
+
+                            <div>
+
+                                <span>
+                                    Delivery
+                                </span>
+
+                                <h2>
+                                    Shipping Information
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="delivery-status">
+
+                            <div class="delivery-status-icon">
+                                📦
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Preparing Your Order
+                                </strong>
+
+                                <p>
+                                    We'll notify you when
+                                    your order ships.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="shipping-address">
+
+                            <h3>
+                                📍 Delivery Address
+                            </h3>
+
+                            <p id="shipping-address">
+                                Loading address...
+                            </p>
+
+                        </div>
+
+
+                        <div class="delivery-method">
+
+                            <div>
+
+                                <span>
+                                    Delivery Method
+                                </span>
+
+                                <strong id="delivery-method">
+                                    Standard Delivery
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Estimated Delivery
+                                </span>
+
+                                <strong id="delivery-date">
+                                    Calculating...
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="payment-method">
+
+                            <div>
+
+                                <span>
+                                    Payment Method
+                                </span>
+
+                                <strong id="payment-method">
+                                    UPI
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+                    ORDER TRACKING
+        ======================================= -->
+
+        <section class="order-tracking">
+
+            <div class="container">
+
+                <div class="tracking-card">
+
+                    <div class="section-heading centered">
+
+                        <span>
+                            Order Tracking
+                        </span>
+
+                        <h2>
+                            We'll Keep You Updated
+                        </h2>
+
+                        <p>
+                            Follow your order from confirmation
+                            to delivery.
+                        </p>
+
+                    </div>
+
+
+                    <div class="tracking-timeline">
+
+
+                        <div class="tracking-step active">
+
+                            <div class="tracking-icon">
+                                ✓
+                            </div>
+
+                            <div class="tracking-line"></div>
+
+                            <div class="tracking-content">
+
+                                <h3>
+                                    Order Confirmed
+                                </h3>
+
+                                <p>
+                                    Your order has been received.
+                                </p>
+
+                                <span id="confirmed-date">
+                                    Just now
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="tracking-step">
+
+                            <div class="tracking-icon">
+                                📦
+                            </div>
+
+                            <div class="tracking-line"></div>
+
+                            <div class="tracking-content">
+
+                                <h3>
+                                    Preparing Order
+                                </h3>
+
+                                <p>
+                                    Our team is preparing your shoes.
+                                </p>
+
+                                <span>
+                                    Coming next
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="tracking-step">
+
+                            <div class="tracking-icon">
+                                🚚
+                            </div>
+
+                            <div class="tracking-line"></div>
+
+                            <div class="tracking-content">
+
+                                <h3>
+                                    Shipped
+                                </h3>
+
+                                <p>
+                                    Your order is on its way.
+                                </p>
+
+                                <span>
+                                    Coming soon
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="tracking-step">
+
+                            <div class="tracking-icon">
+                                🏠
+                            </div>
+
+                            <div class="tracking-content">
+
+                                <h3>
+                                    Delivered
+                                </h3>
+
+                                <p>
+                                    Your shoes have arrived.
+                                </p>
+
+                                <span>
+                                    Estimated delivery
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+                    ACTION BUTTONS
+        ======================================= -->
+
+        <section class="order-actions">
+
+            <div class="container">
+
+                <div class="order-actions-content">
+
+                    <h2>
+                        What Would You Like To Do?
+                    </h2>
+
+                    <p>
+                        Explore more products or manage
+                        your SoleAI orders.
+                    </p>
+
+
+                    <div class="action-buttons">
+
+                        <a
+                            href="./shop.html"
+                            class="btn btn-primary">
+
+                            🛍 Continue Shopping
+
+                        </a>
+
+
+                        <a
+                            href="./orders.html"
+                            class="btn btn-secondary">
+
+                            📄 View My Orders
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+                 RECOMMENDATIONS
+        ======================================= -->
+
+        <section class="success-recommendations">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span>
+                            SoleAI Picks
+                        </span>
+
+                        <h2>
+                            You Might Also Like
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        href="./shop.html"
+                        class="view-all">
+
+                        View All →
+
+                    </a>
+
+                </div>
+
+
+                <div
+                    id="success-recommendations"
+                    class="product-grid">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ======================================
+                       NEWSLETTER
+        ======================================= -->
+
+        <section class="newsletter">
+
+            <div class="container">
+
+                <div class="newsletter-content">
+
+                    <div class="newsletter-icon">
+                        ✉
+                    </div>
+
+                    <h2>
+                        Stay In The SoleAI Loop
+                    </h2>
+
+                    <p>
+                        Get new arrivals, exclusive offers
+                        and personalized recommendations.
+                    </p>
+
+
+                    <form id="newsletter-form">
+
+                        <input
+                            type="email"
+                            id="newsletter-email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary">
+
+                            Subscribe →
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==========================================
+                         FOOTER
+    =========================================== -->
+
+    <footer>
+
+        <div id="footer-container"></div>
+
+    </footer>
+
+
+
+    <!-- ==========================================
+                       BACK TO TOP
+    =========================================== -->
+
+    <button
+        id="backToTop"
+        aria-label="Back to top">
+
+        ↑
+
+    </button>
+
+
+
+    <!-- ==========================================
+                  LOCAL JAVASCRIPT ONLY
+    =========================================== -->
+
+    <script src="./assets/js/navbar.js"></script>
+
+    <script src="./assets/js/footer.js"></script>
+
+    <script src="./assets/js/main.js"></script>
+
+    <script src="./assets/js/animations.js"></script>
+
+    <script src="./assets/js/order-success.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | SoleAI</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/register.css">
+
+</head>
+
+<body>
+
+<div class="register-page">
+
+
+    <!-- =====================================================
+         LEFT BRAND
+    ====================================================== -->
+
+    <section class="brand-panel">
+
+        <a
+            href="index.html"
+            class="brand">
+
+            <div class="brand-logo">
+                S
+            </div>
+
+            <div class="brand-name">
+                SoleAI
+            </div>
+
+        </a>
+
+
+        <div class="brand-content">
+
+            <span class="eyebrow">
+                JOIN SOLEAI
+            </span>
+
+            <h1>
+                Your perfect
+                <span>pair awaits.</span>
+            </h1>
+
+            <p>
+                Create your SoleAI account and unlock
+                personalized footwear recommendations,
+                AI shopping tools and a smarter way to shop.
+            </p>
+
+
+            <div class="features">
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Personalized Recommendations
+                        </strong>
+
+                        <span>
+                            Discover shoes based on your style.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-heart"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Save Your Favorites
+                        </strong>
+
+                        <span>
+                            Keep your favorite products in one place.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-bag-check"></i>
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Faster Shopping
+                        </strong>
+
+                        <span>
+                            Your account keeps your shopping experience simple.
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="brand-footer">
+
+            <span>
+                © 2026 SoleAI
+            </span>
+
+            <span>
+                Smart footwear shopping
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         REGISTER PANEL
+    ====================================================== -->
+
+    <main class="register-panel">
+
+        <div class="register-container">
+
+
+            <!-- MOBILE BRAND -->
+
+            <a
+                href="index.html"
+                class="mobile-brand">
+
+                <div class="brand-logo">
+                    S
+                </div>
+
+                <strong>
+                    SoleAI
+                </strong>
+
+            </a>
+
+
+            <!-- HEADER -->
+
+            <div class="register-header">
+
+                <div class="welcome-badge">
+
+                    <i class="bi bi-person-plus"></i>
+
+                    Create your account
+
+                </div>
+
+                <h2>
+                    Join SoleAI
+                </h2>
+
+                <p>
+                    Create an account to start shopping smarter.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORM
+            ================================================== -->
+
+            <form
+                id="registerForm"
+                novalidate>
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="bi bi-person"></i>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            autocomplete="name">
+
+                    </div>
+
+                    <small
+                        id="nameError"
+                        class="error">
+                    </small>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="bi bi-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="you@example.com"
+                            autocomplete="email">
+
+                    </div>
+
+                    <small
+                        id="emailError"
+                        class="error">
+                    </small>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="bi bi-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create a password"
+                            autocomplete="new-password">
+
+                        <button
+                            type="button"
+                            id="passwordToggle"
+                            class="password-toggle">
+
+                            <i class="bi bi-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                    <small
+                        id="passwordError"
+                        class="error">
+                    </small>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-wrapper">
+
+                        <i class="bi bi-shield-lock"></i>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password">
+
+                    </div>
+
+                    <small
+                        id="confirmError"
+                        class="error">
+                    </small>
+
+                </div>
+
+
+                <!-- TERMS -->
+
+                <label class="terms-check">
+
+                    <input
+                        type="checkbox"
+                        id="terms">
+
+                    <span class="custom-checkbox">
+
+                        <i class="bi bi-check"></i>
+
+                    </span>
+
+                    <span>
+
+                        I agree to the
+                        <a href="#">
+                            Terms
+                        </a>
+                        and
+                        <a href="#">
+                            Privacy Policy
+                        </a>
+
+                    </span>
+
+                </label>
+
+                <small
+                    id="termsError"
+                    class="error terms-error">
+                </small>
+
+
+                <!-- REGISTER -->
+
+                <button
+                    type="submit"
+                    id="registerButton"
+                    class="register-button">
+
+                    <span>
+                        Create Account
+                    </span>
+
+                    <i class="bi bi-arrow-right"></i>
+
+                    <div class="loader"></div>
+
+                </button>
+
+
+            </form>
+
+
+            <!-- LOGIN -->
+
+            <div class="login-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Sign in
+                </a>
+
+            </div>
+
+
+            <!-- ADMIN -->
+
+            <div class="admin-entry">
+
+                <div class="admin-icon">
+
+                    <i class="bi bi-shield-lock"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Administrator?
+                    </strong>
+
+                    <span>
+                        Access the SoleAI management panel.
+                    </span>
+
+                </div>
+
+                <a href="admin/login.html">
+
+                    Admin Portal
+
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+
+            <p class="privacy-note">
+
+                Your account information is stored securely
+                for this SoleAI prototype.
+
+            </p>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     TOAST
+====================================================== -->
+
+<div
+    id="toast"
+    class="toast">
+
+    <div class="toast-icon">
+
+        <i class="bi bi-check-lg"></i>
+
+    </div>
+
+    <div>
+
+        <strong id="toastTitle">
+            Account Created
+        </strong>
+
+        <span id="toastMessage">
+            Your account has been created successfully.
+        </span>
+
+    </div>
+
+</div>
+
+
+<script
+    src="./assets/js/register.js">
+</script>
+
+</body>
+</html>

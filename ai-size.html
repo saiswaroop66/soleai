@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>AI Size Guide | SoleAI</title>
+
+    <meta
+        name="description"
+        content="Find your perfect footwear size with SoleAI AI Size Guide.">
+
+    <link
+        rel="icon"
+        href="assets/images/logo/favicon.png">
+
+
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         ICONS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- =====================================================
+         GLOBAL CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/variables.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/components.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/animations.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/responsive.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/navbar.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/footer.css">
+
+
+    <!-- =====================================================
+         AI SIZE CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/ai-size.css">
+
+</head>
+
+
+<body class="ai-size-page">
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header>
+
+        <div id="navbar-container"></div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="size-hero">
+
+            <div class="size-hero-glow"></div>
+
+            <div class="size-grid"></div>
+
+
+            <div class="container">
+
+
+                <!-- Breadcrumb -->
+
+                <div class="size-breadcrumb">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>
+                        AI Size Guide
+                    </span>
+
+                </div>
+
+
+                <!-- Hero content -->
+
+                <div class="size-hero-content">
+
+
+                    <div class="size-badge">
+
+                        <span class="size-live-dot"></span>
+
+                        AI-POWERED FIT TECHNOLOGY
+
+                    </div>
+
+
+                    <h1>
+
+                        Your perfect fit,
+
+                        <span>
+                            measured by AI.
+                        </span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Tell SoleAI a few details about your feet
+                        and we'll recommend the size that gives
+                        you the best fit and comfort.
+
+                    </p>
+
+
+                    <a
+                        href="#size-calculator"
+                        class="size-hero-btn">
+
+                        Find My Size
+
+                        <i class="bi bi-arrow-down"></i>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SIZE CALCULATOR
+        ================================================== -->
+
+        <section
+            id="size-calculator"
+            class="size-calculator-section">
+
+            <div class="container">
+
+
+                <div class="size-section-heading">
+
+                    <span>
+                        AI SIZE MATCH
+                    </span>
+
+                    <h2>
+                        Find your ideal fit.
+                    </h2>
+
+                    <p>
+
+                        It takes less than a minute.
+                        Enter your foot measurements and
+                        preferences below.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="size-calculator">
+
+
+                    <!-- =====================================
+                         LEFT FORM
+                    ====================================== -->
+
+                    <div class="size-form">
+
+
+                        <div class="form-top">
+
+                            <div>
+
+                                <span>
+                                    STEP 01
+                                </span>
+
+                                <h3>
+                                    Tell us about your foot
+                                </h3>
+
+                            </div>
+
+                            <div class="step-count">
+                                1 / 3
+                            </div>
+
+                        </div>
+
+
+                        <!-- Foot length -->
+
+                        <div class="size-form-group">
+
+
+                            <label>
+
+                                Foot Length
+
+                                <span>
+                                    Required
+                                </span>
+
+                            </label>
+
+
+                            <div class="measurement-input">
+
+                                <input
+                                    type="number"
+                                    id="foot-length"
+                                    min="18"
+                                    max="35"
+                                    step="0.1"
+                                    placeholder="e.g. 26.5">
+
+                                <strong>
+                                    cm
+                                </strong>
+
+                            </div>
+
+
+                            <small>
+
+                                Measure from the back of your heel
+                                to the tip of your longest toe.
+
+                            </small>
+
+                        </div>
+
+
+                        <!-- Foot width -->
+
+                        <div class="size-form-group">
+
+
+                            <label>
+
+                                Foot Width
+
+                                <span>
+                                    Optional
+                                </span>
+
+                            </label>
+
+
+                            <div class="width-options">
+
+
+                                <button
+                                    type="button"
+                                    class="width-option active"
+                                    data-width="regular">
+
+                                    <span class="width-icon">
+                                        <i class="bi bi-arrows"></i>
+                                    </span>
+
+                                    <strong>
+                                        Regular
+                                    </strong>
+
+                                    <small>
+                                        Standard fit
+                                    </small>
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="width-option"
+                                    data-width="wide">
+
+                                    <span class="width-icon">
+                                        <i class="bi bi-arrows-expand"></i>
+                                    </span>
+
+                                    <strong>
+                                        Wide
+                                    </strong>
+
+                                    <small>
+                                        More room
+                                    </small>
+
+                                </button>
+
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Fit preference -->
+
+                        <div class="size-form-group">
+
+
+                            <label>
+
+                                How do you like your shoes to fit?
+
+                            </label>
+
+
+                            <div class="fit-options">
+
+
+                                <button
+                                    type="button"
+                                    class="fit-option"
+                                    data-fit="snug">
+
+                                    <strong>
+                                        Snug
+                                    </strong>
+
+                                    <span>
+                                        Close & secure
+                                    </span>
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="fit-option active"
+                                    data-fit="regular">
+
+                                    <strong>
+                                        Regular
+                                    </strong>
+
+                                    <span>
+                                        Balanced comfort
+                                    </span>
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    class="fit-option"
+                                    data-fit="roomy">
+
+                                    <strong>
+                                        Roomy
+                                    </strong>
+
+                                    <span>
+                                        Extra space
+                                    </span>
+
+                                </button>
+
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Continue -->
+
+                        <button
+                            type="button"
+                            id="calculate-size"
+                            class="calculate-size-btn">
+
+                            Calculate My Size
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </button>
+
+
+                        <div
+                            id="size-error"
+                            class="size-error"
+                            aria-live="polite">
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- =====================================
+                         RIGHT RESULT
+                    ====================================== -->
+
+                    <div class="size-result">
+
+
+                        <div class="result-empty"
+                             id="result-empty">
+
+
+                            <div class="result-visual">
+
+                                <i class="bi bi-rulers"></i>
+
+                            </div>
+
+
+                            <span>
+                                YOUR AI SIZE MATCH
+                            </span>
+
+
+                            <h3>
+                                Your recommendation
+                                will appear here.
+                            </h3>
+
+
+                            <p>
+
+                                Enter your foot length
+                                to discover your recommended
+                                shoe size.
+
+                            </p>
+
+
+                        </div>
+
+
+
+                        <!-- Result -->
+
+                        <div
+                            id="size-result-content"
+                            class="size-result-content"
+                            style="display:none;">
+
+
+                            <div class="result-header">
+
+                                <div>
+
+                                    <span>
+                                        AI SIZE MATCH
+                                    </span>
+
+                                    <h3>
+                                        Your recommended size
+                                    </h3>
+
+                                </div>
+
+
+                                <div class="confidence-badge">
+
+                                    <i class="bi bi-stars"></i>
+
+                                    <strong>
+                                        <span id="confidence-score">
+                                            96
+                                        </span>%
+                                    </strong>
+
+                                    <small>
+                                        confidence
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="recommended-size">
+
+                                <div>
+
+                                    <span>
+                                        RECOMMENDED
+                                    </span>
+
+                                    <strong
+                                        id="recommended-size">
+                                        9
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="size-label">
+
+                                    <strong>
+                                        UK
+                                    </strong>
+
+                                    <span>
+                                        Primary size
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="conversion-grid">
+
+
+                                <div>
+
+                                    <span>
+                                        US
+                                    </span>
+
+                                    <strong
+                                        id="us-size">
+                                        10
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        UK
+                                    </span>
+
+                                    <strong
+                                        id="uk-size">
+                                        9
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        EU
+                                    </span>
+
+                                    <strong
+                                        id="eu-size">
+                                        43
+                                    </strong>
+
+                                </div>
+
+
+                                <div>
+
+                                    <span>
+                                        CM
+                                    </span>
+
+                                    <strong
+                                        id="cm-size">
+                                        27
+                                    </strong>
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <div class="fit-result">
+
+                                <div class="fit-result-icon">
+
+                                    <i class="bi bi-check2"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong
+                                        id="fit-result-title">
+                                        Excellent fit
+                                    </strong>
+
+                                    <p
+                                        id="fit-result-text">
+
+                                        This size should provide
+                                        a comfortable everyday fit.
+
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="size-note">
+
+                                <i class="bi bi-info-circle"></i>
+
+                                <span>
+
+                                    Sizing can vary slightly
+                                    between brands and shoe models.
+                                    Check the product-specific
+                                    size guide before ordering.
+
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MEASUREMENT GUIDE
+        ================================================== -->
+
+        <section class="measurement-section">
+
+            <div class="container">
+
+
+                <div class="measurement-heading">
+
+                    <div>
+
+                        <span>
+                            MEASURE CORRECTLY
+                        </span>
+
+                        <h2>
+                            Three steps to a
+                            better fit.
+                        </h2>
+
+                    </div>
+
+
+                    <p>
+
+                        For the most accurate result,
+                        measure your foot at the end of
+                        the day when it is at its largest.
+
+                    </p>
+
+                </div>
+
+
+
+                <div class="measurement-grid">
+
+
+                    <!-- Step 1 -->
+
+                    <div class="measurement-card">
+
+
+                        <div class="measurement-number">
+                            01
+                        </div>
+
+
+                        <div class="measurement-icon">
+
+                            <i class="bi bi-file-earmark"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Place your foot
+                        </h3>
+
+
+                        <p>
+
+                            Stand on a blank sheet of paper
+                            with your heel against a wall.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- Step 2 -->
+
+                    <div class="measurement-card">
+
+
+                        <div class="measurement-number">
+                            02
+                        </div>
+
+
+                        <div class="measurement-icon">
+
+                            <i class="bi bi-pencil"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Mark your longest toe
+                        </h3>
+
+
+                        <p>
+
+                            Mark the end of your longest toe
+                            while keeping your weight evenly
+                            distributed.
+
+                        </p>
+
+
+                    </div>
+
+
+
+                    <!-- Step 3 -->
+
+                    <div class="measurement-card">
+
+
+                        <div class="measurement-number">
+                            03
+                        </div>
+
+
+                        <div class="measurement-icon">
+
+                            <i class="bi bi-rulers"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Measure the distance
+                        </h3>
+
+
+                        <p>
+
+                            Measure from the wall to your
+                            toe mark in centimeters.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SIZE CONVERSION
+        ================================================== -->
+
+        <section class="conversion-section">
+
+            <div class="container">
+
+
+                <div class="conversion-heading">
+
+                    <span>
+                        SIZE CONVERSION
+                    </span>
+
+                    <h2>
+                        One measurement.
+                        Every size system.
+                    </h2>
+
+                </div>
+
+
+                <div class="conversion-table-wrapper">
+
+                    <table class="conversion-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Foot Length
+                                </th>
+
+                                <th>
+                                    India / UK
+                                </th>
+
+                                <th>
+                                    US Men
+                                </th>
+
+                                <th>
+                                    EU
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    24.0 cm
+                                </td>
+
+                                <td>
+                                    6
+                                </td>
+
+                                <td>
+                                    7
+                                </td>
+
+                                <td>
+                                    40
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    25.0 cm
+                                </td>
+
+                                <td>
+                                    7
+                                </td>
+
+                                <td>
+                                    8
+                                </td>
+
+                                <td>
+                                    41
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    26.0 cm
+                                </td>
+
+                                <td>
+                                    8
+                                </td>
+
+                                <td>
+                                    9
+                                </td>
+
+                                <td>
+                                    42
+                                </td>
+
+                            </tr>
+
+
+                            <tr class="highlight-row">
+
+                                <td>
+                                    27.0 cm
+                                </td>
+
+                                <td>
+                                    9
+                                </td>
+
+                                <td>
+                                    10
+                                </td>
+
+                                <td>
+                                    43
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    28.0 cm
+                                </td>
+
+                                <td>
+                                    10
+                                </td>
+
+                                <td>
+                                    11
+                                </td>
+
+                                <td>
+                                    44
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    29.0 cm
+                                </td>
+
+                                <td>
+                                    11
+                                </td>
+
+                                <td>
+                                    12
+                                </td>
+
+                                <td>
+                                    45
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FAQ / TRUST
+        ================================================== -->
+
+        <section class="size-trust">
+
+            <div class="container">
+
+
+                <div class="trust-grid">
+
+
+                    <div>
+
+                        <i class="bi bi-stars"></i>
+
+                        <strong>
+                            AI Powered
+                        </strong>
+
+                        <span>
+                            Personalized size recommendations
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="bi bi-rulers"></i>
+
+                        <strong>
+                            Measurement Based
+                        </strong>
+
+                        <span>
+                            Uses your actual foot length
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="bi bi-arrow-repeat"></i>
+
+                        <strong>
+                            Easy Returns
+                        </strong>
+
+                        <span>
+                            30-day hassle-free returns
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div id="footer-container"></div>
+
+    </footer>
+
+
+    <!-- Back to top -->
+
+    <button
+        id="backToTop"
+        type="button"
+        aria-label="Back to top">
+
+        <i class="bi bi-arrow-up"></i>
+
+    </button>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="./assets/js/navbar.js"></script>
+
+    <script src="./assets/js/footer.js"></script>
+
+    <script src="./assets/js/ai-size.js"></script>
+
+
+</body>
+
+</html>

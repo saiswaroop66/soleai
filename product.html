@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product | SoleAI</title>
+
+    <meta
+        name="description"
+        content="Discover premium footwear powered by SoleAI recommendations."
+    >
+
+    <link rel="icon" href="assets/images/logo/favicon.png">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ICONS -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/components.css">
+    <link rel="stylesheet" href="./assets/css/animations.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+
+    <!-- PRODUCT PAGE CSS -->
+    <link rel="stylesheet" href="./assets/css//product.css">
+
+    <!-- NAVBAR -->
+    <link rel="stylesheet" href="./assets/css/navbar.css">
+
+    <!-- FOOTER -->
+    <link rel="stylesheet" href="./assets/css/footer.css">
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header>
+        <div id="navbar-container"></div>
+    </header>
+
+
+    <main>
+
+        <!-- =====================================================
+             BREADCRUMB
+        ====================================================== -->
+
+        <section class="product-breadcrumb-section">
+
+            <div class="product-container">
+
+                <div class="product-breadcrumb">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <a href="shop.html">
+                        Shop
+                    </a>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span id="breadcrumb-name">
+                        Product
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             PRODUCT HERO
+        ====================================================== -->
+
+        <section class="product-hero">
+
+            <div class="product-container">
+
+                <div class="product-hero-grid">
+
+
+                    <!-- =================================================
+                         GALLERY
+                    ================================================== -->
+
+                    <div class="premium-gallery">
+
+                        <div class="gallery-main">
+
+                            <div class="gallery-badge">
+                                <i class="bi bi-stars"></i>
+                                SoleAI Pick
+                            </div>
+
+                            <button
+                                class="gallery-arrow gallery-prev"
+                                type="button"
+                                aria-label="Previous image">
+
+                                <i class="bi bi-chevron-left"></i>
+
+                            </button>
+
+
+                            <img
+                                id="product-main-image"
+                                src="./assets/images/products/shoe1.jpeg"
+                                alt="Product"
+                            >
+
+
+                            <button
+                                class="gallery-arrow gallery-next"
+                                type="button"
+                                aria-label="Next image">
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </button>
+
+                            <div class="image-counter">
+                                <span id="image-current">1</span>
+                                /
+                                <span id="image-total">4</span>
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="product-thumbnails"
+                            class="product-thumbnails">
+                        </div>
+
+
+                        <div class="gallery-note">
+
+                            <i class="bi bi-zoom-in"></i>
+
+                            Hover image to explore
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         PRODUCT INFORMATION
+                    ================================================== -->
+
+                    <div class="premium-product-info">
+
+
+                        <div class="product-brand-row">
+
+                            <span id="product-brand">
+                                Nike
+                            </span>
+
+                            <button
+                                type="button"
+                                class="product-share"
+                                id="share-product"
+                                aria-label="Share product">
+
+                                <i class="bi bi-share"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <h1 id="product-name">
+                            Nike Air Zoom Pegasus 41
+                        </h1>
+
+
+                        <!-- Rating -->
+
+                        <div class="product-rating-row">
+
+                            <div class="rating-pill">
+
+                                <i class="bi bi-star-fill"></i>
+
+                                <strong id="product-rating">
+                                    4.8
+                                </strong>
+
+                            </div>
+
+                            <a
+                                href="#reviews"
+                                id="review-count">
+
+                                1,245 Reviews
+
+                            </a>
+
+                            <span class="rating-separator">
+                                •
+                            </span>
+
+                            <span>
+                                <i class="bi bi-patch-check-fill"></i>
+                                Verified
+                            </span>
+
+                        </div>
+
+
+                        <!-- Price -->
+
+                        <div class="premium-price">
+
+                            <span
+                                id="product-price"
+                                class="current-price">
+
+                                ₹6,999
+
+                            </span>
+
+                            <del id="product-original-price">
+                                ₹8,499
+                            </del>
+
+                            <span
+                                id="product-discount"
+                                class="discount-badge">
+
+                                18% OFF
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="price-note">
+
+                            <i class="bi bi-lightning-charge-fill"></i>
+
+                            Limited-time price
+
+                        </div>
+
+
+                        <!-- Description -->
+
+                        <p
+                            id="product-description"
+                            class="premium-description">
+
+                            Experience superior comfort,
+                            responsive cushioning and breathable
+                            construction designed for everyday movement.
+
+                        </p>
+
+
+                        <!-- =================================================
+                             AI QUICK MATCH
+                        ================================================== -->
+
+                        <div class="quick-ai-match">
+
+                            <div class="quick-ai-icon">
+                                <i class="bi bi-stars"></i>
+                            </div>
+
+                            <div>
+
+                                <span>
+                                    SoleAI Recommendation
+                                </span>
+
+                                <strong>
+                                    96% match for your lifestyle
+                                </strong>
+
+                            </div>
+
+                            <i class="bi bi-chevron-right"></i>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             SIZE
+                        ================================================== -->
+
+                        <div class="product-selection">
+
+                            <div class="selection-header">
+
+                                <h3>
+                                    Select Size
+                                </h3>
+
+                                <button
+                                    type="button"
+                                    id="size-guide-btn">
+
+                                    Size Guide
+                                    <i class="bi bi-arrow-up-right"></i>
+
+                                </button>
+
+                            </div>
+
+
+                            <div
+                                id="size-selector"
+                                class="premium-size-grid">
+
+                                <button
+                                    type="button"
+                                    data-size="6">
+                                    6
+                                </button>
+
+                                <button
+                                    type="button"
+                                    data-size="7">
+                                    7
+                                </button>
+
+                                <button
+                                    type="button"
+                                    data-size="8"
+                                    class="active">
+                                    8
+                                </button>
+
+                                <button
+                                    type="button"
+                                    data-size="9">
+                                    9
+                                </button>
+
+                                <button
+                                    type="button"
+                                    data-size="10">
+                                    10
+                                </button>
+
+                                <button
+                                    type="button"
+                                    data-size="11">
+                                    11
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             COLOR
+                        ================================================== -->
+
+                        <div class="product-selection">
+
+                            <div class="selection-header">
+
+                                <h3>
+                                    Choose Color
+                                </h3>
+
+                                <span id="selected-color">
+                                    Black
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                id="color-selector"
+                                class="premium-color-grid">
+
+                                <button
+                                    type="button"
+                                    class="color-option black active"
+                                    data-color="Black"
+                                    aria-label="Black">
+
+                                    <span></span>
+
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="color-option white"
+                                    data-color="White"
+                                    aria-label="White">
+
+                                    <span></span>
+
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="color-option blue"
+                                    data-color="Blue"
+                                    aria-label="Blue">
+
+                                    <span></span>
+
+                                </button>
+
+                                <button
+                                    type="button"
+                                    class="color-option red"
+                                    data-color="Red"
+                                    aria-label="Red">
+
+                                    <span></span>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             QUANTITY
+                        ================================================== -->
+
+                        <div class="purchase-row">
+
+                            <div class="quantity-control">
+
+                                <button
+                                    type="button"
+                                    id="quantity-minus">
+
+                                    <i class="bi bi-dash"></i>
+
+                                </button>
+
+                                <span id="quantity-value">
+                                    1
+                                </span>
+
+                                <button
+                                    type="button"
+                                    id="quantity-plus">
+
+                                    <i class="bi bi-plus"></i>
+
+                                </button>
+
+                            </div>
+
+
+                            <div class="stock-message">
+
+                                <span class="stock-dot"></span>
+
+                                <strong>
+                                    In Stock
+                                </strong>
+
+                                <span>
+                                    • Ready to ship
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             PURCHASE BUTTONS
+                        ================================================== -->
+
+                        <div class="premium-purchase-buttons">
+
+                            <button
+                                type="button"
+                                id="add-to-cart"
+                                class="premium-add-cart">
+
+                                <i class="bi bi-bag-plus"></i>
+
+                                Add to Cart
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                id="buy-now"
+                                class="premium-buy-now">
+
+                                Buy Now
+                                <i class="bi bi-arrow-right"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             ACTIONS
+                        ================================================== -->
+
+                        <div class="product-action-row">
+
+                            <button
+                                type="button"
+                                id="wishlist-btn">
+
+                                <i class="bi bi-heart"></i>
+
+                                Wishlist
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                id="compare-btn">
+
+                                <i class="bi bi-arrow-left-right"></i>
+
+                                Compare
+
+                            </button>
+
+
+                            <button
+                                type="button"
+                                id="share-btn">
+
+                                <i class="bi bi-share"></i>
+
+                                Share
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             TRUST
+                        ================================================== -->
+
+                        <div class="product-trust-grid">
+
+                            <div>
+
+                                <i class="bi bi-truck"></i>
+
+                                <div>
+                                    <strong>Free Delivery</strong>
+                                    <span>On eligible orders</span>
+                                </div>
+
+                            </div>
+
+
+                            <div>
+
+                                <i class="bi bi-arrow-counterclockwise"></i>
+
+                                <div>
+                                    <strong>Easy Returns</strong>
+                                    <span>30-day returns</span>
+                                </div>
+
+                            </div>
+
+
+                            <div>
+
+                                <i class="bi bi-shield-check"></i>
+
+                                <div>
+                                    <strong>Secure Payment</strong>
+                                    <span>100% protected</span>
+                                </div>
+
+                            </div>
+
+
+                            <div>
+
+                                <i class="bi bi-patch-check"></i>
+
+                                <div>
+                                    <strong>Authentic</strong>
+                                    <span>100% genuine</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SOLEAI ANALYSIS
+        ====================================================== -->
+
+        <section class="soleai-analysis">
+
+            <div class="product-container">
+
+                <div class="analysis-header">
+
+                    <div>
+
+                        <span>
+                            SOLEAI INTELLIGENCE
+                        </span>
+
+                        <h2>
+                            Why this pair?
+                        </h2>
+
+                        <p>
+                            AI-powered insights to help you
+                            choose with confidence.
+                        </p>
+
+                    </div>
+
+                    <div class="analysis-match">
+
+                        <i class="bi bi-stars"></i>
+
+                        <strong>
+                            96%
+                        </strong>
+
+                        <span>
+                            Overall Match
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="analysis-grid">
+
+
+                    <div class="analysis-card">
+
+                        <div class="analysis-card-top">
+
+                            <div class="analysis-icon blue">
+                                <i class="bi bi-rulers"></i>
+                            </div>
+
+                            <span>
+                                SIZE MATCH
+                            </span>
+
+                        </div>
+
+                        <strong>
+                            96%
+                        </strong>
+
+                        <div class="analysis-bar">
+                            <span style="width:96%"></span>
+                        </div>
+
+                        <p>
+                            High-confidence recommendation
+                            based on your preferences.
+                        </p>
+
+                    </div>
+
+
+                    <div class="analysis-card">
+
+                        <div class="analysis-card-top">
+
+                            <div class="analysis-icon green">
+                                <i class="bi bi-heart-pulse"></i>
+                            </div>
+
+                            <span>
+                                COMFORT
+                            </span>
+
+                        </div>
+
+                        <strong>
+                            94%
+                        </strong>
+
+                        <div class="analysis-bar">
+                            <span style="width:94%"></span>
+                        </div>
+
+                        <p>
+                            Excellent cushioning for daily
+                            movement and long walks.
+                        </p>
+
+                    </div>
+
+
+                    <div class="analysis-card">
+
+                        <div class="analysis-card-top">
+
+                            <div class="analysis-icon purple">
+                                <i class="bi bi-stars"></i>
+                            </div>
+
+                            <span>
+                                STYLE MATCH
+                            </span>
+
+                        </div>
+
+                        <strong>
+                            97%
+                        </strong>
+
+                        <div class="analysis-bar">
+                            <span style="width:97%"></span>
+                        </div>
+
+                        <p>
+                            Works especially well with
+                            casual and sporty outfits.
+                        </p>
+
+                    </div>
+
+
+                    <div class="analysis-card">
+
+                        <div class="analysis-card-top">
+
+                            <div class="analysis-icon orange">
+                                <i class="bi bi-graph-up-arrow"></i>
+                            </div>
+
+                            <span>
+                                POPULARITY
+                            </span>
+
+                        </div>
+
+                        <strong>
+                            Trending
+                        </strong>
+
+                        <div class="trend-badge">
+                            <i class="bi bi-fire"></i>
+                            Popular choice
+                        </div>
+
+                        <p>
+                            One of the popular shoes
+                            in this collection.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             AI ASSISTANT
+        ====================================================== -->
+
+        <section class="product-ai-section">
+
+            <div class="product-container">
+
+                <div class="product-ai-card">
+
+                    <div class="ai-card-header">
+
+                        <div class="ai-avatar">
+                            <i class="bi bi-stars"></i>
+                        </div>
+
+                        <div>
+
+                            <span>
+                                SOLEAI ASSISTANT
+                            </span>
+
+                            <h2>
+                                Have questions?
+                            </h2>
+
+                            <p>
+                                Ask our AI about this shoe.
+                            </p>
+
+                        </div>
+
+                        <div class="ai-online">
+                            <span></span>
+                            Online
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="ai-response"
+                        class="ai-response">
+
+                        <i class="bi bi-stars"></i>
+
+                        <span>
+                            Ask me anything about this product.
+                        </span>
+
+                    </div>
+
+
+                    <div class="ai-suggestions">
+
+                        <button
+                            type="button"
+                            data-question="Is this good for running?">
+
+                            Is this good for running?
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            data-question="Which size should I buy?">
+
+                            Which size should I buy?
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            data-question="Is it comfortable?">
+
+                            Is it comfortable?
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            data-question="Compare this shoe">
+
+                            Compare this shoe
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="ai-input">
+
+                        <input
+                            id="ai-input"
+                            type="text"
+                            placeholder="Ask SoleAI about this product..."
+                        >
+
+                        <button
+                            type="button"
+                            id="ask-ai">
+
+                            Ask AI
+
+                            <i class="bi bi-arrow-up"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             DETAILS
+        ====================================================== -->
+
+        <section class="product-details-section">
+
+            <div class="product-container">
+
+                <div class="details-tabs">
+
+                    <button
+                        class="active"
+                        data-tab="description">
+
+                        Description
+
+                    </button>
+
+                    <button
+                        data-tab="specifications">
+
+                        Specifications
+
+                    </button>
+
+                    <button
+                        data-tab="shipping">
+
+                        Shipping & Returns
+
+                    </button>
+
+                </div>
+
+
+                <div class="details-content">
+
+                    <div
+                        id="description"
+                        class="detail-panel active">
+
+                        <h3>
+                            Designed for everyday movement
+                        </h3>
+
+                        <p id="detail-description">
+
+                            Premium comfort and responsive
+                            cushioning designed to keep you
+                            moving throughout the day.
+
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="specifications"
+                        class="detail-panel">
+
+                        <div class="spec-grid">
+
+                            <div>
+                                <span>Category</span>
+                                <strong>Running / Lifestyle</strong>
+                            </div>
+
+                            <div>
+                                <span>Upper</span>
+                                <strong>Breathable Mesh</strong>
+                            </div>
+
+                            <div>
+                                <span>Cushioning</span>
+                                <strong>Responsive Foam</strong>
+                            </div>
+
+                            <div>
+                                <span>Fit</span>
+                                <strong>Regular</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="shipping"
+                        class="detail-panel">
+
+                        <div class="shipping-grid">
+
+                            <div>
+                                <i class="bi bi-truck"></i>
+                                <h3>Free Delivery</h3>
+                                <p>
+                                    Free delivery on eligible orders.
+                                </p>
+                            </div>
+
+                            <div>
+                                <i class="bi bi-arrow-counterclockwise"></i>
+                                <h3>Easy Returns</h3>
+                                <p>
+                                    30-day hassle-free returns.
+                                </p>
+                            </div>
+
+                            <div>
+                                <i class="bi bi-shield-check"></i>
+                                <h3>Secure Payment</h3>
+                                <p>
+                                    Your payment information is protected.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             REVIEWS
+        ====================================================== -->
+
+        <section
+            id="reviews"
+            class="reviews-section">
+
+            <div class="product-container">
+
+                <div class="reviews-header">
+
+                    <div>
+
+                        <span>
+                            CUSTOMER REVIEWS
+                        </span>
+
+                        <h2>
+                            What buyers say
+                        </h2>
+
+                    </div>
+
+
+                    <div class="overall-rating">
+
+                        <strong>
+                            4.8
+                        </strong>
+
+                        <div>
+
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+
+                            <span>
+                                1,245 verified reviews
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reviews-grid">
+
+
+                    <article class="review-card">
+
+                        <div class="review-top">
+
+                            <div class="review-user">
+
+                                <div class="review-avatar">
+                                    RS
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Rahul S.
+                                    </strong>
+
+                                    <span>
+                                        Verified Buyer
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <span>
+                                ★★★★★
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Very comfortable and the size
+                            recommendation was accurate.
+                        </p>
+
+                    </article>
+
+
+                    <article class="review-card">
+
+                        <div class="review-top">
+
+                            <div class="review-user">
+
+                                <div class="review-avatar">
+                                    PR
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Priya R.
+                                    </strong>
+
+                                    <span>
+                                        Verified Buyer
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <span>
+                                ★★★★★
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Great looking shoe and delivery
+                            was really quick.
+                        </p>
+
+                    </article>
+
+
+                    <article class="review-card">
+
+                        <div class="review-top">
+
+                            <div class="review-user">
+
+                                <div class="review-avatar">
+                                    AK
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Arjun K.
+                                    </strong>
+
+                                    <span>
+                                        Verified Buyer
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <span>
+                                ★★★★☆
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Good for daily use. Lightweight
+                            and comfortable.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RELATED PRODUCTS
+        ====================================================== -->
+
+        <section class="related-section">
+
+            <div class="product-container">
+
+                <div class="related-heading">
+
+                    <div>
+
+                        <span>
+                            SOLEAI PICKS
+                        </span>
+
+                        <h2>
+                            You May Also Like
+                        </h2>
+
+                        <p>
+                            Handpicked based on your style.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="shop.html"
+                        class="related-view-all">
+
+                        View All
+
+                        <i class="bi bi-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+
+                <div
+                    id="related-products"
+                    class="related-grid">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             NEWSLETTER
+        ====================================================== -->
+
+        <section class="product-newsletter">
+
+            <div class="product-container">
+
+                <div class="newsletter-box">
+
+                    <div>
+
+                        <span>
+                            SOLEAI UPDATES
+                        </span>
+
+                        <h2>
+                            New drops. Better picks.
+                        </h2>
+
+                        <p>
+                            Get new arrivals and exclusive
+                            SoleAI recommendations.
+                        </p>
+
+                    </div>
+
+
+                    <form id="newsletter-form">
+
+                        <input
+                            type="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                        <button type="submit">
+                            Subscribe
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div id="footer-container"></div>
+
+    </footer>
+
+
+    <!-- BACK TO TOP -->
+
+    <button
+        id="backToTop"
+        type="button"
+        class="product-back-top"
+        aria-label="Back to top">
+
+        <i class="bi bi-arrow-up"></i>
+
+    </button>
+
+
+    <!-- =====================================================
+         COMPONENTS
+    ====================================================== -->
+
+    <script src="./assets/js/navbar.js"></script>
+
+    <script src="./assets/js/footer.js"></script>
+
+
+    <!-- =====================================================
+         PRODUCT DATA
+         MUST LOAD BEFORE product.js
+    ====================================================== -->
+
+    <script src="./assets/js/product-data.js"></script>
+
+    <script src="./assets/js/product.js"></script>
+
+</body>
+
+</html>

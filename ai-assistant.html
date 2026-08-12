@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>SoleAI Assistant | Your AI Footwear Expert</title>
+
+    <meta
+        name="description"
+        content="Meet SoleAI, your intelligent footwear assistant for finding shoes based on style, activity, comfort and budget.">
+
+    <link
+        rel="icon"
+        href="assets/images/logo/favicon.png">
+
+
+    <!-- ======================================================
+         GOOGLE FONT
+    ======================================================= -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- ======================================================
+         BOOTSTRAP ICONS
+    ======================================================= -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- ======================================================
+         GLOBAL CSS
+    ======================================================= -->
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/variables.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/components.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/animations.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/responsive.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/navbar.css">
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/footer.css">
+
+
+    <!-- ======================================================
+         AI ASSISTANT CSS
+    ======================================================= -->
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/ai-assistant.css">
+
+</head>
+
+
+<body class="ai-assistant-page">
+
+
+    <!-- ======================================================
+         NAVBAR
+    ======================================================= -->
+
+    <header>
+
+        <div id="navbar-container"></div>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- ==================================================
+             HERO
+        =================================================== -->
+
+        <section class="ai-hero">
+
+            <div class="ai-hero-glow"></div>
+
+            <div class="container">
+
+
+                <!-- Breadcrumb -->
+
+                <div class="ai-breadcrumb">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                    <span>
+                        AI Assistant
+                    </span>
+
+                </div>
+
+
+
+                <!-- Hero content -->
+
+                <div class="ai-hero-content">
+
+
+                    <div class="ai-hero-badge">
+
+                        <span class="ai-status-dot"></span>
+
+                        <span>
+                            SoleAI Intelligence
+                        </span>
+
+                    </div>
+
+
+                    <h1>
+
+                        Meet your
+
+                        <span>
+                            AI footwear expert.
+                        </span>
+
+                    </h1>
+
+
+                    <p>
+
+                        Tell SoleAI what you're looking for.
+                        We'll help you discover the right shoes
+                        based on your style, activity, comfort
+                        and budget.
+
+                    </p>
+
+
+                    <!-- Stats -->
+
+                    <div class="ai-hero-stats">
+
+
+                        <div>
+
+                            <strong>
+                                AI
+                            </strong>
+
+                            <span>
+                                Powered
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                24/7
+                            </strong>
+
+                            <span>
+                                Available
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                1:1
+                            </strong>
+
+                            <span>
+                                Recommendations
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             AI WORKSPACE
+        =================================================== -->
+
+        <section class="ai-workspace-section">
+
+            <div class="container">
+
+
+                <div class="ai-workspace">
+
+
+                    <!-- ======================================
+                         SIDEBAR
+                    ======================================= -->
+
+                    <aside class="ai-sidebar">
+
+
+                        <!-- AI Profile -->
+
+                        <div class="ai-profile-card">
+
+
+                            <div class="ai-avatar">
+
+                                <i class="bi bi-stars"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    SoleAI
+                                </strong>
+
+                                <span>
+
+                                    <i class="bi bi-circle-fill"></i>
+
+                                    Online
+
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- New conversation -->
+
+                        <button
+                            id="new-chat-btn"
+                            class="new-chat-btn">
+
+                            <i class="bi bi-plus-lg"></i>
+
+                            <span>
+                                New Conversation
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- Quick tools -->
+
+                        <div class="ai-sidebar-section">
+
+
+                            <span class="ai-sidebar-title">
+                                Quick Tools
+                            </span>
+
+
+                            <button
+                                class="ai-tool-btn"
+                                data-question="Find the best running shoes for me">
+
+                                <i class="bi bi-lightning-charge"></i>
+
+                                <span>
+                                    Find Running Shoes
+                                </span>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </button>
+
+
+                            <button
+                                class="ai-tool-btn"
+                                data-question="Which shoe size should I buy?">
+
+                                <i class="bi bi-rulers"></i>
+
+                                <span>
+                                    Find My Size
+                                </span>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </button>
+
+
+                            <button
+                                class="ai-tool-btn"
+                                data-question="Show me the most comfortable shoes">
+
+                                <i class="bi bi-cloud"></i>
+
+                                <span>
+                                    Comfort Picks
+                                </span>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </button>
+
+
+                            <button
+                                class="ai-tool-btn"
+                                data-question="Show me the best shoes under ₹5000">
+
+                                <i class="bi bi-currency-rupee"></i>
+
+                                <span>
+                                    Shop By Budget
+                                </span>
+
+                                <i class="bi bi-chevron-right"></i>
+
+                            </button>
+
+
+                        </div>
+
+
+
+                        <!-- Explore -->
+
+                        <div class="ai-sidebar-section">
+
+
+                            <span class="ai-sidebar-title">
+                                Explore
+                            </span>
+
+
+                            <a
+                                href="ai-search.html"
+                                class="ai-sidebar-link">
+
+                                <i class="bi bi-search"></i>
+
+                                Smart Search
+
+                            </a>
+
+
+                            <a
+                                href="ai-size.html"
+                                class="ai-sidebar-link">
+
+                                <i class="bi bi-rulers"></i>
+
+                                AI Size Guide
+
+                            </a>
+
+
+                            <a
+                                href="try-on.html"
+                                class="ai-sidebar-link">
+
+                                <i class="bi bi-person-bounding-box"></i>
+
+                                Virtual Try-On
+
+                            </a>
+
+
+                        </div>
+
+
+                    </aside>
+
+
+
+                    <!-- ======================================
+                         CHAT
+                    ======================================= -->
+
+                    <section class="ai-chat">
+
+
+                        <!-- Chat header -->
+
+                        <div class="ai-chat-header">
+
+
+                            <div class="ai-chat-title">
+
+
+                                <div class="ai-small-avatar">
+
+                                    <i class="bi bi-stars"></i>
+
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        SoleAI Assistant
+                                    </strong>
+
+                                    <span>
+
+                                        <i class="bi bi-circle-fill"></i>
+
+                                        Ready to help
+
+                                    </span>
+
+                                </div>
+
+
+                            </div>
+
+
+                            <div class="ai-chat-actions">
+
+
+                                <button
+                                    id="clear-chat-btn"
+                                    type="button"
+                                    title="Clear conversation"
+                                    aria-label="Clear conversation">
+
+                                    <i class="bi bi-trash3"></i>
+
+                                </button>
+
+
+                                <button
+                                    type="button"
+                                    title="SoleAI information"
+                                    aria-label="SoleAI information">
+
+                                    <i class="bi bi-info-circle"></i>
+
+                                </button>
+
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- ==================================
+                             MESSAGES
+                        =================================== -->
+
+                        <div
+                            id="chat-messages"
+                            class="chat-messages">
+
+
+                            <div class="chat-date">
+                                TODAY
+                            </div>
+
+
+
+                            <!-- AI welcome -->
+
+                            <div class="message-row">
+
+
+                                <div class="message-avatar">
+
+                                    <i class="bi bi-stars"></i>
+
+                                </div>
+
+
+                                <div class="message-content">
+
+
+                                    <div class="message-bubble">
+
+                                        <p>
+                                            Hey! 👋 I'm
+                                            <strong>SoleAI</strong>,
+                                            your personal footwear assistant.
+                                        </p>
+
+                                        <p>
+                                            Tell me what you're looking for
+                                            and I'll help you find the right
+                                            pair.
+                                        </p>
+
+                                    </div>
+
+
+                                    <span class="message-time">
+                                        Just now
+                                    </span>
+
+
+                                </div>
+
+
+                            </div>
+
+
+
+                            <!-- Quick questions -->
+
+                            <div class="quick-question-block">
+
+
+                                <span>
+                                    Try asking
+                                </span>
+
+
+                                <div class="quick-question-list">
+
+
+                                    <button
+                                        class="quick-question"
+                                        data-question="Which shoes are best for running?">
+
+                                        Which shoes are best for running?
+
+                                    </button>
+
+
+                                    <button
+                                        class="quick-question"
+                                        data-question="Which size should I buy?">
+
+                                        Which size should I buy?
+
+                                    </button>
+
+
+                                    <button
+                                        class="quick-question"
+                                        data-question="Show comfortable shoes under ₹5000">
+
+                                        Comfortable shoes under ₹5000
+
+                                    </button>
+
+
+                                    <button
+                                        class="quick-question"
+                                        data-question="Compare two shoes">
+
+                                        Compare two shoes
+
+                                    </button>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- Typing -->
+
+                        <div
+                            id="typing-indicator"
+                            class="typing-indicator">
+
+
+                            <div class="message-avatar">
+
+                                <i class="bi bi-stars"></i>
+
+                            </div>
+
+
+                            <div class="typing-bubble">
+
+                                <span></span>
+                                <span></span>
+                                <span></span>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- ==================================
+                             INPUT
+                        =================================== -->
+
+                        <div class="chat-input-area">
+
+
+                            <div class="input-suggestions">
+
+
+                                <button
+                                    data-question="Best running shoes">
+
+                                    Best running shoes
+
+                                </button>
+
+
+                                <button
+                                    data-question="Shoes under ₹5000">
+
+                                    Under ₹5000
+
+                                </button>
+
+
+                                <button
+                                    data-question="Most comfortable shoes">
+
+                                    Most comfortable
+
+                                </button>
+
+
+                                <button
+                                    data-question="Compare Nike and Adidas">
+
+                                    Compare Nike & Adidas
+
+                                </button>
+
+
+                            </div>
+
+
+
+                            <form
+                                id="chat-form"
+                                class="chat-input-wrapper">
+
+
+                                <textarea
+                                    id="chat-input"
+                                    rows="1"
+                                    placeholder="Ask SoleAI anything about footwear..."
+                                    autocomplete="off"></textarea>
+
+
+                                <div class="input-actions">
+
+
+                                    <button
+                                        type="button"
+                                        id="voice-input-btn"
+                                        title="Voice input"
+                                        aria-label="Voice input">
+
+                                        <i class="bi bi-mic"></i>
+
+                                    </button>
+
+
+                                    <button
+                                        type="submit"
+                                        class="send-message-btn"
+                                        title="Send message"
+                                        aria-label="Send message">
+
+                                        <i class="bi bi-arrow-up"></i>
+
+                                    </button>
+
+
+                                </div>
+
+
+                            </form>
+
+
+
+                            <div class="input-footer">
+
+
+                                <span>
+
+                                    <i class="bi bi-stars"></i>
+
+                                    SoleAI can recommend products,
+                                    compare shoes and help with sizing.
+
+                                </span>
+
+
+                                <span>
+                                    Enter ↵ to send
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </section>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             AI FEATURES
+        =================================================== -->
+
+        <section class="ai-features-section">
+
+            <div class="container">
+
+
+                <div class="section-heading">
+
+
+                    <span>
+                        WHAT SOLEAI CAN DO
+                    </span>
+
+
+                    <h2>
+                        Shopping made
+                        intelligently simple.
+                    </h2>
+
+
+                    <p>
+                        Your footwear assistant is designed to help
+                        you discover, compare and choose with confidence.
+                    </p>
+
+
+                </div>
+
+
+
+                <div class="ai-feature-grid">
+
+
+                    <a
+                        href="ai-search.html"
+                        class="ai-feature-card">
+
+
+                        <div class="feature-card-icon">
+
+                            <i class="bi bi-search"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Smart Search
+                        </h3>
+
+
+                        <p>
+                            Describe what you need naturally
+                            and let SoleAI find relevant shoes.
+                        </p>
+
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+
+
+                    <a
+                        href="ai-size.html"
+                        class="ai-feature-card">
+
+
+                        <div class="feature-card-icon">
+
+                            <i class="bi bi-rulers"></i>
+
+                        </div>
+
+
+                        <h3>
+                            AI Size Guide
+                        </h3>
+
+
+                        <p>
+                            Get personalized size recommendations
+                            based on your preferences.
+                        </p>
+
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+
+
+                    <a
+                        href="try-on.html"
+                        class="ai-feature-card">
+
+
+                        <div class="feature-card-icon">
+
+                            <i class="bi bi-person-bounding-box"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Virtual Try-On
+                        </h3>
+
+
+                        <p>
+                            Visualize how selected footwear
+                            could look before making your decision.
+                        </p>
+
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+
+
+                    <a
+                        href="shop.html"
+                        class="ai-feature-card">
+
+
+                        <div class="feature-card-icon">
+
+                            <i class="bi bi-stars"></i>
+
+                        </div>
+
+
+                        <h3>
+                            Smart Recommendations
+                        </h3>
+
+
+                        <p>
+                            Discover shoes matched to your lifestyle,
+                            budget and personal preferences.
+                        </p>
+
+
+                        <i class="bi bi-arrow-up-right"></i>
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ======================================================
+         FOOTER
+    ======================================================= -->
+
+    <footer>
+
+        <div id="footer-container"></div>
+
+    </footer>
+
+
+
+    <!-- ======================================================
+         BACK TO TOP
+    ======================================================= -->
+
+    <button
+        id="backToTop"
+        type="button"
+        aria-label="Back to top">
+
+        <i class="bi bi-arrow-up"></i>
+
+    </button>
+
+
+
+    <!-- ======================================================
+         JS
+    ======================================================= -->
+
+    <script src="./assets/js/navbar.js"></script>
+
+    <script src="./assets/js/footer.js"></script>
+
+    <script src="./assets/js/ai-assistant.js"></script>
+
+
+</body>
+
+</html>

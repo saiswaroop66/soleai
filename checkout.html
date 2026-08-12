@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SoleAI | Demo Checkout</title>
+
+    <meta
+        name="description"
+        content="SoleAI student portfolio demo checkout. No real payments are processed."
+    >
+
+    <link
+        rel="stylesheet"
+        href="./assets/css/checkout.css"
+    >
+</head>
+
+<body>
+
+    <!-- ==========================================
+         HEADER
+    =========================================== -->
+
+    <header class="site-header">
+
+        <div class="header-inner">
+
+            <a
+                href="./index.html"
+                class="logo"
+            >
+                Sole<span>AI</span>
+            </a>
+
+            <a
+                href="./cart.html"
+                class="back-cart"
+            >
+                ← Back to Cart
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         DEMO NOTICE
+    =========================================== -->
+
+    <div class="demo-banner">
+
+        <div class="demo-banner-icon">
+            ✓
+        </div>
+
+        <div>
+
+            <strong>
+                SoleAI Demo Store
+            </strong>
+
+            <span>
+                Student portfolio project — no real purchases
+                or payments are processed.
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         HERO
+    =========================================== -->
+
+    <section class="hero">
+
+        <div class="hero-inner">
+
+            <span class="hero-label">
+                DEMO CHECKOUT
+            </span>
+
+            <h1>
+                Complete Your Order
+            </h1>
+
+            <p>
+                Enter your delivery information to test
+                the SoleAI checkout experience.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         MAIN
+    =========================================== -->
+
+    <main class="checkout-container">
+
+        <div class="checkout-grid">
+
+
+            <!-- ==================================
+                 LEFT SIDE
+            =================================== -->
+
+            <section class="checkout-form">
+
+
+                <!-- CONTACT -->
+
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <span class="step">
+                            01
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                Contact Information
+                            </h2>
+
+                            <p>
+                                Where can we contact you?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="field">
+
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="you@example.com"
+                                autocomplete="email"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="10-digit phone number"
+                                autocomplete="tel"
+                                inputmode="numeric"
+                                maxlength="10"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADDRESS -->
+
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <span class="step">
+                            02
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                Delivery Address
+                            </h2>
+
+                            <p>
+                                Where should the demo order be delivered?
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="field">
+
+                            <label for="first-name">
+                                First Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="first-name"
+                                placeholder="First name"
+                                autocomplete="given-name"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="last-name">
+                                Last Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="last-name"
+                                placeholder="Last name"
+                                autocomplete="family-name"
+                            >
+
+                        </div>
+
+
+                        <div class="field full">
+
+                            <label for="address">
+                                Address
+                            </label>
+
+                            <input
+                                type="text"
+                                id="address"
+                                placeholder="House number, street and area"
+                                autocomplete="street-address"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="city">
+                                City
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                placeholder="City"
+                                autocomplete="address-level2"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="state">
+                                State
+                            </label>
+
+                            <input
+                                type="text"
+                                id="state"
+                                placeholder="State"
+                                autocomplete="address-level1"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="pincode">
+                                PIN Code
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pincode"
+                                placeholder="6-digit PIN"
+                                inputmode="numeric"
+                                maxlength="6"
+                                autocomplete="postal-code"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DELIVERY -->
+
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <span class="step">
+                            03
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                Delivery Method
+                            </h2>
+
+                            <p>
+                                Select a demo delivery option.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="options">
+
+
+                        <label class="option">
+
+                            <input
+                                type="radio"
+                                name="delivery"
+                                value="standard"
+                                checked
+                            >
+
+                            <div class="option-content">
+
+                                <div class="option-icon">
+                                    🚚
+                                </div>
+
+                                <div class="option-text">
+
+                                    <strong>
+                                        Standard Delivery
+                                    </strong>
+
+                                    <span>
+                                        3–5 business days
+                                    </span>
+
+                                </div>
+
+                                <b>
+                                    FREE
+                                </b>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="option">
+
+                            <input
+                                type="radio"
+                                name="delivery"
+                                value="express"
+                            >
+
+                            <div class="option-content">
+
+                                <div class="option-icon">
+                                    ⚡
+                                </div>
+
+                                <div class="option-text">
+
+                                    <strong>
+                                        Express Delivery
+                                    </strong>
+
+                                    <span>
+                                        1–2 business days
+                                    </span>
+
+                                </div>
+
+                                <b>
+                                    ₹199
+                                </b>
+
+                            </div>
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT -->
+
+                <div class="card">
+
+                    <div class="card-title">
+
+                        <span class="step">
+                            04
+                        </span>
+
+                        <div>
+
+                            <h2>
+                                Payment Method
+                            </h2>
+
+                            <p>
+                                Demo options only. No payment credentials required.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DEMO PAYMENT INFO -->
+
+                    <div class="demo-payment">
+
+                        <div class="demo-check">
+                            ✓
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Demo Checkout
+                            </strong>
+
+                            <p>
+                                This website does not process real payments.
+                                You will never be asked for card numbers,
+                                CVV or UPI credentials.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PAYMENT OPTIONS -->
+
+                    <div class="options">
+
+
+                        <label class="option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="demo"
+                                checked
+                            >
+
+                            <div class="option-content">
+
+                                <div class="option-icon">
+                                    ✓
+                                </div>
+
+                                <div class="option-text">
+
+                                    <strong>
+                                        Demo Payment
+                                    </strong>
+
+                                    <span>
+                                        Test the checkout flow
+                                        without payment details
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="option">
+
+                            <input
+                                type="radio"
+                                name="payment"
+                                value="cod"
+                            >
+
+                            <div class="option-content">
+
+                                <div class="option-icon">
+                                    ₹
+                                </div>
+
+                                <div class="option-text">
+
+                                    <strong>
+                                        Cash on Delivery
+                                    </strong>
+
+                                    <span>
+                                        Demo option — no credentials required
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI -->
+
+                <div class="ai-card">
+
+                    <div class="ai-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <span>
+                            SoleAI Assistant
+                        </span>
+
+                        <h2>
+                            Need help?
+                        </h2>
+
+                        <p>
+                            Ask SoleAI about products,
+                            sizing or delivery.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="ai-button"
+                        >
+                            Ask SoleAI →
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ==================================
+                 RIGHT SIDE
+            =================================== -->
+
+            <aside class="summary">
+
+
+                <div class="summary-header">
+
+                    <div>
+
+                        <span>
+                            YOUR ORDER
+                        </span>
+
+                        <h2>
+                            Order Summary
+                        </h2>
+
+                    </div>
+
+                    <span id="item-count">
+                        0 Items
+                    </span>
+
+                </div>
+
+
+                <!-- PRODUCTS -->
+
+                <div
+                    id="order-items"
+                    class="order-items"
+                >
+                </div>
+
+
+                <!-- PRICES -->
+
+                <div class="prices">
+
+                    <div>
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="subtotal">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Discount
+                        </span>
+
+                        <strong
+                            id="discount"
+                            class="green"
+                        >
+                            - ₹0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Shipping
+                        </span>
+
+                        <strong id="shipping">
+                            Free
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            GST
+                        </span>
+
+                        <strong id="tax">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="line"></div>
+
+
+                <!-- TOTAL -->
+
+                <div class="total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <strong id="total">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <!-- DEMO NOTICE -->
+
+                <div class="summary-notice">
+
+                    <strong>
+                        Demo Order
+                    </strong>
+
+                    <p>
+                        No real purchase will be made.
+                        This is a portfolio demonstration.
+                    </p>
+
+                </div>
+
+
+                <!-- TERMS -->
+
+                <label class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                    >
+
+                    <span>
+                        I understand that this is a
+                        demo checkout.
+                    </span>
+
+                </label>
+
+
+                <!-- ORDER BUTTON -->
+
+                <button
+                    type="button"
+                    id="place-order"
+                    class="order-button"
+                >
+                    Place Demo Order
+                    <span>→</span>
+                </button>
+
+
+                <div
+                    id="message"
+                    class="message"
+                >
+                </div>
+
+
+                <!-- TRUST -->
+
+                <div class="trust">
+
+                    <div>
+                        <span>✓</span>
+                        Demo
+                    </div>
+
+                    <div>
+                        <span>🔒</span>
+                        Local
+                    </div>
+
+                    <div>
+                        <span>↩</span>
+                        Returns
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <div class="footer-logo">
+                Sole<span>AI</span>
+            </div>
+
+            <p>
+                Student portfolio project.
+                No real purchases or payments are processed.
+            </p>
+
+            <a href="./index.html">
+                Back to Home
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <script
+        src="./assets/js/checkout.js"
+    ></script>
+
+</body>
+
+</html>
