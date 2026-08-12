@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Inventory | SoleAI Admin</title>
+
+    <meta
+        name="description"
+        content="SoleAI inventory management dashboard">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Inventory CSS ONLY -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin-inventory.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="admin-sidebar" id="adminSidebar">
+
+    <!-- BRAND -->
+
+    <div class="sidebar-brand">
+
+        <a
+            href="../index.html"
+            class="brand-link">
+
+            <div class="brand-logo">
+
+                <img
+                    src="../assets/images/logo/logo.png"
+                    alt="SoleAI">
+
+            </div>
+
+            <div class="brand-text">
+
+                <strong>SoleAI</strong>
+
+                <span>ADMIN PANEL</span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="sidebar-nav">
+
+        <div class="nav-section-title">
+            MAIN MENU
+        </div>
+
+
+        <a
+            href="dashboard.html"
+            class="sidebar-link">
+
+            <i class="bi bi-grid-1x2"></i>
+
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a
+            href="products.html"
+            class="sidebar-link">
+
+            <i class="bi bi-box-seam"></i>
+
+            <span>Products</span>
+
+        </a>
+
+
+        <a
+            href="orders.html"
+            class="sidebar-link">
+
+            <i class="bi bi-bag-check"></i>
+
+            <span>Orders</span>
+
+        </a>
+
+
+        <a
+            href="users.html"
+            class="sidebar-link">
+
+            <i class="bi bi-people"></i>
+
+            <span>Customers</span>
+
+        </a>
+
+
+        <a
+            href="analytics.html"
+            class="sidebar-link">
+
+            <i class="bi bi-bar-chart-line"></i>
+
+            <span>Analytics</span>
+
+        </a>
+
+
+        <div class="nav-section-title">
+            MANAGEMENT
+        </div>
+
+
+        <a
+            href="inventory.html"
+            class="sidebar-link active">
+
+            <i class="bi bi-boxes"></i>
+
+            <span>Inventory</span>
+
+        </a>
+
+
+        <a
+            href="categories.html"
+            class="sidebar-link">
+
+            <i class="bi bi-collection"></i>
+
+            <span>Categories</span>
+
+        </a>
+
+
+        <a
+            href="coupons.html"
+            class="sidebar-link">
+
+            <i class="bi bi-ticket-perforated"></i>
+
+            <span>Coupons</span>
+
+        </a>
+
+
+        <a
+            href="reviews.html"
+            class="sidebar-link">
+
+            <i class="bi bi-star"></i>
+
+            <span>Reviews</span>
+
+        </a>
+
+
+        <div class="nav-section-title">
+            SYSTEM
+        </div>
+
+
+        <a
+            href="settings.html"
+            class="sidebar-link">
+
+            <i class="bi bi-gear"></i>
+
+            <span>Settings</span>
+
+        </a>
+
+    </nav>
+
+
+    <!-- SIDEBAR BOTTOM -->
+
+    <div class="sidebar-bottom">
+
+        <a
+            href="../index.html"
+            class="store-link">
+
+            <i class="bi bi-arrow-up-right"></i>
+
+            <span>View Store</span>
+
+        </a>
+
+
+        <button
+            type="button"
+            id="logoutBtn"
+            class="logout-link">
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            <span>Logout</span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="admin-main">
+
+
+    <!-- TOPBAR -->
+
+    <header class="admin-topbar">
+
+
+        <div class="topbar-left">
+
+            <button
+                type="button"
+                id="menuToggle"
+                class="topbar-icon-btn mobile-menu-btn"
+                aria-label="Open menu">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <div class="topbar-heading">
+
+                <span>
+                    SOLEAI ADMIN
+                </span>
+
+                <strong>
+                    Inventory
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+            <button
+                type="button"
+                class="topbar-icon-btn">
+
+                <i class="bi bi-bell"></i>
+
+                <span class="notification-dot"></span>
+
+            </button>
+
+
+            <div class="admin-user">
+
+                <div class="admin-avatar">
+                    SK
+                </div>
+
+
+                <div class="admin-user-info">
+
+                    <strong>
+                        Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+
+                <i class="bi bi-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- CONTENT -->
+
+    <main class="page-content">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+
+            <div>
+
+                <div class="eyebrow">
+
+                    <i class="bi bi-boxes"></i>
+
+                    INVENTORY MANAGEMENT
+
+                </div>
+
+
+                <h1>
+                    Inventory
+                </h1>
+
+
+                <p>
+                    Monitor stock levels, product availability
+                    and inventory value.
+                </p>
+
+            </div>
+
+
+            <div class="page-actions">
+
+                <button
+                    type="button"
+                    id="refreshBtn"
+                    class="btn secondary-btn">
+
+                    <i class="bi bi-arrow-clockwise"></i>
+
+                    Refresh
+
+                </button>
+
+
+                <button
+                    type="button"
+                    id="addStockBtn"
+                    class="btn primary-btn">
+
+                    <i class="bi bi-plus-lg"></i>
+
+                    Add Stock
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================= -->
+
+        <section class="stats-grid">
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="bi bi-box-seam"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        TOTAL PRODUCTS
+                    </span>
+
+                    <strong id="totalProducts">
+                        156
+                    </strong>
+
+                    <small>
+                        Products in inventory
+                    </small>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="bi bi-check-circle"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        IN STOCK
+                    </span>
+
+                    <strong id="inStockProducts">
+                        128
+                    </strong>
+
+                    <small class="positive">
+                        82% available
+                    </small>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="bi bi-exclamation-triangle"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        LOW STOCK
+                    </span>
+
+                    <strong id="lowStockProducts">
+                        18
+                    </strong>
+
+                    <small class="warning">
+                        Needs attention
+                    </small>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon red">
+
+                    <i class="bi bi-x-circle"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        OUT OF STOCK
+                    </span>
+
+                    <strong id="outStockProducts">
+                        10
+                    </strong>
+
+                    <small class="danger">
+                        Immediate action
+                    </small>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================================
+             INVENTORY VALUE
+        ================================================= -->
+
+        <section class="value-card">
+
+
+            <div class="value-left">
+
+                <div class="value-icon">
+
+                    <i class="bi bi-currency-rupee"></i>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        TOTAL INVENTORY VALUE
+                    </span>
+
+                    <strong id="inventoryValue">
+                        ₹18,42,650
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="value-right">
+
+                <span>
+                    Stock health
+                </span>
+
+
+                <div class="health-bar">
+
+                    <div
+                        class="health-fill"
+                        id="healthFill">
+                    </div>
+
+                </div>
+
+
+                <strong>
+                    82%
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================= -->
+
+        <section class="filter-card">
+
+
+            <div class="search-box">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="search"
+                    id="inventorySearch"
+                    placeholder="Search products, brands or categories...">
+
+            </div>
+
+
+            <select
+                id="categoryFilter"
+                class="filter-select">
+
+                <option value="all">
+                    All Categories
+                </option>
+
+                <option value="running">
+                    Running
+                </option>
+
+                <option value="lifestyle">
+                    Lifestyle
+                </option>
+
+                <option value="sports">
+                    Sports
+                </option>
+
+                <option value="casual">
+                    Casual
+                </option>
+
+            </select>
+
+
+            <select
+                id="stockFilter"
+                class="filter-select">
+
+                <option value="all">
+                    All Stock Status
+                </option>
+
+                <option value="in-stock">
+                    In Stock
+                </option>
+
+                <option value="low-stock">
+                    Low Stock
+                </option>
+
+                <option value="out-of-stock">
+                    Out of Stock
+                </option>
+
+            </select>
+
+
+            <button
+                type="button"
+                id="clearFilters"
+                class="clear-btn">
+
+                <i class="bi bi-x-lg"></i>
+
+                Clear
+
+            </button>
+
+        </section>
+
+
+
+        <!-- RESULTS -->
+
+        <div class="results-bar">
+
+            <span>
+                Showing
+                <strong id="resultCount">
+                    8
+                </strong>
+                products
+            </span>
+
+
+            <select
+                id="sortInventory"
+                class="sort-select">
+
+                <option value="name">
+                    Sort: Name
+                </option>
+
+                <option value="stock-low">
+                    Sort: Lowest Stock
+                </option>
+
+                <option value="stock-high">
+                    Sort: Highest Stock
+                </option>
+
+                <option value="value-high">
+                    Sort: Highest Value
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- =================================================
+             INVENTORY TABLE
+        ================================================= -->
+
+        <section class="table-card">
+
+
+            <div class="table-scroll">
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                PRODUCT
+                            </th>
+
+                            <th>
+                                CATEGORY
+                            </th>
+
+                            <th>
+                                SKU
+                            </th>
+
+                            <th>
+                                STOCK
+                            </th>
+
+                            <th>
+                                PRICE
+                            </th>
+
+                            <th>
+                                STOCK VALUE
+                            </th>
+
+                            <th>
+                                STATUS
+                            </th>
+
+                            <th>
+                                ACTIONS
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="inventoryTableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- EMPTY -->
+
+            <div
+                id="emptyState"
+                class="empty-state">
+
+                <div class="empty-icon">
+
+                    <i class="bi bi-search"></i>
+
+                </div>
+
+                <h3>
+                    No products found
+                </h3>
+
+                <p>
+                    Try changing your search or filters.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PAGINATION -->
+
+        <div
+            class="pagination"
+            id="pagination">
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- OVERLAY -->
+
+<div
+    id="sidebarOverlay"
+    class="sidebar-overlay">
+</div>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script
+    src="../assets/js/admin-inventory.js">
+</script>
+
+
+</body>
+
+</html>

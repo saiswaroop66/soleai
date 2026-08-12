@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Orders | SoleAI Admin</title>
+
+    <meta
+        name="description"
+        content="SoleAI Admin Order Management">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- ONLY ORDERS CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin-orders.css">
+
+        <!-- Global Responsive -->
+<link rel="stylesheet" href="../assets/css/responsive.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     MOBILE OVERLAY
+========================================================= -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebar-overlay">
+</div>
+
+
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
+
+<aside
+    class="admin-sidebar"
+    id="admin-sidebar">
+
+
+    <!-- BRAND -->
+
+    <div class="sidebar-brand">
+
+        <a
+            href="../index.html"
+            class="brand-link">
+
+            <div class="brand-logo">
+
+                <img
+                    src="../assets/images/logo/logo.png"
+                    alt="SoleAI"
+                    onerror="this.style.display='none'; this.parentElement.classList.add('fallback-logo'); this.parentElement.innerHTML='<span>✦</span>';">
+
+            </div>
+
+
+            <div class="brand-text">
+
+                <strong>
+                    SoleAI
+                </strong>
+
+                <span>
+                    ADMIN PANEL
+                </span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="sidebar-nav">
+
+
+        <div class="nav-section-title">
+            MAIN MENU
+        </div>
+
+
+        <a
+            href="dashboard.html"
+            class="sidebar-link">
+
+            <i class="bi bi-grid-1x2-fill"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <a
+            href="products.html"
+            class="sidebar-link">
+
+            <i class="bi bi-box-seam"></i>
+
+            <span>
+                Products
+            </span>
+
+        </a>
+
+
+        <a
+            href="orders.html"
+            class="sidebar-link active">
+
+            <i class="bi bi-bag-check"></i>
+
+            <span>
+                Orders
+            </span>
+
+            <b id="sidebar-order-count">
+                0
+            </b>
+
+        </a>
+
+
+        <a
+            href="users.html"
+            class="sidebar-link">
+
+            <i class="bi bi-people"></i>
+
+            <span>
+                Customers
+            </span>
+
+        </a>
+
+
+        <a
+            href="analytics.html"
+            class="sidebar-link">
+
+            <i class="bi bi-bar-chart-line"></i>
+
+            <span>
+                Analytics
+            </span>
+
+        </a>
+
+
+        <div class="nav-section-title">
+            MANAGEMENT
+        </div>
+
+
+        <a
+            href="inventory.html"
+            class="sidebar-link">
+
+            <i class="bi bi-boxes"></i>
+
+            <span>
+                Inventory
+            </span>
+
+        </a>
+
+
+        <a
+            href="categories.html"
+            class="sidebar-link">
+
+            <i class="bi bi-grid"></i>
+
+            <span>
+                Categories
+            </span>
+
+        </a>
+
+
+        <a
+            href="coupons.html"
+            class="sidebar-link">
+
+            <i class="bi bi-ticket-perforated"></i>
+
+            <span>
+                Coupons
+            </span>
+
+        </a>
+
+
+        <a
+            href="reviews.html"
+            class="sidebar-link">
+
+            <i class="bi bi-star"></i>
+
+            <span>
+                Reviews
+            </span>
+
+        </a>
+
+
+        <div class="nav-section-title">
+            SYSTEM
+        </div>
+
+
+        <a
+            href="settings.html"
+            class="sidebar-link">
+
+            <i class="bi bi-gear"></i>
+
+            <span>
+                Settings
+            </span>
+
+        </a>
+
+    </nav>
+
+
+    <!-- SIDEBAR BOTTOM -->
+
+    <div class="sidebar-bottom">
+
+        <a
+            href="../index.html"
+            class="store-link">
+
+            <i class="bi bi-arrow-up-right"></i>
+
+            <span>
+                View Store
+            </span>
+
+        </a>
+
+
+        <button
+            type="button"
+            class="logout-link"
+            id="logout-btn">
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            <span>
+                Logout
+            </span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<div class="admin-main">
+
+
+    <!-- =====================================================
+         TOPBAR
+    ====================================================== -->
+
+    <header class="admin-topbar">
+
+
+        <div class="topbar-left">
+
+            <button
+                type="button"
+                class="mobile-menu-btn"
+                id="mobile-menu-btn">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <div class="topbar-heading">
+
+                <span>
+                    SOLEAI ADMIN
+                </span>
+
+                <strong>
+                    Order Management
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+
+            <button
+                type="button"
+                class="topbar-icon-btn">
+
+                <i class="bi bi-bell"></i>
+
+                <span class="notification-dot"></span>
+
+            </button>
+
+
+            <div class="admin-user">
+
+                <div class="admin-avatar">
+                    SK
+                </div>
+
+
+                <div class="admin-user-info">
+
+                    <strong>
+                        Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+
+                <i class="bi bi-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENT
+    ====================================================== -->
+
+    <main class="page-content">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+
+            <div class="page-header-info">
+
+                <div class="eyebrow">
+
+                    <i class="bi bi-bag-check"></i>
+
+                    ORDER MANAGEMENT
+
+                </div>
+
+
+                <h1>
+                    Orders
+                </h1>
+
+
+                <p>
+                    Manage customer orders, payments,
+                    fulfillment and delivery status.
+                </p>
+
+            </div>
+
+
+            <div class="page-actions">
+
+                <button
+                    type="button"
+                    class="btn secondary-btn"
+                    id="export-btn">
+
+                    <i class="bi bi-download"></i>
+
+                    Export
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn primary-btn"
+                    id="refresh-btn">
+
+                    <i class="bi bi-arrow-clockwise"></i>
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================== -->
+
+        <section class="stats-grid">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="bi bi-bag-check"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        TOTAL ORDERS
+                    </span>
+
+                    <strong id="total-orders">
+                        0
+                    </strong>
+
+                    <small>
+                        All customer orders
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="bi bi-clock-history"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        PENDING
+                    </span>
+
+                    <strong id="pending-orders">
+                        0
+                    </strong>
+
+                    <small>
+                        Need attention
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    <i class="bi bi-truck"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        SHIPPED
+                    </span>
+
+                    <strong id="shipped-orders">
+                        0
+                    </strong>
+
+                    <small>
+                        Currently in transit
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="bi bi-currency-rupee"></i>
+
+                </div>
+
+
+                <div class="stat-content">
+
+                    <span>
+                        REVENUE
+                    </span>
+
+                    <strong id="total-revenue">
+                        ₹0
+                    </strong>
+
+                    <small>
+                        From paid orders
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATUS FILTERS
+        ================================================== -->
+
+        <section class="status-tabs">
+
+            <button
+                type="button"
+                class="status-tab active"
+                data-status="all">
+
+                All
+
+                <span id="count-all">
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="status-tab"
+                data-status="pending">
+
+                Pending
+
+                <span id="count-pending">
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="status-tab"
+                data-status="processing">
+
+                Processing
+
+                <span id="count-processing">
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="status-tab"
+                data-status="shipped">
+
+                Shipped
+
+                <span id="count-shipped">
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="status-tab"
+                data-status="delivered">
+
+                Delivered
+
+                <span id="count-delivered">
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                type="button"
+                class="status-tab"
+                data-status="cancelled">
+
+                Cancelled
+
+                <span id="count-cancelled">
+                    0
+                </span>
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTER BAR
+        ================================================== -->
+
+        <section class="filter-bar">
+
+
+            <div class="search-box">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Search order, customer or product...">
+
+            </div>
+
+
+            <select
+                id="payment-filter"
+                class="filter-select">
+
+                <option value="all">
+                    All Payments
+                </option>
+
+                <option value="paid">
+                    Paid
+                </option>
+
+                <option value="pending">
+                    Payment Pending
+                </option>
+
+                <option value="failed">
+                    Failed
+                </option>
+
+                <option value="refunded">
+                    Refunded
+                </option>
+
+            </select>
+
+
+            <select
+                id="date-filter"
+                class="filter-select">
+
+                <option value="all">
+                    All Dates
+                </option>
+
+                <option value="today">
+                    Today
+                </option>
+
+                <option value="7">
+                    Last 7 Days
+                </option>
+
+                <option value="30">
+                    Last 30 Days
+                </option>
+
+            </select>
+
+
+            <select
+                id="sort-filter"
+                class="filter-select">
+
+                <option value="latest">
+                    Latest
+                </option>
+
+                <option value="oldest">
+                    Oldest
+                </option>
+
+                <option value="high">
+                    Highest Amount
+                </option>
+
+                <option value="low">
+                    Lowest Amount
+                </option>
+
+            </select>
+
+
+            <button
+                type="button"
+                class="clear-btn"
+                id="clear-btn">
+
+                <i class="bi bi-x-circle"></i>
+
+                Clear
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RESULTS HEADER
+        ================================================== -->
+
+        <div class="results-header">
+
+            <span>
+                Showing
+                <strong id="visible-count">
+                    0
+                </strong>
+                orders
+            </span>
+
+
+            <span>
+                Updated just now
+            </span>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TABLE
+        ================================================== -->
+
+        <section class="table-card">
+
+
+            <div class="table-scroll">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                ORDER
+                            </th>
+
+                            <th>
+                                CUSTOMER
+                            </th>
+
+                            <th>
+                                ITEMS
+                            </th>
+
+                            <th>
+                                DATE
+                            </th>
+
+                            <th>
+                                PAYMENT
+                            </th>
+
+                            <th>
+                                TOTAL
+                            </th>
+
+                            <th>
+                                STATUS
+                            </th>
+
+                            <th>
+                                ACTION
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="orders-body">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <!-- EMPTY -->
+
+            <div
+                class="empty-state"
+                id="empty-state">
+
+                <div class="empty-icon">
+
+                    <i class="bi bi-bag-x"></i>
+
+                </div>
+
+                <h3>
+                    No orders found
+                </h3>
+
+                <p>
+                    Try changing your search or filters.
+                </p>
+
+                <button
+                    type="button"
+                    class="btn secondary-btn"
+                    id="empty-clear-btn">
+
+                    Clear Filters
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PAGINATION
+        ================================================== -->
+
+        <div
+            class="pagination"
+            id="pagination">
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     ORDER DETAILS MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="details-modal">
+
+    <div
+        class="modal-backdrop"
+        data-close-details>
+    </div>
+
+
+    <div class="modal-box">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <span>
+                    ORDER DETAILS
+                </span>
+
+                <h2 id="details-order-id">
+                    #SA-00000
+                </h2>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="modal-close"
+                data-close-details>
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="modal-content"
+            id="details-content">
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     STATUS MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="status-modal">
+
+    <div
+        class="modal-backdrop"
+        data-close-status>
+    </div>
+
+
+    <div class="status-box">
+
+
+        <div class="status-modal-icon">
+
+            <i class="bi bi-arrow-repeat"></i>
+
+        </div>
+
+
+        <h2>
+            Update Order
+        </h2>
+
+
+        <p>
+            Change the fulfillment status
+            of this order.
+        </p>
+
+
+        <select
+            id="new-status"
+            class="new-status">
+
+            <option value="pending">
+                Pending
+            </option>
+
+            <option value="processing">
+                Processing
+            </option>
+
+            <option value="shipped">
+                Shipped
+            </option>
+
+            <option value="delivered">
+                Delivered
+            </option>
+
+            <option value="cancelled">
+                Cancelled
+            </option>
+
+        </select>
+
+
+        <div class="status-actions">
+
+            <button
+                type="button"
+                class="btn secondary-btn"
+                data-close-status>
+
+                Cancel
+
+            </button>
+
+
+            <button
+                type="button"
+                class="btn primary-btn"
+                id="save-status">
+
+                Update Status
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    class="toast"
+    id="toast">
+
+    <i class="bi bi-check-circle-fill"></i>
+
+    <span id="toast-message">
+        Done
+    </span>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script
+    src="../assets/js/admin-order.js">
+</script>
+
+
+</body>
+</html>

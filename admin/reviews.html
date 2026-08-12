@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Reviews | SoleAI Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin-reviews.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="admin-sidebar" id="adminSidebar">
+
+    <div class="sidebar-brand">
+
+        <a href="../index.html" class="brand-link">
+
+            <div class="brand-logo">
+                <img
+                    src="../assets/images/logo/logo.png"
+                    alt="SoleAI">
+            </div>
+
+            <div class="brand-text">
+                <strong>SoleAI</strong>
+                <span>ADMIN PANEL</span>
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <div class="nav-section-title">
+            MAIN MENU
+        </div>
+
+        <a href="dashboard.html" class="sidebar-link">
+            <i class="bi bi-grid-1x2"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="products.html" class="sidebar-link">
+            <i class="bi bi-box-seam"></i>
+            <span>Products</span>
+        </a>
+
+        <a href="orders.html" class="sidebar-link">
+            <i class="bi bi-bag-check"></i>
+            <span>Orders</span>
+        </a>
+
+        <a href="users.html" class="sidebar-link">
+            <i class="bi bi-people"></i>
+            <span>Customers</span>
+        </a>
+
+        <a href="analytics.html" class="sidebar-link">
+            <i class="bi bi-bar-chart-line"></i>
+            <span>Analytics</span>
+        </a>
+
+
+        <div class="nav-section-title">
+            MANAGEMENT
+        </div>
+
+        <a href="inventory.html" class="sidebar-link">
+            <i class="bi bi-boxes"></i>
+            <span>Inventory</span>
+        </a>
+
+        <a href="categories.html" class="sidebar-link">
+            <i class="bi bi-collection"></i>
+            <span>Categories</span>
+        </a>
+
+        <a href="coupons.html" class="sidebar-link">
+            <i class="bi bi-ticket-perforated"></i>
+            <span>Coupons</span>
+        </a>
+
+        <a href="reviews.html" class="sidebar-link active">
+            <i class="bi bi-star"></i>
+            <span>Reviews</span>
+        </a>
+
+
+        <div class="nav-section-title">
+            SYSTEM
+        </div>
+
+        <a href="settings.html" class="sidebar-link">
+            <i class="bi bi-gear"></i>
+            <span>Settings</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a href="../index.html" class="store-link">
+            <i class="bi bi-arrow-up-right"></i>
+            <span>View Store</span>
+        </a>
+
+        <button
+            type="button"
+            class="logout-link"
+            id="logoutBtn">
+
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Logout</span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="admin-main">
+
+
+    <!-- TOPBAR -->
+
+    <header class="admin-topbar">
+
+        <div class="topbar-left">
+
+            <button
+                type="button"
+                id="menuToggle"
+                class="topbar-icon-btn mobile-menu-btn">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+            <div class="topbar-heading">
+
+                <span>SOLEAI ADMIN</span>
+                <strong>Reviews</strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="topbar-right">
+
+            <button
+                type="button"
+                class="topbar-icon-btn">
+
+                <i class="bi bi-bell"></i>
+                <span class="notification-dot"></span>
+
+            </button>
+
+
+            <div class="admin-user">
+
+                <div class="admin-avatar">
+                    SK
+                </div>
+
+                <div class="admin-user-info">
+                    <strong>Admin</strong>
+                    <span>Administrator</span>
+                </div>
+
+                <i class="bi bi-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         PAGE CONTENT
+    ================================================= -->
+
+    <main class="page-content">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <div class="eyebrow">
+
+                    <i class="bi bi-star"></i>
+
+                    CUSTOMER FEEDBACK
+
+                </div>
+
+                <h1>
+                    Reviews
+                </h1>
+
+                <p>
+                    Monitor customer feedback,
+                    ratings and product reviews.
+                </p>
+
+            </div>
+
+
+            <div class="page-actions">
+
+                <button
+                    type="button"
+                    class="btn secondary-btn"
+                    id="refreshBtn">
+
+                    <i class="bi bi-arrow-clockwise"></i>
+                    Refresh
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATS
+        ================================================= -->
+
+        <section class="stats-grid">
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+                    <i class="bi bi-chat-square-text"></i>
+                </div>
+
+                <div class="stat-content">
+
+                    <span>TOTAL REVIEWS</span>
+
+                    <strong id="totalReviews">
+                        2846
+                    </strong>
+
+                    <small>
+                        Customer feedback
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon yellow">
+                    <i class="bi bi-star-fill"></i>
+                </div>
+
+                <div class="stat-content">
+
+                    <span>AVERAGE RATING</span>
+
+                    <strong id="averageRating">
+                        4.7
+                    </strong>
+
+                    <small class="rating-small">
+                        ★ Excellent
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+                    <i class="bi bi-patch-check"></i>
+                </div>
+
+                <div class="stat-content">
+
+                    <span>VERIFIED REVIEWS</span>
+
+                    <strong id="verifiedReviews">
+                        2389
+                    </strong>
+
+                    <small class="positive">
+                        Verified purchases
+                    </small>
+
+                </div>
+
+            </article>
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+                    <i class="bi bi-hourglass-split"></i>
+                </div>
+
+                <div class="stat-content">
+
+                    <span>PENDING</span>
+
+                    <strong id="pendingReviews">
+                        18
+                    </strong>
+
+                    <small class="warning">
+                        Need moderation
+                    </small>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================= -->
+
+        <section class="toolbar-card">
+
+            <div class="search-box">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="search"
+                    id="reviewSearch"
+                    placeholder="Search customer, product or review...">
+
+            </div>
+
+
+            <select
+                id="ratingFilter"
+                class="filter-select">
+
+                <option value="all">
+                    All Ratings
+                </option>
+
+                <option value="5">
+                    5 Stars
+                </option>
+
+                <option value="4">
+                    4 Stars
+                </option>
+
+                <option value="3">
+                    3 Stars
+                </option>
+
+                <option value="2">
+                    2 Stars
+                </option>
+
+                <option value="1">
+                    1 Star
+                </option>
+
+            </select>
+
+
+            <select
+                id="statusFilter"
+                class="filter-select">
+
+                <option value="all">
+                    All Status
+                </option>
+
+                <option value="approved">
+                    Approved
+                </option>
+
+                <option value="pending">
+                    Pending
+                </option>
+
+                <option value="rejected">
+                    Rejected
+                </option>
+
+            </select>
+
+
+            <button
+                type="button"
+                class="clear-btn"
+                id="clearFilters">
+
+                <i class="bi bi-x-lg"></i>
+                Clear
+
+            </button>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REVIEW LIST
+        ================================================= -->
+
+        <section class="reviews-card">
+
+            <div
+                class="reviews-list"
+                id="reviewsList">
+            </div>
+
+
+            <div
+                class="empty-state"
+                id="emptyState">
+
+                <div class="empty-icon">
+                    <i class="bi bi-chat-square-text"></i>
+                </div>
+
+                <h3>
+                    No reviews found
+                </h3>
+
+                <p>
+                    Try changing your search or filters.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     REVIEW MODAL
+===================================================== -->
+
+<div
+    class="modal-overlay"
+    id="reviewModal">
+
+    <div class="review-modal">
+
+        <button
+            type="button"
+            class="modal-close"
+            id="modalClose">
+
+            <i class="bi bi-x-lg"></i>
+
+        </button>
+
+
+        <div class="modal-header">
+
+            <div class="modal-avatar" id="modalAvatar">
+                SK
+            </div>
+
+            <div>
+
+                <span>
+                    CUSTOMER REVIEW
+                </span>
+
+                <h2 id="modalCustomer">
+                    Customer
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="modal-product" id="modalProduct">
+            Product
+        </div>
+
+
+        <div
+            class="modal-rating"
+            id="modalRating">
+        </div>
+
+
+        <p
+            class="modal-review-text"
+            id="modalReviewText">
+        </p>
+
+
+        <div class="modal-details">
+
+            <div>
+                <span>Date</span>
+                <strong id="modalDate">-</strong>
+            </div>
+
+            <div>
+                <span>Status</span>
+                <strong id="modalStatus">-</strong>
+            </div>
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="btn secondary-btn"
+                id="closeReviewBtn">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- MOBILE OVERLAY -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay">
+</div>
+
+
+<script
+    src="../assets/js/admin-reviews.js">
+</script>
+
+</body>
+</html>

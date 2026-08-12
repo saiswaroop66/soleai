@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Customers | SoleAI Admin</title>
+
+    <meta
+        name="description"
+        content="SoleAI Admin Customer Management">
+
+    <!-- Google Font -->
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet">
+
+<!-- Icons -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- GLOBAL CSS -->
+<link
+    rel="stylesheet"
+    href="../assets/css/variables.css">
+
+
+
+<link
+    rel="stylesheet"
+    href="../assets/css/components.css">
+
+<link
+    rel="stylesheet"
+    href="../assets/css/animations.css">
+
+<!-- USERS PAGE CSS -->
+<link
+    rel="stylesheet"
+    href="../assets/css/admin-users.css">
+
+<!-- GLOBAL RESPONSIVE -->
+<link
+    rel="stylesheet"
+    href="../assets/css/responsive.css">
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ADMIN SIDEBAR
+===================================================== -->
+
+<aside class="admin-sidebar">
+
+
+    <!-- BRAND -->
+
+    <div class="sidebar-brand">
+
+        <a
+            href="../index.html"
+            class="brand-link">
+
+            <div class="brand-logo">
+
+                <img
+                    src="../assets/images/products/download7.png"
+                    alt="SoleAI">
+
+            </div>
+
+            <div class="brand-text">
+
+                <strong>SoleAI</strong>
+
+                <span>ADMIN PANEL</span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="sidebar-nav">
+
+
+        <div class="nav-section-title">
+            MAIN MENU
+        </div>
+
+
+        <a
+            href="dashboard.html"
+            class="sidebar-link">
+
+            <i class="bi bi-grid-1x2"></i>
+
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a
+            href="products.html"
+            class="sidebar-link">
+
+            <i class="bi bi-box-seam"></i>
+
+            <span>Products</span>
+
+        </a>
+
+
+        <a
+            href="orders.html"
+            class="sidebar-link">
+
+            <i class="bi bi-bag-check"></i>
+
+            <span>Orders</span>
+
+        </a>
+
+
+        <a
+            href="users.html"
+            class="sidebar-link active">
+
+            <i class="bi bi-people"></i>
+
+            <span>Customers</span>
+
+        </a>
+
+
+        <a
+            href="analytics.html"
+            class="sidebar-link">
+
+            <i class="bi bi-bar-chart"></i>
+
+            <span>Analytics</span>
+
+        </a>
+
+
+
+        <div class="nav-section-title">
+            MANAGEMENT
+        </div>
+
+
+        <a
+            href="inventory.html"
+            class="sidebar-link">
+
+            <i class="bi bi-boxes"></i>
+
+            <span>Inventory</span>
+
+        </a>
+
+
+        <a
+            href="categories.html"
+            class="sidebar-link">
+
+            <i class="bi bi-collection"></i>
+
+            <span>Categories</span>
+
+        </a>
+
+
+        <a
+            href="coupons.html"
+            class="sidebar-link">
+
+            <i class="bi bi-ticket-perforated"></i>
+
+            <span>Coupons</span>
+
+        </a>
+
+
+        <a
+            href="reviews.html"
+            class="sidebar-link">
+
+            <i class="bi bi-star"></i>
+
+            <span>Reviews</span>
+
+        </a>
+
+
+
+        <div class="nav-section-title">
+            SYSTEM
+        </div>
+
+
+        <a
+            href="settings.html"
+            class="sidebar-link">
+
+            <i class="bi bi-gear"></i>
+
+            <span>Settings</span>
+
+        </a>
+
+    </nav>
+
+
+    <!-- SIDEBAR BOTTOM -->
+
+    <div class="sidebar-bottom">
+
+        <a
+            href="../index.html"
+            class="store-link">
+
+            <i class="bi bi-arrow-up-right"></i>
+
+            <span>View Store</span>
+
+        </a>
+
+
+        <button
+            type="button"
+            class="logout-link"
+            id="logoutBtn">
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            <span>Logout</span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="admin-main">
+
+
+    <!-- =================================================
+         TOPBAR
+    ================================================= -->
+
+    <header class="admin-topbar">
+
+
+        <div class="topbar-left">
+
+
+            <!-- Mobile Menu -->
+
+            <button
+                type="button"
+                id="adminMenuToggle"
+                class="topbar-icon-btn mobile-menu-btn"
+                aria-label="Open menu">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <div class="topbar-heading">
+
+                <span>
+                    SOLEAI ADMIN
+                </span>
+
+                <strong>
+                    Customer Management
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="topbar-right">
+
+
+            <button
+                type="button"
+                class="topbar-icon-btn">
+
+                <i class="bi bi-bell"></i>
+
+                <span class="notification-dot"></span>
+
+            </button>
+
+
+            <div class="admin-user">
+
+                <div class="admin-avatar">
+                    SK
+                </div>
+
+                <div class="admin-user-info">
+
+                    <strong>
+                        Admin
+                    </strong>
+
+                    <span>
+                        Administrator
+                    </span>
+
+                </div>
+
+                <i class="bi bi-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         PAGE CONTENT
+    ================================================= -->
+
+    <main class="page-content">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <div class="eyebrow">
+
+                    <i class="bi bi-people"></i>
+
+                    CUSTOMER MANAGEMENT
+
+                </div>
+
+
+                <h1>
+                    Customers
+                </h1>
+
+
+                <p>
+                    Manage your customers, accounts,
+                    activity and shopping history.
+                </p>
+
+            </div>
+
+
+            <div class="page-actions">
+
+                <button
+                    type="button"
+                    class="btn secondary-btn"
+                    id="exportCustomersBtn">
+
+                    <i class="bi bi-download"></i>
+
+                    Export
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn primary-btn"
+                    id="refreshCustomersBtn">
+
+                    <i class="bi bi-arrow-clockwise"></i>
+
+                    Refresh
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             STATS
+        ================================================= -->
+
+        <section class="stats-grid">
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon blue">
+
+                    <i class="bi bi-people"></i>
+
+                </div>
+
+                <div class="stat-content">
+
+                    <span>
+                        TOTAL CUSTOMERS
+                    </span>
+
+                    <strong id="totalCustomers">
+                        1,248
+                    </strong>
+
+                    <small>
+                        All registered users
+                    </small>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon green">
+
+                    <i class="bi bi-person-check"></i>
+
+                </div>
+
+                <div class="stat-content">
+
+                    <span>
+                        ACTIVE CUSTOMERS
+                    </span>
+
+                    <strong id="activeCustomers">
+                        986
+                    </strong>
+
+                    <small>
+                        Active accounts
+                    </small>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon purple">
+
+                    <i class="bi bi-person-plus"></i>
+
+                </div>
+
+                <div class="stat-content">
+
+                    <span>
+                        NEW THIS MONTH
+                    </span>
+
+                    <strong id="newCustomers">
+                        124
+                    </strong>
+
+                    <small>
+                        New registrations
+                    </small>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="stat-card">
+
+                <div class="stat-icon orange">
+
+                    <i class="bi bi-cart-check"></i>
+
+                </div>
+
+                <div class="stat-content">
+
+                    <span>
+                        BUYING CUSTOMERS
+                    </span>
+
+                    <strong id="buyingCustomers">
+                        742
+                    </strong>
+
+                    <small>
+                        Customers with orders
+                    </small>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================= -->
+
+        <section class="filter-bar">
+
+
+            <div class="search-box">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="search"
+                    id="customerSearch"
+                    placeholder="Search customer, email or phone...">
+
+            </div>
+
+
+            <select
+                id="customerStatus"
+                class="filter-select">
+
+                <option value="all">
+                    All Customers
+                </option>
+
+                <option value="active">
+                    Active
+                </option>
+
+                <option value="inactive">
+                    Inactive
+                </option>
+
+            </select>
+
+
+            <select
+                id="customerSort"
+                class="filter-select">
+
+                <option value="latest">
+                    Latest
+                </option>
+
+                <option value="oldest">
+                    Oldest
+                </option>
+
+                <option value="orders">
+                    Most Orders
+                </option>
+
+                <option value="spent">
+                    Highest Spend
+                </option>
+
+            </select>
+
+
+            <button
+                type="button"
+                class="clear-btn"
+                id="clearCustomerFilters">
+
+                <i class="bi bi-x-circle"></i>
+
+                Clear
+
+            </button>
+
+        </section>
+
+
+
+        <!-- RESULTS -->
+
+        <div class="results-header">
+
+            <span>
+
+                Showing
+
+                <strong id="customerResultCount">
+                    6
+                </strong>
+
+                customers
+
+            </span>
+
+
+            <span>
+                Updated just now
+            </span>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CUSTOMER TABLE
+        ================================================= -->
+
+        <section class="table-card">
+
+
+            <div class="table-scroll">
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                CUSTOMER
+                            </th>
+
+                            <th>
+                                CONTACT
+                            </th>
+
+                            <th>
+                                JOINED
+                            </th>
+
+                            <th>
+                                ORDERS
+                            </th>
+
+                            <th>
+                                SPENT
+                            </th>
+
+                            <th>
+                                STATUS
+                            </th>
+
+                            <th>
+                                ACTION
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="customersTableBody">
+
+
+                        <!-- CUSTOMER 1 -->
+
+                        <tr
+                            data-name="Rahul Sharma"
+                            data-email="rahul@example.com"
+                            data-status="active"
+                            data-orders="12"
+                            data-spent="48990">
+
+                            <td>
+
+                                <div class="customer">
+
+                                    <div class="customer-avatar">
+                                        RS
+                                    </div>
+
+                                    <div class="customer-info">
+
+                                        <strong>
+                                            Rahul Sharma
+                                        </strong>
+
+                                        <span>
+                                            #CUS-10001
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="customer-info">
+
+                                    <strong>
+                                        rahul@example.com
+                                    </strong>
+
+                                    <span>
+                                        +91 98765 43210
+                                    </span>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="order-date">
+                                    12 Jul 2026
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="items-count">
+
+                                    <i class="bi bi-bag"></i>
+
+                                    12 orders
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong class="order-total">
+                                    ₹48,990
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge status-delivered">
+                                    <i class="bi bi-check-circle"></i>
+                                    Active
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="action-group">
+
+                                    <button
+                                        class="action-btn view-customer"
+                                        title="View">
+
+                                        <i class="bi bi-eye"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- CUSTOMER 2 -->
+
+                        <tr
+                            data-name="Ananya Reddy"
+                            data-email="ananya@example.com"
+                            data-status="active"
+                            data-orders="8"
+                            data-spent="32650">
+
+                            <td>
+
+                                <div class="customer">
+
+                                    <div class="customer-avatar">
+                                        AR
+                                    </div>
+
+                                    <div class="customer-info">
+
+                                        <strong>
+                                            Ananya Reddy
+                                        </strong>
+
+                                        <span>
+                                            #CUS-10002
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="customer-info">
+
+                                    <strong>
+                                        ananya@example.com
+                                    </strong>
+
+                                    <span>
+                                        +91 91234 56789
+                                    </span>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="order-date">
+                                    18 Jul 2026
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="items-count">
+
+                                    <i class="bi bi-bag"></i>
+
+                                    8 orders
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong class="order-total">
+                                    ₹32,650
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge status-delivered">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    Active
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="action-group">
+
+                                    <button
+                                        class="action-btn view-customer">
+
+                                        <i class="bi bi-eye"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- CUSTOMER 3 -->
+
+                        <tr
+                            data-name="Arjun Kumar"
+                            data-email="arjun@example.com"
+                            data-status="active"
+                            data-orders="15"
+                            data-spent="68990">
+
+                            <td>
+
+                                <div class="customer">
+
+                                    <div class="customer-avatar">
+                                        AK
+                                    </div>
+
+                                    <div class="customer-info">
+
+                                        <strong>
+                                            Arjun Kumar
+                                        </strong>
+
+                                        <span>
+                                            #CUS-10003
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="customer-info">
+
+                                    <strong>
+                                        arjun@example.com
+                                    </strong>
+
+                                    <span>
+                                        +91 99887 77665
+                                    </span>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="order-date">
+                                    25 Jul 2026
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="items-count">
+
+                                    <i class="bi bi-bag"></i>
+
+                                    15 orders
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong class="order-total">
+                                    ₹68,990
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge status-delivered">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    Active
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="action-group">
+
+                                    <button
+                                        class="action-btn view-customer">
+
+                                        <i class="bi bi-eye"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- CUSTOMER 4 -->
+
+                        <tr
+                            data-name="Sneha Patel"
+                            data-email="sneha@example.com"
+                            data-status="inactive"
+                            data-orders="3"
+                            data-spent="12450">
+
+                            <td>
+
+                                <div class="customer">
+
+                                    <div class="customer-avatar">
+                                        SP
+                                    </div>
+
+                                    <div class="customer-info">
+
+                                        <strong>
+                                            Sneha Patel
+                                        </strong>
+
+                                        <span>
+                                            #CUS-10004
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="customer-info">
+
+                                    <strong>
+                                        sneha@example.com
+                                    </strong>
+
+                                    <span>
+                                        +91 90123 45678
+                                    </span>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="order-date">
+                                    29 Jul 2026
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="items-count">
+
+                                    <i class="bi bi-bag"></i>
+
+                                    3 orders
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong class="order-total">
+                                    ₹12,450
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge status-cancelled">
+
+                                    <i class="bi bi-dash-circle"></i>
+
+                                    Inactive
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="action-group">
+
+                                    <button
+                                        class="action-btn view-customer">
+
+                                        <i class="bi bi-eye"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- CUSTOMER 5 -->
+
+                        <tr
+                            data-name="Vikram Singh"
+                            data-email="vikram@example.com"
+                            data-status="active"
+                            data-orders="6"
+                            data-spent="24500">
+
+                            <td>
+
+                                <div class="customer">
+
+                                    <div class="customer-avatar">
+                                        VS
+                                    </div>
+
+                                    <div class="customer-info">
+
+                                        <strong>
+                                            Vikram Singh
+                                        </strong>
+
+                                        <span>
+                                            #CUS-10005
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="customer-info">
+
+                                    <strong>
+                                        vikram@example.com
+                                    </strong>
+
+                                    <span>
+                                        +91 93456 78901
+                                    </span>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="order-date">
+                                    01 Aug 2026
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="items-count">
+
+                                    <i class="bi bi-bag"></i>
+
+                                    6 orders
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong class="order-total">
+                                    ₹24,500
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge status-delivered">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    Active
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="action-group">
+
+                                    <button
+                                        class="action-btn view-customer">
+
+                                        <i class="bi bi-eye"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- CUSTOMER 6 -->
+
+                        <tr
+                            data-name="Priya Nair"
+                            data-email="priya@example.com"
+                            data-status="active"
+                            data-orders="9"
+                            data-spent="38900">
+
+                            <td>
+
+                                <div class="customer">
+
+                                    <div class="customer-avatar">
+                                        PN
+                                    </div>
+
+                                    <div class="customer-info">
+
+                                        <strong>
+                                            Priya Nair
+                                        </strong>
+
+                                        <span>
+                                            #CUS-10006
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="customer-info">
+
+                                    <strong>
+                                        priya@example.com
+                                    </strong>
+
+                                    <span>
+                                        +91 95678 12345
+                                    </span>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="order-date">
+                                    04 Aug 2026
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="items-count">
+
+                                    <i class="bi bi-bag"></i>
+
+                                    9 orders
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong class="order-total">
+                                    ₹38,900
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge status-delivered">
+
+                                    <i class="bi bi-check-circle"></i>
+
+                                    Active
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="action-group">
+
+                                    <button
+                                        class="action-btn view-customer">
+
+                                        <i class="bi bi-eye"></i>
+
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- EMPTY -->
+
+            <div
+                id="emptyCustomers"
+                class="empty-state">
+
+                <div class="empty-icon">
+
+                    <i class="bi bi-people"></i>
+
+                </div>
+
+                <h3>
+                    No customers found
+                </h3>
+
+                <p>
+                    Try changing your search or filters.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PAGINATION -->
+
+        <div class="pagination">
+
+            <button class="page-btn">
+                <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <button class="page-btn active">
+                1
+            </button>
+
+            <button class="page-btn">
+                2
+            </button>
+
+            <button class="page-btn">
+                3
+            </button>
+
+            <button class="page-btn">
+                <i class="bi bi-chevron-right"></i>
+            </button>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- MOBILE OVERLAY -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay">
+</div>
+
+
+
+<!-- JS -->
+
+<script
+    src="../assets/js/admin-users.js">
+</script>
+
+
+</body>
+
+</html>

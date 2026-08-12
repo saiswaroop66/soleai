@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Products | SoleAI Admin</title>
+
+    <meta
+        name="description"
+        content="Manage SoleAI footwear products from the admin dashboard.">
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        href="../assets/images/logo/favicon.png">
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Global Admin CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin.css">
+
+    <!-- Product CSS -->
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin-products.css">
+
+</head>
+
+
+<body class="admin-body">
+
+
+<div class="admin-app">
+
+
+    <!-- ======================================================
+         SIDEBAR
+    ======================================================= -->
+
+    <aside
+        class="admin-sidebar"
+        id="adminSidebar">
+
+
+        <!-- Logo -->
+
+        <div class="admin-logo">
+
+            <a href="dashboard.html">
+
+                <div class="admin-logo-mark">
+
+                    <i class="bi bi-bag-heart-fill"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>SoleAI</strong>
+
+                    <span>ADMIN PANEL</span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- Admin Profile -->
+
+        <div class="admin-profile">
+
+            <div class="admin-avatar">
+
+                SA
+
+            </div>
+
+
+            <div class="admin-profile-info">
+
+                <strong>
+                    SoleAI Admin
+                </strong>
+
+                <span>
+
+                    <i class="bi bi-circle-fill"></i>
+
+                    Online
+
+                </span>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="admin-profile-menu">
+
+                <i class="bi bi-three-dots"></i>
+
+            </button>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="admin-navigation">
+
+
+            <!-- MAIN -->
+
+            <div class="admin-nav-group">
+
+                <span class="admin-nav-label">
+                    MAIN
+                </span>
+
+
+                <a
+                    href="dashboard.html"
+                    class="admin-nav-link">
+
+                    <i class="bi bi-grid-1x2-fill"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="analytics.html"
+                    class="admin-nav-link">
+
+                    <i class="bi bi-bar-chart-line-fill"></i>
+
+                    <span>
+                        Analytics
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- PRODUCTS -->
+
+            <div class="admin-nav-group">
+
+                <span class="admin-nav-label">
+                    STORE
+                </span>
+
+
+                <a
+                    href="products.html"
+                    class="admin-nav-link active">
+
+                    <i class="bi bi-box-seam-fill"></i>
+
+                    <span>
+                        Products
+                    </span>
+
+                    <span
+                        class="admin-nav-badge"
+                        id="product-count-badge">
+
+                        0
+
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="categories.html"
+                    class="admin-nav-link">
+
+                    <i class="bi bi-grid-fill"></i>
+
+                    <span>
+                        Categories
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="inventory.html"
+                    class="admin-nav-link">
+
+                    <i class="bi bi-boxes"></i>
+
+                    <span>
+                        Inventory
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="orders.html"
+                    class="admin-nav-link">
+
+                    <i class="bi bi-bag-check-fill"></i>
+
+                    <span>
+                        Orders
+                    </span>
+
+                    <span
+                        class="admin-nav-badge"
+                        id="order-count-badge">
+
+                        0
+
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- CUSTOMERS -->
+
+            <div class="admin-nav-group">
+
+                <span class="admin-nav-label">
+                    CUSTOMERS
+                </span>
+
+
+                <a
+                    href="users.html"
+                    class="admin-nav-link">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <span>
+                        Customers
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="reviews.html"
+                    class="admin-nav-link">
+
+                    <i class="bi bi-star-fill"></i>
+
+                    <span>
+                        Reviews
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- MARKETING -->
+
+            <div class="admin-nav-group">
+
+                <span class="admin-nav-label">
+                    MARKETING
+                </span>
+
+
+                <a
+                    href="coupons.html"
+                    class="admin-nav-link">
+
+                    <i class="bi bi-ticket-perforated-fill"></i>
+
+                    <span>
+                        Coupons
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- SYSTEM -->
+
+            <div class="admin-nav-group">
+
+                <span class="admin-nav-label">
+                    SYSTEM
+                </span>
+
+
+                <a
+                    href="settings.html"
+                    class="admin-nav-link">
+
+                    <i class="bi bi-gear-fill"></i>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+
+        <!-- Sidebar Bottom -->
+
+        <div class="admin-sidebar-bottom">
+
+
+            <a
+                href="../index.html"
+                class="view-store-btn">
+
+                <i class="bi bi-shop"></i>
+
+                <span>
+                    View Store
+                </span>
+
+                <i class="bi bi-arrow-up-right"></i>
+
+            </a>
+
+
+            <button
+                type="button"
+                class="admin-logout-btn"
+                id="admin-logout">
+
+                <i class="bi bi-box-arrow-left"></i>
+
+                <span>
+                    Logout
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Overlay -->
+
+    <div
+        class="admin-sidebar-overlay"
+        id="admin-sidebar-overlay">
+    </div>
+
+
+
+    <!-- ======================================================
+         MAIN
+    ======================================================= -->
+
+    <main class="admin-main">
+
+
+        <!-- ==================================================
+             TOPBAR
+        =================================================== -->
+
+        <header class="admin-topbar">
+
+
+            <div class="topbar-left">
+
+
+                <button
+                    type="button"
+                    class="sidebar-toggle"
+                    id="sidebar-toggle">
+
+                    <i class="bi bi-list"></i>
+
+                </button>
+
+
+                <div class="admin-page-title">
+
+                    <span>
+                        Store Management
+                    </span>
+
+                    <h1>
+                        Products
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+
+                <!-- Search -->
+
+                <button
+                    type="button"
+                    class="topbar-icon-btn"
+                    id="admin-search-btn"
+                    aria-label="Search">
+
+                    <i class="bi bi-search"></i>
+
+                </button>
+
+
+                <!-- Notifications -->
+
+                <button
+                    type="button"
+                    class="topbar-icon-btn notification-btn"
+                    id="notification-btn"
+                    aria-label="Notifications">
+
+                    <i class="bi bi-bell"></i>
+
+                    <span></span>
+
+                </button>
+
+
+                <!-- Store -->
+
+                <a
+                    href="../index.html"
+                    class="topbar-store-btn">
+
+                    <i class="bi bi-shop"></i>
+
+                    <span>
+                        Store
+                    </span>
+
+                </a>
+
+
+                <!-- User -->
+
+                <div class="topbar-user">
+
+                    <div class="topbar-avatar">
+                        SA
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Administrator
+                        </span>
+
+                    </div>
+
+                    <i class="bi bi-chevron-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==================================================
+             CONTENT
+        =================================================== -->
+
+        <section class="admin-content">
+
+
+            <!-- Page Header -->
+
+            <div class="products-page-header">
+
+
+                <div>
+
+                    <div class="products-eyebrow">
+
+                        <i class="bi bi-box-seam"></i>
+
+                        PRODUCT MANAGEMENT
+
+                    </div>
+
+
+                    <h2>
+                        Your Products
+                    </h2>
+
+
+                    <p>
+                        Manage your SoleAI footwear collection,
+                        pricing, stock and product information.
+                    </p>
+
+                </div>
+
+
+                <div class="products-header-actions">
+
+
+                    <button
+                        type="button"
+                        class="products-secondary-btn"
+                        id="export-products-btn">
+
+                        <i class="bi bi-download"></i>
+
+                        Export
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="products-primary-btn"
+                        id="add-product-btn">
+
+                        <i class="bi bi-plus-lg"></i>
+
+                        Add Product
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 PRODUCT STATS
+            =================================================== -->
+
+            <div class="product-stats-grid">
+
+
+                <div class="product-stat-card">
+
+                    <div class="product-stat-icon blue">
+
+                        <i class="bi bi-box-seam"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Total Products
+                        </span>
+
+                        <strong id="total-products">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="product-stat-card">
+
+                    <div class="product-stat-icon green">
+
+                        <i class="bi bi-check-circle"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Active Products
+                        </span>
+
+                        <strong id="active-products">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="product-stat-card">
+
+                    <div class="product-stat-icon orange">
+
+                        <i class="bi bi-exclamation-triangle"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Low Stock
+                        </span>
+
+                        <strong id="low-stock-products">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="product-stat-card">
+
+                    <div class="product-stat-icon purple">
+
+                        <i class="bi bi-tags"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Categories
+                        </span>
+
+                        <strong id="total-categories">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 PRODUCT TOOLBAR
+            =================================================== -->
+
+            <div class="products-toolbar">
+
+
+                <!-- Search -->
+
+                <div class="products-search">
+
+                    <i class="bi bi-search"></i>
+
+                    <input
+                        type="search"
+                        id="product-search"
+                        placeholder="Search products...">
+
+                </div>
+
+
+                <!-- Category -->
+
+                <select
+                    id="product-category-filter"
+                    class="product-filter">
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="running">
+                        Running
+                    </option>
+
+                    <option value="sneakers">
+                        Sneakers
+                    </option>
+
+                    <option value="sports">
+                        Sports
+                    </option>
+
+                    <option value="casual">
+                        Casual
+                    </option>
+
+                </select>
+
+
+                <!-- Status -->
+
+                <select
+                    id="product-status-filter"
+                    class="product-filter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="active">
+                        Active
+                    </option>
+
+                    <option value="draft">
+                        Draft
+                    </option>
+
+                    <option value="out">
+                        Out of Stock
+                    </option>
+
+                </select>
+
+
+                <!-- Sort -->
+
+                <select
+                    id="product-sort"
+                    class="product-filter">
+
+                    <option value="latest">
+                        Latest
+                    </option>
+
+                    <option value="name">
+                        Name A-Z
+                    </option>
+
+                    <option value="price-low">
+                        Price Low-High
+                    </option>
+
+                    <option value="price-high">
+                        Price High-Low
+                    </option>
+
+                    <option value="stock-low">
+                        Stock Low-High
+                    </option>
+
+                </select>
+
+
+                <!-- View -->
+
+                <div class="products-view-toggle">
+
+                    <button
+                        type="button"
+                        class="view-btn active"
+                        data-view="grid"
+                        aria-label="Grid view">
+
+                        <i class="bi bi-grid-3x3-gap"></i>
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="view-btn"
+                        data-view="list"
+                        aria-label="List view">
+
+                        <i class="bi bi-list"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 RESULTS BAR
+            =================================================== -->
+
+            <div class="products-results-bar">
+
+
+                <div>
+
+                    Showing
+
+                    <strong id="visible-products-count">
+                        0
+                    </strong>
+
+                    products
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="clear-product-filters"
+                    class="clear-filters-btn">
+
+                    <i class="bi bi-x-circle"></i>
+
+                    Clear Filters
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 PRODUCTS
+            =================================================== -->
+
+            <div
+                id="products-container"
+                class="products-grid">
+
+                <!-- JavaScript inserts products here -->
+
+            </div>
+
+
+            <!-- Empty State -->
+
+            <div
+                id="products-empty"
+                class="products-empty"
+                style="display:none;">
+
+                <div class="products-empty-icon">
+
+                    <i class="bi bi-box-seam"></i>
+
+                </div>
+
+
+                <h3>
+                    No products found
+                </h3>
+
+
+                <p>
+                    Try changing your search or filters,
+                    or add a new product.
+                </p>
+
+
+                <button
+                    type="button"
+                    class="products-primary-btn"
+                    id="empty-add-product">
+
+                    <i class="bi bi-plus-lg"></i>
+
+                    Add Product
+
+                </button>
+
+            </div>
+
+
+            <!-- Pagination -->
+
+            <div
+                class="products-pagination"
+                id="products-pagination">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             FOOTER
+        =================================================== -->
+
+        <footer class="admin-footer">
+
+            <span>
+
+                © 2026
+                <strong>SoleAI</strong>.
+                Admin Dashboard.
+
+            </span>
+
+
+            <span>
+
+                Product Management
+
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ==========================================================
+     ADD / EDIT PRODUCT MODAL
+=========================================================== -->
+
+<div
+    class="product-modal"
+    id="product-modal"
+    aria-hidden="true">
+
+
+    <div class="product-modal-overlay"
+         id="product-modal-overlay">
+    </div>
+
+
+    <div class="product-modal-box">
+
+
+        <!-- Modal Header -->
+
+        <div class="product-modal-header">
+
+            <div>
+
+                <span>
+                    PRODUCT MANAGEMENT
+                </span>
+
+                <h3 id="product-modal-title">
+                    Add New Product
+                </h3>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="close-product-modal"
+                class="modal-close-btn">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Form -->
+
+        <form
+            id="product-form"
+            class="product-form">
+
+
+            <input
+                type="hidden"
+                id="product-id">
+
+
+
+            <!-- Image -->
+
+            <div class="product-image-upload">
+
+
+                <div
+                    class="product-image-preview"
+                    id="product-image-preview">
+
+                    <i class="bi bi-image"></i>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Product Image
+                    </strong>
+
+                    <p>
+                        Add an image URL for the product.
+                    </p>
+
+
+                    <input
+                        type="url"
+                        id="product-image"
+                        placeholder="https://example.com/shoe.jpg">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Name -->
+
+            <div class="form-field">
+
+                <label for="product-name">
+                    Product Name
+                </label>
+
+                <input
+                    type="text"
+                    id="product-name"
+                    placeholder="Enter product name"
+                    required>
+
+            </div>
+
+
+
+            <!-- Row -->
+
+            <div class="form-row">
+
+
+                <div class="form-field">
+
+                    <label for="product-price">
+                        Price (₹)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="product-price"
+                        placeholder="2999"
+                        min="0"
+                        required>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="product-stock">
+                        Stock
+                    </label>
+
+                    <input
+                        type="number"
+                        id="product-stock"
+                        placeholder="50"
+                        min="0"
+                        required>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Category -->
+
+            <div class="form-row">
+
+
+                <div class="form-field">
+
+                    <label for="product-category">
+                        Category
+                    </label>
+
+                    <select
+                        id="product-category"
+                        required>
+
+                        <option value="">
+                            Select Category
+                        </option>
+
+                        <option value="running">
+                            Running
+                        </option>
+
+                        <option value="sneakers">
+                            Sneakers
+                        </option>
+
+                        <option value="sports">
+                            Sports
+                        </option>
+
+                        <option value="casual">
+                            Casual
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label for="product-status">
+                        Status
+                    </label>
+
+                    <select
+                        id="product-status"
+                        required>
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="draft">
+                            Draft
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Description -->
+
+            <div class="form-field">
+
+                <label for="product-description">
+                    Description
+                </label>
+
+                <textarea
+                    id="product-description"
+                    rows="4"
+                    placeholder="Describe the footwear product..."></textarea>
+
+            </div>
+
+
+
+            <!-- Modal Actions -->
+
+            <div class="product-modal-actions">
+
+
+                <button
+                    type="button"
+                    class="products-secondary-btn"
+                    id="cancel-product">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="products-primary-btn">
+
+                    <i class="bi bi-check-lg"></i>
+
+                    Save Product
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================================
+     DELETE MODAL
+=========================================================== -->
+
+<div
+    class="delete-modal"
+    id="delete-modal"
+    aria-hidden="true">
+
+
+    <div class="delete-modal-overlay"></div>
+
+
+    <div class="delete-modal-box">
+
+
+        <div class="delete-icon">
+
+            <i class="bi bi-trash3"></i>
+
+        </div>
+
+
+        <h3>
+            Delete Product?
+        </h3>
+
+
+        <p>
+
+            Are you sure you want to delete
+
+            <strong id="delete-product-name">
+                this product
+            </strong>
+
+            ?
+
+            This action cannot be undone.
+
+        </p>
+
+
+        <div class="delete-actions">
+
+
+            <button
+                type="button"
+                class="products-secondary-btn"
+                id="cancel-delete">
+
+                Cancel
+
+            </button>
+
+
+            <button
+                type="button"
+                class="delete-confirm-btn"
+                id="confirm-delete">
+
+                <i class="bi bi-trash3"></i>
+
+                Delete Product
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================================
+     SEARCH MODAL
+=========================================================== -->
+
+<div
+    class="admin-search-modal"
+    id="admin-search-modal"
+    aria-hidden="true">
+
+
+    <div class="admin-search-box">
+
+
+        <div class="search-modal-header">
+
+            <strong>
+                Search Admin Panel
+            </strong>
+
+
+            <button
+                type="button"
+                id="close-search">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="admin-search-input">
+
+            <i class="bi bi-search"></i>
+
+
+            <input
+                type="search"
+                id="admin-search-input"
+                placeholder="Search pages...">
+
+
+            <kbd>
+                ESC
+            </kbd>
+
+        </div>
+
+
+        <div
+            class="admin-search-results"
+            id="admin-search-results">
+
+            <span>
+                Start typing to search.
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================================
+     NOTIFICATIONS
+=========================================================== -->
+
+<div
+    class="admin-notification-panel"
+    id="notification-panel">
+
+
+    <div class="notification-header">
+
+        <div>
+
+            <strong>
+                Notifications
+            </strong>
+
+            <span>
+                Latest store activity
+            </span>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="close-notifications">
+
+            <i class="bi bi-x-lg"></i>
+
+        </button>
+
+    </div>
+
+
+    <div class="notification-list">
+
+
+        <div class="notification-item">
+
+            <div class="notification-icon order">
+
+                <i class="bi bi-bag-check"></i>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    New order received
+                </strong>
+
+                <span>
+                    A new SoleAI order has been placed.
+                </span>
+
+                <small>
+                    8 minutes ago
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="notification-item">
+
+            <div class="notification-icon stock">
+
+                <i class="bi bi-exclamation-triangle"></i>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Low stock alert
+                </strong>
+
+                <span>
+                    Some footwear products need restocking.
+                </span>
+
+                <small>
+                    32 minutes ago
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="notification-item">
+
+            <div class="notification-icon review">
+
+                <i class="bi bi-star"></i>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    New customer review
+                </strong>
+
+                <span>
+                    A customer left a new product review.
+                </span>
+
+                <small>
+                    1 hour ago
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="notification-item">
+
+            <div class="notification-icon ai">
+
+                <i class="bi bi-stars"></i>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    SoleAI recommendation engine
+                </strong>
+
+                <span>
+                    AI recommendations are performing normally.
+                </span>
+
+                <small>
+                    2 hours ago
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="notifications.html"
+        class="view-notifications">
+
+        View all notifications
+
+        <i class="bi bi-arrow-right"></i>
+
+    </a>
+
+</div>
+
+
+
+<!-- ==========================================================
+     JAVASCRIPT
+=========================================================== -->
+
+<script
+    src="../assets/js/product-data.js">
+</script>
+
+
+<script
+    src="../assets/js/admin.js">
+</script>
+
+
+<script
+    src="../assets/js/admin-products.js">
+</script>
+
+
+</body>
+
+</html>

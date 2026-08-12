@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Settings | SoleAI Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin-settings.css">
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside
+    class="admin-sidebar"
+    id="adminSidebar">
+
+
+    <div class="sidebar-brand">
+
+        <a
+            href="../index.html"
+            class="brand-link">
+
+            <div class="brand-logo">
+
+                <img
+                    src="../assets/images/products/download7.png"
+                    alt="SoleAI Logo">
+
+            </div>
+
+
+            <div class="brand-text">
+
+                <strong>SoleAI</strong>
+
+                <span>ADMIN PANEL</span>
+
+            </div>
+
+        </a>
+
+    </div>
+
+
+
+    <nav class="sidebar-nav">
+
+
+        <div class="nav-section-title">
+            MAIN MENU
+        </div>
+
+
+        <a
+            href="dashboard.html"
+            class="sidebar-link">
+
+            <i class="bi bi-grid-1x2"></i>
+
+            <span>Dashboard</span>
+
+        </a>
+
+
+        <a
+            href="products.html"
+            class="sidebar-link">
+
+            <i class="bi bi-box-seam"></i>
+
+            <span>Products</span>
+
+        </a>
+
+
+        <a
+            href="orders.html"
+            class="sidebar-link">
+
+            <i class="bi bi-bag-check"></i>
+
+            <span>Orders</span>
+
+        </a>
+
+
+        <a
+            href="users.html"
+            class="sidebar-link">
+
+            <i class="bi bi-people"></i>
+
+            <span>Customers</span>
+
+        </a>
+
+
+        <a
+            href="analytics.html"
+            class="sidebar-link">
+
+            <i class="bi bi-bar-chart-line"></i>
+
+            <span>Analytics</span>
+
+        </a>
+
+
+
+        <div class="nav-section-title">
+            MANAGEMENT
+        </div>
+
+
+        <a
+            href="inventory.html"
+            class="sidebar-link">
+
+            <i class="bi bi-boxes"></i>
+
+            <span>Inventory</span>
+
+        </a>
+
+
+        <a
+            href="categories.html"
+            class="sidebar-link">
+
+            <i class="bi bi-collection"></i>
+
+            <span>Categories</span>
+
+        </a>
+
+
+        <a
+            href="coupons.html"
+            class="sidebar-link">
+
+            <i class="bi bi-ticket-perforated"></i>
+
+            <span>Coupons</span>
+
+        </a>
+
+
+        <a
+            href="reviews.html"
+            class="sidebar-link">
+
+            <i class="bi bi-star"></i>
+
+            <span>Reviews</span>
+
+        </a>
+
+
+
+        <div class="nav-section-title">
+            SYSTEM
+        </div>
+
+
+        <a
+            href="settings.html"
+            class="sidebar-link active">
+
+            <i class="bi bi-gear"></i>
+
+            <span>Settings</span>
+
+        </a>
+
+    </nav>
+
+
+
+    <div class="sidebar-bottom">
+
+
+        <a
+            href="../index.html"
+            class="store-link">
+
+            <i class="bi bi-arrow-up-right"></i>
+
+            <span>View Store</span>
+
+        </a>
+
+
+        <button
+            type="button"
+            id="logoutBtn"
+            class="logout-link">
+
+            <i class="bi bi-box-arrow-right"></i>
+
+            <span>Logout</span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="admin-main">
+
+
+    <!-- =================================================
+         TOPBAR
+    ================================================= -->
+
+    <header class="admin-topbar">
+
+
+        <div class="topbar-left">
+
+
+            <button
+                type="button"
+                id="menuToggle"
+                class="topbar-icon-btn mobile-menu-btn">
+
+                <i class="bi bi-list"></i>
+
+            </button>
+
+
+            <div class="topbar-heading">
+
+                <span>SOLEAI ADMIN</span>
+
+                <strong>Settings</strong>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="topbar-right">
+
+
+            <button
+                type="button"
+                class="topbar-icon-btn">
+
+                <i class="bi bi-bell"></i>
+
+                <span class="notification-dot"></span>
+
+            </button>
+
+
+            <div class="admin-user">
+
+                <div class="admin-avatar">
+                    SK
+                </div>
+
+
+                <div class="admin-user-info">
+
+                    <strong>Admin</strong>
+
+                    <span>Administrator</span>
+
+                </div>
+
+
+                <i class="bi bi-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         PAGE
+    ================================================= -->
+
+    <main class="page-content">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+
+            <div>
+
+                <div class="eyebrow">
+
+                    <i class="bi bi-sliders"></i>
+
+                    SYSTEM CONFIGURATION
+
+                </div>
+
+
+                <h1>
+                    Settings
+                </h1>
+
+
+                <p>
+                    Manage your SoleAI store,
+                    orders, shipping and platform preferences.
+                </p>
+
+            </div>
+
+
+            <div class="page-actions">
+
+                <button
+                    type="button"
+                    class="btn secondary-btn"
+                    id="resetBtn">
+
+                    <i class="bi bi-arrow-counterclockwise"></i>
+
+                    Reset
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="btn primary-btn"
+                    id="saveBtn">
+
+                    <i class="bi bi-check-lg"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SETTINGS LAYOUT
+        ================================================= -->
+
+        <div class="settings-layout">
+
+
+            <!-- SETTINGS NAV -->
+
+            <aside class="settings-menu">
+
+
+                <button
+                    type="button"
+                    class="settings-tab active"
+                    data-section="general">
+
+                    <i class="bi bi-shop"></i>
+
+                    <span>
+                        General
+                    </span>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="settings-tab"
+                    data-section="orders">
+
+                    <i class="bi bi-bag-check"></i>
+
+                    <span>
+                        Orders
+                    </span>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="settings-tab"
+                    data-section="shipping">
+
+                    <i class="bi bi-truck"></i>
+
+                    <span>
+                        Shipping
+                    </span>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="settings-tab"
+                    data-section="notifications">
+
+                    <i class="bi bi-bell"></i>
+
+                    <span>
+                        Notifications
+                    </span>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="settings-tab"
+                    data-section="security">
+
+                    <i class="bi bi-shield-lock"></i>
+
+                    <span>
+                        Security
+                    </span>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="settings-tab"
+                    data-section="store">
+
+                    <i class="bi bi-credit-card"></i>
+
+                    <span>
+                        Store & Payments
+                    </span>
+
+                    <i class="bi bi-chevron-right"></i>
+
+                </button>
+
+
+            </aside>
+
+
+
+            <!-- =================================================
+                 SETTINGS CONTENT
+            ================================================= -->
+
+            <section class="settings-content">
+
+
+                <!-- =============================================
+                     GENERAL
+                ============================================== -->
+
+                <div
+                    class="settings-section active"
+                    id="general">
+
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <span>
+                                STORE PROFILE
+                            </span>
+
+                            <h2>
+                                General Settings
+                            </h2>
+
+                            <p>
+                                Basic information about your SoleAI store.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                Store Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="storeName"
+                                value="SoleAI">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Store Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="storeEmail"
+                                value="support@soleai.com">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="storePhone"
+                                value="+91 98765 43210">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Country
+                            </label>
+
+                            <select id="country">
+
+                                <option selected>
+                                    India
+                                </option>
+
+                                <option>
+                                    United States
+                                </option>
+
+                                <option>
+                                    United Kingdom
+                                </option>
+
+                                <option>
+                                    Canada
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Timezone
+                            </label>
+
+                            <select id="timezone">
+
+                                <option selected>
+                                    Asia/Kolkata (IST)
+                                </option>
+
+                                <option>
+                                    America/New_York
+                                </option>
+
+                                <option>
+                                    Europe/London
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                Store Address
+                            </label>
+
+                            <textarea
+                                id="storeAddress"
+                                rows="4">SoleAI Headquarters, Visakhapatnam, Andhra Pradesh, India</textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     ORDERS
+                ============================================== -->
+
+                <div
+                    class="settings-section"
+                    id="orders">
+
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <span>
+                                ORDER MANAGEMENT
+                            </span>
+
+                            <h2>
+                                Order Settings
+                            </h2>
+
+                            <p>
+                                Configure how customer orders are processed.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="setting-list">
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Automatic Order Confirmation
+                                </strong>
+
+                                <span>
+                                    Automatically confirm new orders after successful payment.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="autoConfirm"
+                                    checked>
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Allow Order Cancellation
+                                </strong>
+
+                                <span>
+                                    Customers can cancel orders before shipment.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="allowCancellation"
+                                    checked>
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Guest Checkout
+                                </strong>
+
+                                <span>
+                                    Allow customers to purchase without creating an account.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="guestCheckout"
+                                    checked>
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Require Phone Verification
+                                </strong>
+
+                                <span>
+                                    Ask customers to verify their phone number during checkout.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="phoneVerification">
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     SHIPPING
+                ============================================== -->
+
+                <div
+                    class="settings-section"
+                    id="shipping">
+
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <span>
+                                DELIVERY CONFIGURATION
+                            </span>
+
+                            <h2>
+                                Shipping Settings
+                            </h2>
+
+                            <p>
+                                Configure delivery and shipping options.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Free Shipping Above
+                            </label>
+
+                            <div class="input-prefix">
+
+                                <span>₹</span>
+
+                                <input
+                                    type="number"
+                                    id="freeShipping"
+                                    value="2999">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Standard Shipping
+                            </label>
+
+                            <div class="input-prefix">
+
+                                <span>₹</span>
+
+                                <input
+                                    type="number"
+                                    id="standardShipping"
+                                    value="99">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Express Shipping
+                            </label>
+
+                            <div class="input-prefix">
+
+                                <span>₹</span>
+
+                                <input
+                                    type="number"
+                                    id="expressShipping"
+                                    value="199">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Estimated Delivery
+                            </label>
+
+                            <select id="deliveryDays">
+
+                                <option>
+                                    2 - 4 Business Days
+                                </option>
+
+                                <option selected>
+                                    3 - 5 Business Days
+                                </option>
+
+                                <option>
+                                    5 - 7 Business Days
+                                </option>
+
+                                <option>
+                                    7 - 10 Business Days
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="setting-list shipping-toggle-list">
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Enable Express Delivery
+                                </strong>
+
+                                <span>
+                                    Customers can select faster delivery during checkout.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="expressEnabled"
+                                    checked>
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     NOTIFICATIONS
+                ============================================== -->
+
+                <div
+                    class="settings-section"
+                    id="notifications">
+
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <span>
+                                COMMUNICATION
+                            </span>
+
+                            <h2>
+                                Notifications
+                            </h2>
+
+                            <p>
+                                Choose which notifications your store sends.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="setting-list">
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    New Order Notifications
+                                </strong>
+
+                                <span>
+                                    Receive an alert whenever a new order is placed.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="newOrderNotification"
+                                    checked>
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Low Stock Alerts
+                                </strong>
+
+                                <span>
+                                    Get notified when product inventory becomes low.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="lowStockNotification"
+                                    checked>
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    New Review Notifications
+                                </strong>
+
+                                <span>
+                                    Receive notifications when customers submit reviews.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="reviewNotification"
+                                    checked>
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Promotional Emails
+                                </strong>
+
+                                <span>
+                                    Send promotional campaigns and special offers to customers.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="promoNotification">
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     SECURITY
+                ============================================== -->
+
+                <div
+                    class="settings-section"
+                    id="security">
+
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <span>
+                                ACCOUNT PROTECTION
+                            </span>
+
+                            <h2>
+                                Security
+                            </h2>
+
+                            <p>
+                                Manage administrator security preferences.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="security-card">
+
+
+                        <div class="security-icon">
+
+                            <i class="bi bi-shield-check"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                Two-Factor Authentication
+                            </strong>
+
+                            <p>
+                                Add an extra layer of protection to your administrator account.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            class="outline-btn"
+                            id="twoFactorBtn">
+
+                            Enable
+
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="setting-list">
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Login Alerts
+                                </strong>
+
+                                <span>
+                                    Notify you whenever your admin account is accessed.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="loginAlerts"
+                                    checked>
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Session Timeout
+                                </strong>
+
+                                <span>
+                                    Automatically sign out after a period of inactivity.
+                                </span>
+
+                            </div>
+
+
+                            <select
+                                class="small-select"
+                                id="sessionTimeout">
+
+                                <option>
+                                    15 minutes
+                                </option>
+
+                                <option selected>
+                                    30 minutes
+                                </option>
+
+                                <option>
+                                    1 hour
+                                </option>
+
+                                <option>
+                                    4 hours
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =============================================
+                     STORE & PAYMENTS
+                ============================================== -->
+
+                <div
+                    class="settings-section"
+                    id="store">
+
+
+                    <div class="section-header">
+
+                        <div>
+
+                            <span>
+                                COMMERCE
+                            </span>
+
+                            <h2>
+                                Store & Payments
+                            </h2>
+
+                            <p>
+                                Configure currency, tax and payment preferences.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Currency
+                            </label>
+
+                            <select id="currency">
+
+                                <option selected>
+                                    INR — Indian Rupee
+                                </option>
+
+                                <option>
+                                    USD — US Dollar
+                                </option>
+
+                                <option>
+                                    GBP — British Pound
+                                </option>
+
+                                <option>
+                                    EUR — Euro
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Tax Rate
+                            </label>
+
+                            <div class="input-suffix">
+
+                                <input
+                                    type="number"
+                                    id="taxRate"
+                                    value="18">
+
+                                <span>%</span>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="setting-list">
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Cash on Delivery
+                                </strong>
+
+                                <span>
+                                    Allow customers to pay when their order is delivered.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="codEnabled"
+                                    checked>
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div class="setting-info">
+
+                                <strong>
+                                    Online Payments
+                                </strong>
+
+                                <span>
+                                    Accept online card, UPI and wallet payments.
+                                </span>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="onlinePayments"
+                                    checked>
+
+                                <span></span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+
+<!-- MOBILE OVERLAY -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay">
+</div>
+
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast">
+
+    <div class="toast-icon">
+
+        <i class="bi bi-check-lg"></i>
+
+    </div>
+
+    <div>
+
+        <strong>
+            Settings Saved
+        </strong>
+
+        <span>
+            Your changes have been saved successfully.
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<script
+    src="../assets/js/admin-settings.js">
+</script>
+
+
+</body>
+</html>
