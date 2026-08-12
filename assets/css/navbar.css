@@ -1,0 +1,424 @@
+/* ===========================================================
+                    NAVBAR
+=========================================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    height:90px;
+
+    display:flex;
+
+    align-items:center;
+
+    z-index:1000;
+
+    background:rgba(255,255,255,.85);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.25);
+
+    transition:.35s ease;
+
+}
+
+/* Navbar on Scroll */
+
+.navbar.scrolled{
+
+    height:75px;
+
+    background:#ffffff;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+
+}
+
+
+/* ===========================================================
+                NAVBAR CONTAINER
+=========================================================== */
+
+.navbar-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+/* ===========================================================
+                    LOGO
+=========================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:1.8rem;
+
+    font-weight:700;
+
+    color:var(--text-primary);
+
+}
+
+.logo img{
+
+    width:45px;
+
+    height:45px;
+
+    object-fit:contain;
+
+}
+
+.logo span{
+
+    color:var(--color-primary);
+
+}
+
+
+/* ===========================================================
+                NAVIGATION MENU
+=========================================================== */
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+}
+
+.nav-menu>li{
+
+    position:relative;
+
+}
+
+.nav-menu>li>a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--text-primary);
+
+    font-weight:500;
+
+    padding:10px 0;
+
+    position:relative;
+
+}
+
+
+/* Underline */
+
+.nav-menu>li>a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--color-primary);
+
+    transition:.3s ease;
+
+}
+
+.nav-menu>li>a:hover::after,
+
+.nav-menu>li>a.active::after{
+
+    width:100%;
+
+}
+
+.nav-menu>li>a:hover{
+
+    color:var(--color-primary);
+
+}
+
+
+/* ===========================================================
+                DROPDOWN MENU
+=========================================================== */
+
+.dropdown-menu{
+
+    position:absolute;
+
+    top:120%;
+
+    left:0;
+
+    min-width:220px;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    box-shadow:var(--shadow-xl);
+
+    padding:18px 0;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(15px);
+
+    transition:.35s ease;
+
+}
+
+.dropdown:hover .dropdown-menu{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+.dropdown-menu li{
+
+    width:100%;
+
+}
+
+.dropdown-menu a{
+
+    display:block;
+
+    padding:14px 24px;
+
+    transition:.3s ease;
+
+}
+
+.dropdown-menu a:hover{
+
+    background:#f5f7fb;
+
+    color:var(--color-primary);
+
+}
+
+
+/* ===========================================================
+                    NAV ACTIONS
+=========================================================== */
+
+.nav-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+
+/* ===========================================================
+                    NAV BUTTON
+=========================================================== */
+
+.nav-btn{
+
+    width:46px;
+
+    height:46px;
+
+    border:none;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#ffffff;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:.3s ease;
+
+    cursor:pointer;
+
+}
+
+.nav-btn i{
+
+    font-size:1.1rem;
+
+}
+
+.nav-btn:hover{
+
+    background:var(--color-primary);
+
+    color:#ffffff;
+
+    transform:translateY(-3px);
+
+}
+
+
+/* ===========================================================
+                    CART BADGE
+=========================================================== */
+
+.cart-icon{
+
+    position:relative;
+
+}
+
+.cart-icon span{
+
+    position:absolute;
+
+    top:-6px;
+
+    right:-4px;
+
+    width:22px;
+
+    height:22px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#EF4444;
+
+    color:#ffffff;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+}
+
+
+/* ===========================================================
+                MOBILE TOGGLE
+=========================================================== */
+
+.mobile-toggle{
+
+    display:none;
+
+}
+
+
+/* ===========================================================
+                RESPONSIVE
+=========================================================== */
+
+@media(max-width:992px){
+
+    .nav-menu{
+
+        position:fixed;
+
+        top:90px;
+
+        right:-100%;
+
+        width:320px;
+
+        height:calc(100vh - 90px);
+
+        background:#ffffff;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        padding:40px 30px;
+
+        gap:25px;
+
+        box-shadow:-5px 0 30px rgba(0,0,0,.08);
+
+        transition:.35s ease;
+
+    }
+
+    .nav-menu.active{
+
+        right:0;
+
+    }
+
+    .mobile-toggle{
+
+        display:flex;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .navbar{
+
+        height:75px;
+
+    }
+
+    .logo{
+
+        font-size:1.5rem;
+
+    }
+
+    .btn{
+
+        display:none;
+
+    }
+
+}

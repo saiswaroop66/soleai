@@ -1,0 +1,143 @@
+/* =========================================================
+   SoleAI - Design System
+   File: variables.css
+   Description: Global CSS Variables
+========================================================= */
+
+:root {
+
+    /* ===========================
+       COLORS
+    =========================== */
+
+    --color-primary: #2563EB;
+    --color-primary-hover: #1D4ED8;
+
+    --color-secondary: #0F172A;
+    --color-accent: #7C3AED;
+
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-danger: #EF4444;
+    --color-info: #06B6D4;
+
+    /* ===========================
+       BACKGROUND COLORS
+    =========================== */
+
+    --bg-body: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --bg-dark: #111827;
+    --bg-light: #FFFFFF;
+    --bg-section: #F1F5F9;
+
+    /* ===========================
+       TEXT COLORS
+    =========================== */
+
+    --text-primary: #111827;
+    --text-secondary: #475569;
+    --text-muted: #94A3B8;
+    --text-white: #FFFFFF;
+
+    /* ===========================
+       BORDER
+    =========================== */
+
+    --border-color: #E2E8F0;
+    --border-light: #F1F5F9;
+
+    /* ===========================
+       TYPOGRAPHY
+    =========================== */
+
+    --font-heading: "Poppins", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    /* Font Sizes */
+
+    --fs-xs: 12px;
+    --fs-sm: 14px;
+    --fs-md: 16px;
+    --fs-lg: 18px;
+    --fs-xl: 20px;
+    --fs-2xl: 24px;
+    --fs-3xl: 30px;
+    --fs-4xl: 36px;
+    --fs-5xl: 48px;
+    --fs-6xl: 60px;
+
+    /* Font Weight */
+
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extra-bold: 800;
+
+    /* ===========================
+       SPACING
+    =========================== */
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 32px;
+    --space-8: 40px;
+    --space-9: 48px;
+    --space-10: 64px;
+
+    /* ===========================
+       BORDER RADIUS
+    =========================== */
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    --radius-round: 50%;
+
+    /* ===========================
+       SHADOWS
+    =========================== */
+
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+    --shadow-md: 0 8px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 15px 35px rgba(0,0,0,0.12);
+    --shadow-xl: 0 20px 50px rgba(0,0,0,0.15);
+
+    /* ===========================
+       TRANSITIONS
+    =========================== */
+
+    --transition-fast: .2s ease;
+    --transition-normal: .3s ease;
+    --transition-slow: .5s ease;
+
+    /* ===========================
+       CONTAINER
+    =========================== */
+
+    --container-width: 1400px;
+    --container-padding: 20px;
+
+    /* ===========================
+       NAVBAR
+    =========================== */
+
+    --navbar-height: 80px;
+
+    /* ===========================
+       Z-INDEX
+    =========================== */
+
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-fixed: 700;
+    --z-modal: 900;
+    --z-loader: 1000;
+}

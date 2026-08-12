@@ -1,0 +1,260 @@
+/* =========================================================
+   SoleAI - Animations
+   File: animations.css
+   Description: Global CSS Animations
+========================================================= */
+
+/* ===========================
+   KEYFRAMES
+=========================== */
+
+@keyframes fadeIn {
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes fadeUp {
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from{
+        opacity:0;
+        transform:translateY(-40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeLeft {
+    from{
+        opacity:0;
+        transform:translateX(-40px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes fadeRight {
+    from{
+        opacity:0;
+        transform:translateX(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+@keyframes rotateIn {
+    from{
+        opacity:0;
+        transform:rotate(-15deg) scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:rotate(0) scale(1);
+    }
+}
+
+@keyframes float {
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.05);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes spin {
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes shimmer {
+    100%{
+        transform:translateX(100%);
+    }
+}
+
+/* ===========================
+   ANIMATION CLASSES
+=========================== */
+
+.fade-in{
+    animation:fadeIn .8s ease forwards;
+}
+
+.fade-up{
+    animation:fadeUp .8s ease forwards;
+}
+
+.fade-down{
+    animation:fadeDown .8s ease forwards;
+}
+
+.fade-left{
+    animation:fadeLeft .8s ease forwards;
+}
+
+.fade-right{
+    animation:fadeRight .8s ease forwards;
+}
+
+.scale-in{
+    animation:scaleIn .6s ease forwards;
+}
+
+.rotate-in{
+    animation:rotateIn .8s ease forwards;
+}
+
+.float{
+    animation:float 4s ease-in-out infinite;
+}
+
+.pulse{
+    animation:pulse 2s infinite;
+}
+
+.spin{
+    animation:spin 1s linear infinite;
+}
+
+/* ===========================
+   HOVER EFFECTS
+=========================== */
+
+.hover-lift{
+    transition:.3s ease;
+}
+
+.hover-lift:hover{
+    transform:translateY(-8px);
+}
+
+.hover-scale{
+    transition:.3s ease;
+}
+
+.hover-scale:hover{
+    transform:scale(1.05);
+}
+
+.hover-rotate{
+    transition:.3s ease;
+}
+
+.hover-rotate:hover{
+    transform:rotate(2deg);
+}
+
+/* ===========================
+   SKELETON LOADER
+=========================== */
+
+.skeleton{
+    position:relative;
+    overflow:hidden;
+    background:#e2e8f0;
+}
+
+.skeleton::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    transform:translateX(-100%);
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.5),
+        transparent
+    );
+    animation:shimmer 1.5s infinite;
+}
+
+/* ===========================
+   IMAGE EFFECT
+=========================== */
+
+.image-zoom{
+    overflow:hidden;
+}
+
+.image-zoom img{
+    transition:.5s ease;
+}
+
+.image-zoom:hover img{
+    transform:scale(1.1);
+}
+
+/* ===========================
+   BUTTON EFFECT
+=========================== */
+
+.btn{
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   CARD EFFECT
+=========================== */
+
+.card{
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}

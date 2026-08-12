@@ -1,0 +1,321 @@
+/* ===========================================================
+                    PRODUCT CARD
+=========================================================== */
+
+.product-card{
+
+    position:relative;
+
+    background:#ffffff;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow-md);
+
+    transition:all .35s ease;
+
+    border:1px solid rgba(0,0,0,.05);
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:var(--shadow-xl);
+
+}
+
+
+/* ===========================================================
+                    PRODUCT BADGE
+=========================================================== */
+
+.product-badge{
+
+    position:absolute;
+
+    top:20px;
+
+    left:20px;
+
+    background:linear-gradient(
+        135deg,
+        #2563EB,
+        #3B82F6
+    );
+
+    color:#ffffff;
+
+    padding:8px 16px;
+
+    border-radius:50px;
+
+    font-size:.8rem;
+
+    font-weight:600;
+
+    z-index:5;
+
+}
+
+
+/* ===========================================================
+                    PRODUCT IMAGE
+=========================================================== */
+
+.product-image{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#F8FAFC;
+
+}
+
+.product-image img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:contain;
+
+    padding:25px;
+
+    transition:.5s;
+
+}
+
+.product-card:hover .product-image img{
+
+    transform:scale(1.08) rotate(-3deg);
+
+}
+
+
+/* ===========================================================
+                    PRODUCT ACTIONS
+=========================================================== */
+
+.product-actions{
+
+    position:absolute;
+
+    top:20px;
+
+    right:-70px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    transition:.4s;
+
+}
+
+.product-card:hover .product-actions{
+
+    right:20px;
+
+}
+
+.product-actions button{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:var(--shadow-md);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.product-actions button:hover{
+
+    background:var(--color-primary);
+
+    color:#ffffff;
+
+    transform:scale(1.1);
+
+}
+
+
+/* ===========================================================
+                    CONTENT
+=========================================================== */
+
+.product-content{
+
+    padding:25px;
+
+}
+
+.product-category{
+
+    display:inline-block;
+
+    color:var(--color-primary);
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+}
+
+.product-title{
+
+    font-size:1.35rem;
+
+    margin-bottom:15px;
+
+    line-height:1.4;
+
+}
+
+
+/* ===========================================================
+                    RATING
+=========================================================== */
+
+.product-rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    margin-bottom:18px;
+
+}
+
+.product-rating i{
+
+    color:#FBBF24;
+
+}
+
+.product-rating span{
+
+    margin-left:10px;
+
+    color:var(--text-secondary);
+
+}
+
+
+/* ===========================================================
+                    PRICE
+=========================================================== */
+
+.product-price{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:25px;
+
+}
+
+.new-price{
+
+    font-size:1.5rem;
+
+    font-weight:700;
+
+    color:var(--color-primary);
+
+}
+
+.old-price{
+
+    color:#94A3B8;
+
+    text-decoration:line-through;
+
+}
+
+
+/* ===========================================================
+                    BUTTONS
+=========================================================== */
+
+.product-buttons{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.product-buttons .btn{
+
+    flex:1;
+
+}
+
+.btn-outline{
+
+    border:2px solid var(--color-primary);
+
+    background:transparent;
+
+    color:var(--color-primary);
+
+}
+
+.btn-outline:hover{
+
+    background:var(--color-primary);
+
+    color:#ffffff;
+
+}
+
+
+/* ===========================================================
+                    RESPONSIVE
+=========================================================== */
+
+@media(max-width:768px){
+
+    .product-buttons{
+
+        flex-direction:column;
+
+    }
+
+    .product-title{
+
+        font-size:1.2rem;
+
+    }
+
+    .product-image img{
+
+        height:260px;
+
+    }
+
+}
