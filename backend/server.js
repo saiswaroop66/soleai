@@ -11,15 +11,13 @@ const productRoutes = require("./routes/productRoutes");
 const cartRoutes = require("./routes/cartRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 
-
 /* ==========================================
    APP
 ========================================== */
 
 const app = express();
 
-const PORT =
-    process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 
 /* ==========================================
@@ -30,12 +28,74 @@ connectDB();
 
 
 /* ==========================================
-   MIDDLEWARE
+   CORS
 ========================================== */
 
+const allowedOrigins = [
+    "https://6a7c93a3bd06b8424ee16709--neon-brigadeiros-aeb0e5.netlify.app",
+    "https://6a7c858e45caa1cd565f9c07--celadon-eclair-b8041d.netlify.app",
+    "http://localhost:3000",
+    "http://localhost:5000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5000"
+];
+
 app.use(
-    cors()
+    cors({
+        origin: function (origin, callback) {
+
+            // Allow requests without an Origin header
+            // such as direct API calls/Postman.
+            if (!origin) {
+                return callback(null, true);
+            }
+
+            // Allow known frontend origins.
+            if (allowedOrigins.includes(origin)) {
+                return callback(null, true);
+            }
+
+            // Allow Netlify preview deployments.
+            if (
+                origin.endsWith(".netlify.app")
+            ) {
+                return callback(null, true);
+            }
+
+            console.log(
+                "CORS blocked origin:",
+                origin
+            );
+
+            return callback(
+                new Error(
+                    "Not allowed by CORS"
+                )
+            );
+        },
+
+        methods: [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE",
+            "OPTIONS"
+        ],
+
+        allowedHeaders: [
+            "Content-Type",
+            "Authorization"
+        ],
+
+        optionsSuccessStatus: 204
+    })
 );
+
+
+/* ==========================================
+   BODY PARSING
+========================================== */
 
 app.use(
     express.json()
@@ -137,8 +197,7 @@ app.use(
 
 /* ==========================================
    404 HANDLER
-   IMPORTANT:
-   Keep this AFTER all API routes.
+   MUST BE AFTER ALL ROUTES
 ========================================== */
 
 app.use(
@@ -177,6 +236,21 @@ app.use(
             error
         );
 
+        if (
+            error.message ===
+            "Not allowed by CORS"
+        ) {
+
+            return res.status(403).json({
+
+                success: false,
+
+                message:
+                    "CORS origin not allowed"
+
+            });
+
+        }
 
         res.status(500).json({
 
@@ -214,31 +288,31 @@ app.listen(
         );
 
         console.log(
-            `Server: http://localhost:${PORT}`
+            `Server running on port ${PORT}`
         );
 
         console.log(
-            `Health: http://localhost:${PORT}/api/health`
+            `Health: /api/health`
         );
 
         console.log(
-            `Register: http://localhost:${PORT}/api/auth/register`
+            `Register: /api/auth/register`
         );
 
         console.log(
-            `Login: http://localhost:${PORT}/api/auth/login`
+            `Login: /api/auth/login`
         );
 
         console.log(
-            `Products: http://localhost:${PORT}/api/products`
+            `Products: /api/products`
         );
 
         console.log(
-            `Cart: http://localhost:${PORT}/api/cart`
+            `Cart: /api/cart`
         );
 
         console.log(
-            `Orders: http://localhost:${PORT}/api/orders`
+            `Orders: /api/orders`
         );
 
         console.log(
