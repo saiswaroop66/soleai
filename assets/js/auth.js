@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const API_URL =
-        "http://localhost:5000/api/auth/login";
+        "https://soleai-backend.onrender.com/api/auth/login";
 
 
     /* ==========================================
