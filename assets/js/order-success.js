@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     ========================================== */
 
     const API_URL =
-        "http://localhost:5000/api";
+         "https://soleai-backend.onrender.com/api";
 
     const ORDER_API_URL =
         `${API_URL}/orders`;
