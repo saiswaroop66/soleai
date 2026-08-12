@@ -87,21 +87,17 @@ document.addEventListener(
    INITIALIZE PRODUCT
 ============================================================ */
 
-function initializeProduct(
-    product
-) {
+function initializeProduct(product) {
 
     let selectedSize =
         product.sizes?.length
             ? String(product.sizes[0])
             : "8";
 
-
     let selectedColor =
         product.colors?.length
             ? product.colors[0]
             : "Black";
-
 
     let quantity = 1;
 
@@ -111,9 +107,7 @@ function initializeProduct(
     const images =
         Array.isArray(product.images) &&
         product.images.length
-
             ? product.images
-
             : [product.image];
 
 
@@ -231,9 +225,7 @@ function initializeProduct(
     function renderThumbnails() {
 
         if (!thumbnailContainer) {
-
             return;
-
         }
 
 
@@ -242,10 +234,7 @@ function initializeProduct(
 
 
         images.forEach(
-            (
-                image,
-                index
-            ) => {
+            (image, index) => {
 
                 const button =
                     document.createElement(
@@ -304,14 +293,10 @@ function initializeProduct(
     }
 
 
-    function changeImage(
-        index
-    ) {
+    function changeImage(index) {
 
         if (!images.length) {
-
             return;
-
         }
 
 
@@ -348,10 +333,7 @@ function initializeProduct(
                 ".product-thumbnail"
             )
             .forEach(
-                (
-                    thumbnail,
-                    i
-                ) => {
+                (thumbnail, i) => {
 
                     thumbnail.classList.toggle(
                         "active",
@@ -653,10 +635,6 @@ function initializeProduct(
             );
 
 
-        /* ==========================================
-           CHECK LOGIN
-        ========================================== */
-
         if (!token) {
 
             showToast(
@@ -680,10 +658,6 @@ function initializeProduct(
         }
 
 
-        /* ==========================================
-           BUTTON LOADING
-        ========================================== */
-
         const addButton =
             document.getElementById(
                 "add-to-cart"
@@ -703,10 +677,6 @@ function initializeProduct(
 
 
         try {
-
-            /* ==========================================
-               SEND PRODUCT TO MONGODB
-            ========================================== */
 
             const response =
                 await fetch(
@@ -750,10 +720,6 @@ function initializeProduct(
             const data =
                 await response.json();
 
-
-            /* ==========================================
-               API ERROR
-            ========================================== */
 
             if (!response.ok) {
 
@@ -804,10 +770,6 @@ function initializeProduct(
             }
 
 
-            /* ==========================================
-               SUCCESS
-            ========================================== */
-
             console.log(
                 "Product added to MongoDB cart:",
                 data.cart
@@ -818,10 +780,6 @@ function initializeProduct(
                 `${product.name} added to cart`
             );
 
-
-            /* ==========================================
-               UPDATE CART BADGE
-            ========================================== */
 
             updateCartBadgeFromBackend(
                 data.cart
@@ -1096,9 +1054,7 @@ function initializeProduct(
         );
 
 
-    function askAI(
-        question
-    ) {
+    function askAI(question) {
 
         if (
             !question.trim()
@@ -1426,9 +1382,7 @@ function initializeProduct(
    UPDATE CART BADGE FROM BACKEND
 ============================================================ */
 
-function updateCartBadgeFromBackend(
-    cart
-) {
+function updateCartBadgeFromBackend(cart) {
 
     if (
         !cart ||
@@ -1690,9 +1644,7 @@ async function loadRelatedProducts(
    HELPERS
 ============================================================ */
 
-function productImageURL(
-    image
-) {
+function productImageURL(image) {
 
     if (!image) {
 
@@ -1721,9 +1673,7 @@ function productImageURL(
 }
 
 
-function escapeHTML(
-    value
-) {
+function escapeHTML(value) {
 
     const div =
         document.createElement(
@@ -1743,10 +1693,7 @@ function escapeHTML(
 }
 
 
-function setText(
-    id,
-    value
-) {
+function setText(id, value) {
 
     const element =
         document.getElementById(
@@ -1765,9 +1712,7 @@ function setText(
 }
 
 
-function formatPrice(
-    value
-) {
+function formatPrice(value) {
 
     return "₹" +
         Number(
@@ -1791,11 +1736,6 @@ function updateCartBadge() {
             TOKEN_KEY
         );
 
-
-    /*
-     * If logged in, get the real
-     * MongoDB cart count.
-     */
 
     if (token) {
 
@@ -1846,10 +1786,6 @@ function updateCartBadge() {
 
     }
 
-
-    /*
-     * Guest/local fallback.
-     */
 
     let cart = [];
 
@@ -1914,9 +1850,7 @@ function updateCartBadge() {
    TOAST
 ============================================================ */
 
-function showToast(
-    message
-) {
+function showToast(message) {
 
     let toast =
         document.getElementById(
