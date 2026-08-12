@@ -1,10 +1,10 @@
 "use strict";
 
 const API_URL =
-    "http://localhost:5000/api/products";
+    "https://soleai-backend.onrender.com/api/products";
 
 const CART_API_URL =
-    "http://localhost:5000/api/cart";
+    "https://soleai-backend.onrender.com/api/cart";
 
 const TOKEN_KEY =
     "soleaiToken";
