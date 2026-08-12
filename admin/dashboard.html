@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>SoleAI Admin | Dashboard</title>
+
+    <meta
+        name="description"
+        content="SoleAI administration dashboard">
+
+    <link
+        rel="icon"
+        href="../assets/images/logo/favicon.png">
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <!-- =====================================================
+         BOOTSTRAP ICONS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+    <!-- =====================================================
+         ADMIN CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin.css">
+
+</head>
+
+
+<body class="admin-body">
+
+
+    <!-- =====================================================
+         ADMIN APP
+    ====================================================== -->
+
+    <div class="admin-app">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="admin-sidebar"
+            id="adminSidebar">
+
+
+            <!-- LOGO -->
+
+            <div class="admin-logo">
+
+                <a href="../index.html">
+
+                    <div class="admin-logo-mark">
+
+                        <i class="bi bi-stars"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            SoleAI
+                        </strong>
+
+                        <span>
+                            ADMIN
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- ADMIN PROFILE -->
+
+            <div class="admin-profile">
+
+                <div class="admin-avatar">
+
+                    SA
+
+                </div>
+
+                <div class="admin-profile-info">
+
+                    <strong>
+                        SoleAI Admin
+                    </strong>
+
+                    <span>
+
+                        <i class="bi bi-circle-fill"></i>
+
+                        Online
+
+                    </span>
+
+                </div>
+
+                <button
+                    class="admin-profile-menu"
+                    type="button">
+
+                    <i class="bi bi-three-dots"></i>
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 NAVIGATION
+            ================================================== -->
+
+            <nav class="admin-navigation">
+
+
+                <!-- MAIN -->
+
+                <div class="admin-nav-group">
+
+                    <span class="admin-nav-label">
+                        MAIN
+                    </span>
+
+
+                    <a
+                        href="dashboard.html"
+                        class="admin-nav-link active">
+
+                        <i class="bi bi-grid-1x2-fill"></i>
+
+                        <span>
+                            Dashboard
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="analytics.html"
+                        class="admin-nav-link">
+
+                        <i class="bi bi-bar-chart-line"></i>
+
+                        <span>
+                            Analytics
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- STORE -->
+
+                <div class="admin-nav-group">
+
+                    <span class="admin-nav-label">
+                        STORE
+                    </span>
+
+
+                    <a
+                        href="products.html"
+                        class="admin-nav-link">
+
+                        <i class="bi bi-box-seam"></i>
+
+                        <span>
+                            Products
+                        </span>
+
+                        <span
+                            class="admin-nav-badge"
+                            id="product-count-badge">
+
+                            6
+
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="categories.html"
+                        class="admin-nav-link">
+
+                        <i class="bi bi-grid"></i>
+
+                        <span>
+                            Categories
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="inventory.html"
+                        class="admin-nav-link">
+
+                        <i class="bi bi-boxes"></i>
+
+                        <span>
+                            Inventory
+                        </span>
+
+                        <span
+                            class="admin-nav-alert">
+
+                            3
+
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="orders.html"
+                        class="admin-nav-link">
+
+                        <i class="bi bi-bag-check"></i>
+
+                        <span>
+                            Orders
+                        </span>
+
+                        <span
+                            class="admin-nav-badge"
+                            id="order-count-badge">
+
+                            12
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- CUSTOMERS -->
+
+                <div class="admin-nav-group">
+
+                    <span class="admin-nav-label">
+                        CUSTOMERS
+                    </span>
+
+
+                    <a
+                        href="users.html"
+                        class="admin-nav-link">
+
+                        <i class="bi bi-people"></i>
+
+                        <span>
+                            Users
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="reviews.html"
+                        class="admin-nav-link">
+
+                        <i class="bi bi-star"></i>
+
+                        <span>
+                            Reviews
+                        </span>
+
+                        <span
+                            class="admin-nav-badge warning">
+
+                            8
+
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- MARKETING -->
+
+                <div class="admin-nav-group">
+
+                    <span class="admin-nav-label">
+                        MARKETING
+                    </span>
+
+
+                    <a
+                        href="coupons.html"
+                        class="admin-nav-link">
+
+                        <i class="bi bi-ticket-perforated"></i>
+
+                        <span>
+                            Coupons
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- SYSTEM -->
+
+                <div class="admin-nav-group">
+
+                    <span class="admin-nav-label">
+                        SYSTEM
+                    </span>
+
+
+                    <a
+                        href="settings.html"
+                        class="admin-nav-link">
+
+                        <i class="bi bi-gear"></i>
+
+                        <span>
+                            Settings
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="admin-sidebar-bottom">
+
+
+                <a
+                    href="../index.html"
+                    class="view-store-btn">
+
+                    <i class="bi bi-shop"></i>
+
+                    <span>
+                        View Store
+                    </span>
+
+                    <i class="bi bi-arrow-up-right"></i>
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="admin-logout-btn"
+                    id="admin-logout">
+
+                    <i class="bi bi-box-arrow-left"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </button>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN AREA
+        ================================================== -->
+
+        <div class="admin-main">
+
+
+            <!-- =================================================
+                 TOPBAR
+            ================================================== -->
+
+            <header class="admin-topbar">
+
+
+                <div class="topbar-left">
+
+
+                    <button
+                        type="button"
+                        class="sidebar-toggle"
+                        id="sidebar-toggle"
+                        aria-label="Toggle sidebar">
+
+                        <i class="bi bi-list"></i>
+
+                    </button>
+
+
+                    <div class="admin-page-title">
+
+                        <span>
+                            Overview
+                        </span>
+
+                        <h1>
+                            Dashboard
+                        </h1>
+
+                    </div>
+
+                </div>
+
+
+                <div class="topbar-right">
+
+
+                    <!-- SEARCH -->
+
+                    <button
+                        type="button"
+                        class="topbar-icon-btn"
+                        id="admin-search-btn"
+                        aria-label="Search">
+
+                        <i class="bi bi-search"></i>
+
+                    </button>
+
+
+                    <!-- NOTIFICATIONS -->
+
+                    <button
+                        type="button"
+                        class="topbar-icon-btn notification-btn"
+                        id="notification-btn"
+                        aria-label="Notifications">
+
+                        <i class="bi bi-bell"></i>
+
+                        <span></span>
+
+                    </button>
+
+
+                    <!-- STORE -->
+
+                    <a
+                        href="../index.html"
+                        class="topbar-store-btn">
+
+                        <i class="bi bi-box-arrow-up-right"></i>
+
+                        <span>
+                            Store
+                        </span>
+
+                    </a>
+
+
+                    <!-- ADMIN -->
+
+                    <div class="topbar-user">
+
+                        <div class="topbar-avatar">
+                            SA
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Admin
+                            </strong>
+
+                            <span>
+                                Administrator
+                            </span>
+
+                        </div>
+
+                        <i class="bi bi-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 CONTENT
+            ================================================== -->
+
+            <main class="admin-content">
+
+
+                <!-- =================================================
+                     WELCOME
+                ================================================== -->
+
+                <section class="dashboard-welcome">
+
+                    <div>
+
+                        <span class="welcome-label">
+
+                            <i class="bi bi-stars"></i>
+
+                            SOLEAI CONTROL CENTER
+
+                        </span>
+
+
+                        <h2>
+                            Good morning, Admin.
+                        </h2>
+
+
+                        <p>
+                            Here's what's happening across
+                            your SoleAI store today.
+                        </p>
+
+                    </div>
+
+
+                    <div class="welcome-actions">
+
+                        <button
+                            type="button"
+                            class="dashboard-secondary-btn"
+                            id="export-data-btn">
+
+                            <i class="bi bi-download"></i>
+
+                            Export
+
+                        </button>
+
+
+                        <a
+                            href="products.html"
+                            class="dashboard-primary-btn">
+
+                            <i class="bi bi-plus-lg"></i>
+
+                            Add Product
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     STAT CARDS
+                ================================================== -->
+
+                <section class="stats-grid">
+
+
+                    <!-- REVENUE -->
+
+                    <article class="stat-card">
+
+                        <div class="stat-card-top">
+
+                            <div class="stat-icon revenue">
+
+                                <i class="bi bi-currency-rupee"></i>
+
+                            </div>
+
+                            <span class="stat-period">
+                                This Month
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-value"
+                             id="total-revenue">
+
+                            ₹1,24,580
+
+                        </div>
+
+
+                        <div class="stat-footer">
+
+                            <span class="stat-growth positive">
+
+                                <i class="bi bi-arrow-up"></i>
+
+                                18.4%
+
+                            </span>
+
+                            <span>
+                                vs last month
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- ORDERS -->
+
+                    <article class="stat-card">
+
+                        <div class="stat-card-top">
+
+                            <div class="stat-icon orders">
+
+                                <i class="bi bi-bag-check"></i>
+
+                            </div>
+
+                            <span class="stat-period">
+                                This Month
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-value"
+                             id="total-orders">
+
+                            248
+
+                        </div>
+
+
+                        <div class="stat-footer">
+
+                            <span class="stat-growth positive">
+
+                                <i class="bi bi-arrow-up"></i>
+
+                                12.8%
+
+                            </span>
+
+                            <span>
+                                vs last month
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- CUSTOMERS -->
+
+                    <article class="stat-card">
+
+                        <div class="stat-card-top">
+
+                            <div class="stat-icon customers">
+
+                                <i class="bi bi-people"></i>
+
+                            </div>
+
+                            <span class="stat-period">
+                                Total
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-value"
+                             id="total-customers">
+
+                            10,842
+
+                        </div>
+
+
+                        <div class="stat-footer">
+
+                            <span class="stat-growth positive">
+
+                                <i class="bi bi-arrow-up"></i>
+
+                                8.2%
+
+                            </span>
+
+                            <span>
+                                new customers
+                            </span>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- PRODUCTS -->
+
+                    <article class="stat-card">
+
+                        <div class="stat-card-top">
+
+                            <div class="stat-icon products">
+
+                                <i class="bi bi-box-seam"></i>
+
+                            </div>
+
+                            <span class="stat-period">
+                                Catalog
+                            </span>
+
+                        </div>
+
+
+                        <div class="stat-value"
+                             id="total-products">
+
+                            6
+
+                        </div>
+
+
+                        <div class="stat-footer">
+
+                            <span class="stat-growth neutral">
+
+                                Active
+
+                            </span>
+
+                            <span>
+                                products
+                            </span>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     ANALYTICS ROW
+                ================================================== -->
+
+                <section class="dashboard-grid">
+
+
+                    <!-- REVENUE CHART -->
+
+                    <article class="dashboard-card revenue-card">
+
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+
+                                <span>
+                                    REVENUE OVERVIEW
+                                </span>
+
+                                <h3>
+                                    Sales performance
+                                </h3>
+
+                            </div>
+
+
+                            <select
+                                id="revenue-period"
+                                class="dashboard-select">
+
+                                <option>
+                                    Last 7 days
+                                </option>
+
+                                <option selected>
+                                    Last 30 days
+                                </option>
+
+                                <option>
+                                    Last 90 days
+                                </option>
+
+                                <option>
+                                    This year
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="chart-summary">
+
+                            <strong>
+                                ₹1,24,580
+                            </strong>
+
+                            <span class="positive">
+
+                                <i class="bi bi-arrow-up"></i>
+
+                                18.4%
+
+                            </span>
+
+                        </div>
+
+
+                        <!-- Chart -->
+
+                        <div
+                            class="revenue-chart"
+                            id="revenue-chart">
+
+
+                            <div class="chart-y-axis">
+
+                                <span>
+                                    ₹30K
+                                </span>
+
+                                <span>
+                                    ₹20K
+                                </span>
+
+                                <span>
+                                    ₹10K
+                                </span>
+
+                                <span>
+                                    ₹0
+                                </span>
+
+                            </div>
+
+
+                            <div class="chart-area">
+
+                                <div class="chart-grid-lines">
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+
+                                </div>
+
+
+                                <svg
+                                    class="revenue-line"
+                                    viewBox="0 0 700 240"
+                                    preserveAspectRatio="none"
+                                    aria-label="Revenue chart">
+
+                                    <defs>
+
+                                        <linearGradient
+                                            id="revenueGradient"
+                                            x1="0"
+                                            y1="0"
+                                            x2="0"
+                                            y2="1">
+
+                                            <stop
+                                                offset="0%"
+                                                stop-color="#2563eb"
+                                                stop-opacity=".20">
+
+                                            </stop>
+
+                                            <stop
+                                                offset="100%"
+                                                stop-color="#2563eb"
+                                                stop-opacity="0">
+
+                                            </stop>
+
+                                        </linearGradient>
+
+                                    </defs>
+
+
+                                    <path
+                                        class="chart-fill"
+                                        d="
+                                        M0,185
+                                        C45,170
+                                        65,180
+                                        100,145
+                                        S150,125
+                                        185,140
+                                        S225,105
+                                        260,115
+                                        S310,80
+                                        345,100
+                                        S390,65
+                                        425,85
+                                        S470,50
+                                        510,70
+                                        S560,40
+                                        600,55
+                                        S650,30
+                                        700,45
+                                        L700,240
+                                        L0,240
+                                        Z
+                                        ">
+                                    </path>
+
+
+                                    <path
+                                        class="chart-line"
+                                        d="
+                                        M0,185
+                                        C45,170
+                                        65,180
+                                        100,145
+                                        S150,125
+                                        185,140
+                                        S225,105
+                                        260,115
+                                        S310,80
+                                        345,100
+                                        S390,65
+                                        425,85
+                                        S470,50
+                                        510,70
+                                        S560,40
+                                        600,55
+                                        S650,30
+                                        700,45
+                                        ">
+                                    </path>
+
+                                </svg>
+
+
+                                <div class="chart-tooltip"
+                                     id="chart-tooltip">
+
+                                    <span>
+                                        May 18
+                                    </span>
+
+                                    <strong>
+                                        ₹18,420
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="chart-x-axis">
+
+                                    <span>
+                                        May 01
+                                    </span>
+
+                                    <span>
+                                        May 07
+                                    </span>
+
+                                    <span>
+                                        May 14
+                                    </span>
+
+                                    <span>
+                                        May 21
+                                    </span>
+
+                                    <span>
+                                        May 28
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- AI PERFORMANCE -->
+
+                    <article class="dashboard-card ai-performance-card">
+
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+
+                                <span>
+                                    SOLEAI INTELLIGENCE
+                                </span>
+
+                                <h3>
+                                    AI performance
+                                </h3>
+
+                            </div>
+
+
+                            <a href="analytics.html">
+                                View details
+                            </a>
+
+                        </div>
+
+
+                        <div class="ai-score">
+
+                            <div class="ai-score-circle">
+
+                                <svg
+                                    viewBox="0 0 100 100">
+
+                                    <circle
+                                        cx="50"
+                                        cy="50"
+                                        r="42"
+                                        class="score-bg">
+
+                                    </circle>
+
+                                    <circle
+                                        cx="50"
+                                        cy="50"
+                                        r="42"
+                                        class="score-progress">
+
+                                    </circle>
+
+                                </svg>
+
+
+                                <div>
+
+                                    <strong>
+                                        94%
+                                    </strong>
+
+                                    <span>
+                                        AI Score
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="ai-score-text">
+
+                                <strong>
+                                    Excellent performance
+                                </strong>
+
+                                <p>
+                                    Your AI recommendation
+                                    engine is performing above
+                                    average.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="ai-metrics">
+
+
+                            <div>
+
+                                <span>
+                                    AI searches
+                                </span>
+
+                                <strong>
+                                    3,842
+                                </strong>
+
+                                <small class="positive">
+                                    +24.5%
+                                </small>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Recommendations
+                                </span>
+
+                                <strong>
+                                    8,421
+                                </strong>
+
+                                <small class="positive">
+                                    +18.2%
+                                </small>
+
+                            </div>
+
+
+                            <div>
+
+                                <span>
+                                    Conversion
+                                </span>
+
+                                <strong>
+                                    12.8%
+                                </strong>
+
+                                <small class="positive">
+                                    +3.4%
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     LOWER GRID
+                ================================================== -->
+
+                <section class="dashboard-grid lower-grid">
+
+
+                    <!-- RECENT ORDERS -->
+
+                    <article class="dashboard-card orders-card">
+
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+
+                                <span>
+                                    ORDERS
+                                </span>
+
+                                <h3>
+                                    Recent orders
+                                </h3>
+
+                            </div>
+
+
+                            <a href="orders.html">
+
+                                View all
+
+                                <i class="bi bi-arrow-right"></i>
+
+                            </a>
+
+                        </div>
+
+
+                        <div class="orders-table-wrapper">
+
+                            <table class="admin-table">
+
+                                <thead>
+
+                                    <tr>
+
+                                        <th>
+                                            Order
+                                        </th>
+
+                                        <th>
+                                            Customer
+                                        </th>
+
+                                        <th>
+                                            Date
+                                        </th>
+
+                                        <th>
+                                            Amount
+                                        </th>
+
+                                        <th>
+                                            Status
+                                        </th>
+
+                                    </tr>
+
+                                </thead>
+
+
+                                <tbody id="recent-orders">
+
+
+                                    <tr>
+
+                                        <td>
+
+                                            <strong>
+                                                #SA-1048
+                                            </strong>
+
+                                        </td>
+
+                                        <td>
+
+                                            <div class="customer-cell">
+
+                                                <div class="table-avatar">
+                                                    RK
+                                                </div>
+
+                                                <span>
+                                                    Rahul Kumar
+                                                </span>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            Aug 08, 2026
+                                        </td>
+
+                                        <td>
+                                            <strong>
+                                                ₹6,998
+                                            </strong>
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status-badge processing">
+
+                                                Processing
+
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+
+                                            <strong>
+                                                #SA-1047
+                                            </strong>
+
+                                        </td>
+
+                                        <td>
+
+                                            <div class="customer-cell">
+
+                                                <div class="table-avatar">
+                                                    AS
+                                                </div>
+
+                                                <span>
+                                                    Anjali Sharma
+                                                </span>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            Aug 08, 2026
+                                        </td>
+
+                                        <td>
+                                            <strong>
+                                                ₹3,499
+                                            </strong>
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status-badge shipped">
+
+                                                Shipped
+
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+
+                                            <strong>
+                                                #SA-1046
+                                            </strong>
+
+                                        </td>
+
+                                        <td>
+
+                                            <div class="customer-cell">
+
+                                                <div class="table-avatar">
+                                                    VM
+                                                </div>
+
+                                                <span>
+                                                    Vikram Mehta
+                                                </span>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            Aug 07, 2026
+                                        </td>
+
+                                        <td>
+                                            <strong>
+                                                ₹7,999
+                                            </strong>
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status-badge delivered">
+
+                                                Delivered
+
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+
+                                            <strong>
+                                                #SA-1045
+                                            </strong>
+
+                                        </td>
+
+                                        <td>
+
+                                            <div class="customer-cell">
+
+                                                <div class="table-avatar">
+                                                    PN
+                                                </div>
+
+                                                <span>
+                                                    Priya Nair
+                                                </span>
+
+                                            </div>
+
+                                        </td>
+
+                                        <td>
+                                            Aug 07, 2026
+                                        </td>
+
+                                        <td>
+                                            <strong>
+                                                ₹5,998
+                                            </strong>
+                                        </td>
+
+                                        <td>
+
+                                            <span class="status-badge pending">
+
+                                                Pending
+
+                                            </span>
+
+                                        </td>
+
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- BEST SELLERS -->
+
+                    <article class="dashboard-card bestseller-card">
+
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+
+                                <span>
+                                    PRODUCTS
+                                </span>
+
+                                <h3>
+                                    Best sellers
+                                </h3>
+
+                            </div>
+
+
+                            <a href="products.html">
+                                View all
+                            </a>
+
+                        </div>
+
+
+                        <div class="best-seller-list">
+
+
+                            <div class="best-product">
+
+                                <div class="best-product-image">
+
+                                    <img
+                                        src="../assets/images/products/urban-street-pro.jpg"
+                                        alt="Urban Street Pro"
+                                        onerror="this.style.display='none'">
+
+                                </div>
+
+                                <div class="best-product-info">
+
+                                    <strong>
+                                        Urban Street Pro
+                                    </strong>
+
+                                    <span>
+                                        SoleAI
+                                    </span>
+
+                                </div>
+
+                                <div class="best-product-sales">
+
+                                    <strong>
+                                        248
+                                    </strong>
+
+                                    <span>
+                                        sold
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="best-product">
+
+                                <div class="best-product-image">
+
+                                    <img
+                                        src="../assets/images/products/cloudstep-max.jpg"
+                                        alt="CloudStep Max"
+                                        onerror="this.style.display='none'">
+
+                                </div>
+
+                                <div class="best-product-info">
+
+                                    <strong>
+                                        CloudStep Max
+                                    </strong>
+
+                                    <span>
+                                        SoleAI
+                                    </span>
+
+                                </div>
+
+                                <div class="best-product-sales">
+
+                                    <strong>
+                                        192
+                                    </strong>
+
+                                    <span>
+                                        sold
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="best-product">
+
+                                <div class="best-product-image">
+
+                                    <img
+                                        src="../assets/images/products/nike-pegasus.jpg"
+                                        alt="Nike Air Zoom Pegasus 41"
+                                        onerror="this.style.display='none'">
+
+                                </div>
+
+                                <div class="best-product-info">
+
+                                    <strong>
+                                        Nike Air Zoom Pegasus 41
+                                    </strong>
+
+                                    <span>
+                                        Nike
+                                    </span>
+
+                                </div>
+
+                                <div class="best-product-sales">
+
+                                    <strong>
+                                        167
+                                    </strong>
+
+                                    <span>
+                                        sold
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="best-product">
+
+                                <div class="best-product-image">
+
+                                    <img
+                                        src="../assets/images/products/adidas-adizero.jpg"
+                                        alt="Adidas Adizero SL"
+                                        onerror="this.style.display='none'">
+
+                                </div>
+
+                                <div class="best-product-info">
+
+                                    <strong>
+                                        Adidas Adizero SL
+                                    </strong>
+
+                                    <span>
+                                        Adidas
+                                    </span>
+
+                                </div>
+
+                                <div class="best-product-sales">
+
+                                    <strong>
+                                        143
+                                    </strong>
+
+                                    <span>
+                                        sold
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+
+
+                <!-- =================================================
+                     BOTTOM GRID
+                ================================================== -->
+
+                <section class="dashboard-grid bottom-grid">
+
+
+                    <!-- INVENTORY ALERT -->
+
+                    <article class="dashboard-card inventory-alert-card">
+
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+
+                                <span>
+                                    INVENTORY
+                                </span>
+
+                                <h3>
+                                    Stock alerts
+                                </h3>
+
+                            </div>
+
+
+                            <a href="inventory.html">
+                                Manage inventory
+                            </a>
+
+                        </div>
+
+
+                        <div class="inventory-alert-list">
+
+
+                            <div class="inventory-alert">
+
+                                <div class="inventory-alert-icon critical">
+
+                                    <i class="bi bi-exclamation-triangle"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        CloudStep Max
+                                    </strong>
+
+                                    <span>
+                                        Only 2 units remaining
+                                    </span>
+
+                                </div>
+
+                                <span class="stock-number critical">
+                                    2
+                                </span>
+
+                            </div>
+
+
+                            <div class="inventory-alert">
+
+                                <div class="inventory-alert-icon warning">
+
+                                    <i class="bi bi-exclamation-circle"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Urban Street Pro
+                                    </strong>
+
+                                    <span>
+                                        Only 8 units remaining
+                                    </span>
+
+                                </div>
+
+                                <span class="stock-number warning">
+                                    8
+                                </span>
+
+                            </div>
+
+
+                            <div class="inventory-alert">
+
+                                <div class="inventory-alert-icon warning">
+
+                                    <i class="bi bi-exclamation-circle"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Nike Air Zoom Pegasus 41
+                                    </strong>
+
+                                    <span>
+                                        Only 11 units remaining
+                                    </span>
+
+                                </div>
+
+                                <span class="stock-number warning">
+                                    11
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- QUICK ACTIONS -->
+
+                    <article class="dashboard-card quick-actions-card">
+
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+
+                                <span>
+                                    SHORTCUTS
+                                </span>
+
+                                <h3>
+                                    Quick actions
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="quick-actions">
+
+
+                            <a
+                                href="products.html"
+                                class="quick-action">
+
+                                <div>
+
+                                    <i class="bi bi-plus-lg"></i>
+
+                                </div>
+
+                                <span>
+                                    Add Product
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                href="orders.html"
+                                class="quick-action">
+
+                                <div>
+
+                                    <i class="bi bi-bag-plus"></i>
+
+                                </div>
+
+                                <span>
+                                    Manage Orders
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                href="coupons.html"
+                                class="quick-action">
+
+                                <div>
+
+                                    <i class="bi bi-ticket-perforated"></i>
+
+                                </div>
+
+                                <span>
+                                    Create Coupon
+                                </span>
+
+                            </a>
+
+
+                            <a
+                                href="analytics.html"
+                                class="quick-action">
+
+                                <div>
+
+                                    <i class="bi bi-graph-up-arrow"></i>
+
+                                </div>
+
+                                <span>
+                                    View Analytics
+                                </span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- ACTIVITY -->
+
+                    <article class="dashboard-card activity-card">
+
+
+                        <div class="dashboard-card-header">
+
+                            <div>
+
+                                <span>
+                                    ACTIVITY
+                                </span>
+
+                                <h3>
+                                    Recent activity
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="activity-list">
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon blue">
+
+                                    <i class="bi bi-bag-check"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        New order received
+                                    </strong>
+
+                                    <span>
+                                        Order #SA-1048 · 2 min ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon green">
+
+                                    <i class="bi bi-person-plus"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        New customer registered
+                                    </strong>
+
+                                    <span>
+                                        Rahul Kumar · 18 min ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon purple">
+
+                                    <i class="bi bi-stars"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        AI recommendation completed
+                                    </strong>
+
+                                    <span>
+                                        42 recommendations · 31 min ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="activity-item">
+
+                                <div class="activity-icon orange">
+
+                                    <i class="bi bi-box-seam"></i>
+
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Low stock detected
+                                    </strong>
+
+                                    <span>
+                                        CloudStep Max · 1 hr ago
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+
+            </main>
+
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <footer class="admin-footer">
+
+                <span>
+                    © 2026 SoleAI. Admin Panel.
+                </span>
+
+                <span>
+                    Powered by <strong>SoleAI Intelligence</strong>
+                </span>
+
+            </footer>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MOBILE OVERLAY
+    ====================================================== -->
+
+    <div
+        class="admin-sidebar-overlay"
+        id="admin-sidebar-overlay">
+    </div>
+
+
+
+    <!-- =====================================================
+         SEARCH MODAL
+    ====================================================== -->
+
+    <div
+        class="admin-search-modal"
+        id="admin-search-modal"
+        aria-hidden="true">
+
+        <div class="admin-search-box">
+
+            <div class="search-modal-header">
+
+                <strong>
+                    Search SoleAI
+                </strong>
+
+                <button
+                    type="button"
+                    id="close-search">
+
+                    <i class="bi bi-x-lg"></i>
+
+                </button>
+
+            </div>
+
+
+            <div class="admin-search-input">
+
+                <i class="bi bi-search"></i>
+
+                <input
+                    type="search"
+                    id="admin-search-input"
+                    placeholder="Search products, orders, users...">
+
+                <kbd>
+                    ESC
+                </kbd>
+
+            </div>
+
+
+            <div
+                class="admin-search-results"
+                id="admin-search-results">
+
+                <span>
+                    Start typing to search.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         NOTIFICATION PANEL
+    ====================================================== -->
+
+    <div
+        class="admin-notification-panel"
+        id="notification-panel">
+
+
+        <div class="notification-header">
+
+            <div>
+
+                <strong>
+                    Notifications
+                </strong>
+
+                <span>
+                    4 new alerts
+                </span>
+
+            </div>
+
+            <button
+                type="button"
+                id="close-notifications">
+
+                <i class="bi bi-x-lg"></i>
+
+            </button>
+
+        </div>
+
+
+        <div class="notification-list">
+
+
+            <div class="notification-item">
+
+                <div class="notification-icon order">
+
+                    <i class="bi bi-bag-check"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        New order received
+                    </strong>
+
+                    <span>
+                        Order #SA-1048 was placed.
+                    </span>
+
+                    <small>
+                        2 min ago
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="notification-item">
+
+                <div class="notification-icon stock">
+
+                    <i class="bi bi-exclamation-triangle"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Low stock alert
+                    </strong>
+
+                    <span>
+                        CloudStep Max has 2 units left.
+                    </span>
+
+                    <small>
+                        1 hr ago
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="notification-item">
+
+                <div class="notification-icon review">
+
+                    <i class="bi bi-star"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        New review
+                    </strong>
+
+                    <span>
+                        A customer left a 5-star review.
+                    </span>
+
+                    <small>
+                        2 hrs ago
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="notification-item">
+
+                <div class="notification-icon ai">
+
+                    <i class="bi bi-stars"></i>
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        AI milestone
+                    </strong>
+
+                    <span>
+                        10,000 AI recommendations reached.
+                    </span>
+
+                    <small>
+                        4 hrs ago
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            href="analytics.html"
+            class="view-notifications">
+
+            View all activity
+
+            <i class="bi bi-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="../assets/js/admin.js"></script>
+
+</body>
+
+</html>
