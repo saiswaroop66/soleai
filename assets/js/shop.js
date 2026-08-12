@@ -6,7 +6,7 @@
 =========================================================== */
 
 const API_URL =
-    "http://localhost:5000/api/products";
+    "https://soleai-backend.onrender.com/api/products";
 
 
 /* ===========================================================
