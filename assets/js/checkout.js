@@ -2,26 +2,26 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ==========================================
+    /* =========================================================
        API
-    ========================================== */
+    ========================================================= */
 
-    const API_URL =
+    const API_BASE =
         "https://soleai-backend.onrender.com/api";
 
-    const CART_API_URL =
-        `${API_URL}/cart`;
+    const CART_API =
+        `${API_BASE}/cart`;
 
-    const ORDER_API_URL =
-        `${API_URL}/orders`;
+    const ORDER_API =
+        `${API_BASE}/orders`;
 
     const TOKEN_KEY =
         "soleaiToken";
 
 
-    /* ==========================================
+    /* =========================================================
        ELEMENTS
-    ========================================== */
+    ========================================================= */
 
     const email =
         document.getElementById("email");
@@ -77,13 +77,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const message =
         document.getElementById("message");
 
-    const aiButton =
-        document.getElementById("ai-button");
+
+    /* =========================================================
+       CART
+    ========================================================= */
+
+    let cart = [];
 
 
-    /* ==========================================
+    /* =========================================================
        TOKEN
-    ========================================== */
+    ========================================================= */
 
     function getToken() {
 
@@ -94,9 +98,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==========================================
+    /* =========================================================
        MONEY
-    ========================================== */
+    ========================================================= */
 
     function money(value) {
 
@@ -108,13 +112,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==========================================
+    /* =========================================================
        MESSAGE
-    ========================================== */
+    ========================================================= */
 
     function showMessage(
         text,
-        type
+        type = "error"
     ) {
 
         if (!message) {
@@ -125,8 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
             text;
 
         message.className =
-            "message " +
-            (type || "error");
+            `message ${type}`;
 
     }
 
@@ -146,47 +149,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==========================================
-       CHECK LOGIN
-    ========================================== */
-
-    const token =
-        getToken();
-
-
-    if (!token) {
-
-        showMessage(
-            "Please login before checkout."
-        );
-
-
-        setTimeout(
-            function () {
-
-                window.location.href =
-                    "./login.html";
-
-            },
-            1000
-        );
-
-
-        return;
-
-    }
-
-
-    /* ==========================================
-       CART
-    ========================================== */
-
-    let cart = [];
-
-
-    /* ==========================================
+    /* =========================================================
        NORMALIZE CART ITEM
-    ========================================== */
+    ========================================================= */
 
     function normalizeItem(item) {
 
@@ -245,47 +210,57 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==========================================
-       LOCAL CART
-    ========================================== */
+    /* =========================================================
+       LOCAL STORAGE CART
+    ========================================================= */
 
     function getLocalCart() {
 
         try {
 
-            const stored =
+            const saved =
                 localStorage.getItem(
                     "soleai_cart"
                 );
 
 
-            if (!stored) {
+            if (!saved) {
 
                 return [];
 
             }
 
 
-            const localCart =
-                JSON.parse(
-                    stored
-                );
+            const parsed =
+                JSON.parse(saved);
 
 
             if (
-                !Array.isArray(
-                    localCart
-                )
+                Array.isArray(parsed)
             ) {
 
-                return [];
+                return parsed.map(
+                    normalizeItem
+                );
 
             }
 
 
-            return localCart.map(
-                normalizeItem
-            );
+            if (
+                parsed &&
+                Array.isArray(
+                    parsed.items
+                )
+            ) {
+
+                return parsed.items.map(
+                    normalizeItem
+                );
+
+            }
+
+
+            return [];
 
         } catch (error) {
 
@@ -301,9 +276,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==========================================
+    /* =========================================================
        SAVE LOCAL CART
-    ========================================== */
+    ========================================================= */
 
     function saveLocalCart(items) {
 
@@ -319,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } catch (error) {
 
             console.error(
-                "Unable to save local cart:",
+                "Save local cart error:",
                 error
             );
 
@@ -328,88 +303,154 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==========================================
+    /* =========================================================
        LOAD CART FROM MONGODB
-    ========================================== */
+    ========================================================= */
 
-    async function loadCart() {
+    async function loadBackendCart() {
 
-        try {
+        const token =
+            getToken();
 
-            const response =
-                await fetch(
-                    CART_API_URL,
-                    {
 
-                        method: "GET",
+        if (!token) {
 
-                        headers: {
+            throw new Error(
+                "User is not logged in."
+            );
 
-                            "Authorization":
-                                `Bearer ${getToken()}`,
+        }
 
-                            "Accept":
-                                "application/json"
 
-                        }
+        const response =
+            await fetch(
+                CART_API,
+                {
+                    method: "GET",
+
+                    headers: {
+
+                        "Authorization":
+                            `Bearer ${token}`,
+
+                        "Accept":
+                            "application/json"
 
                     }
-                );
 
-
-            const data =
-                await response.json();
-
-
-            console.log(
-                "CART API RESPONSE:",
-                data
+                }
             );
 
 
-            /* ======================================
-               AUTH ERROR
-            ====================================== */
+        let data;
+
+
+        try {
+
+            data =
+                await response.json();
+
+        } catch (error) {
+
+            throw new Error(
+                "Invalid response from backend."
+            );
+
+        }
+
+
+        console.log(
+            "SoleAI Backend Cart:",
+            data
+        );
+
+
+        if (
+            response.status === 401
+        ) {
+
+            localStorage.removeItem(
+                TOKEN_KEY
+            );
+
+
+            window.location.href =
+                "./login.html";
+
+
+            return [];
+
+        }
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.message ||
+                "Unable to load cart."
+            );
+
+        }
+
+
+        if (
+            data &&
+            data.cart &&
+            Array.isArray(
+                data.cart.items
+            )
+        ) {
+
+            return data.cart.items.map(
+                normalizeItem
+            );
+
+        }
+
+
+        return [];
+
+    }
+
+
+    /* =========================================================
+       LOAD CART
+    ========================================================= */
+
+    async function loadCart() {
+
+        console.log(
+            "========== SOLEAI CHECKOUT =========="
+        );
+
+
+        /*
+         * STEP 1
+         * Try MongoDB.
+         */
+
+        try {
+
+            const backendCart =
+                await loadBackendCart();
+
+
+            console.log(
+                "MongoDB cart:",
+                backendCart
+            );
+
 
             if (
-                response.status === 401
-            ) {
-
-                localStorage.removeItem(
-                    TOKEN_KEY
-                );
-
-
-                window.location.href =
-                    "./login.html";
-
-
-                return;
-
-            }
-
-
-            /* ======================================
-               MONGODB CART HAS ITEMS
-            ====================================== */
-
-            if (
-                response.ok &&
-                data.cart &&
-                Array.isArray(
-                    data.cart.items
-                ) &&
-                data.cart.items.length > 0
+                backendCart.length > 0
             ) {
 
                 cart =
-                    data.cart.items.map(
-                        normalizeItem
-                    );
+                    backendCart;
 
 
                 /*
-                 * Keep local cart synchronized.
+                 * Synchronize localStorage.
                  */
 
                 saveLocalCart(
@@ -418,169 +459,358 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
                 console.log(
-                    "Checkout MongoDB cart:",
-                    cart
+                    "Using MongoDB cart ✅"
                 );
-
-            } else {
-
-                /* ==================================
-                   MONGODB CART EMPTY
-                   FALL BACK TO LOCAL CART
-                ================================== */
-
-                const localCart =
-                    getLocalCart();
-
-
-                if (
-                    localCart.length > 0
-                ) {
-
-                    cart =
-                        localCart;
-
-
-                    console.log(
-                        "Checkout using local cart fallback:",
-                        cart
-                    );
-
-                } else {
-
-                    cart = [];
-
-                }
-
-            }
-
-
-            renderProducts();
-
-            updateSummary();
-
-
-            if (!cart.length) {
-
-                if (placeOrder) {
-
-                    placeOrder.disabled =
-                        true;
-
-                }
-
-
-                showMessage(
-                    "Your cart is empty."
-                );
-
-            } else {
-
-                if (placeOrder) {
-
-                    placeOrder.disabled =
-                        false;
-
-                }
-
-
-                clearMessage();
-
-            }
-
-
-        } catch (error) {
-
-            console.error(
-                "Cart loading error:",
-                error
-            );
-
-
-            /*
-             * If backend request fails,
-             * use local cart.
-             */
-
-            const localCart =
-                getLocalCart();
-
-
-            if (
-                localCart.length > 0
-            ) {
-
-                cart =
-                    localCart;
 
 
                 renderProducts();
 
                 updateSummary();
 
-
-                if (placeOrder) {
-
-                    placeOrder.disabled =
-                        false;
-
-                }
-
+                enableOrderButton();
 
                 clearMessage();
-
-
-                console.log(
-                    "Checkout loaded local cart after API error:",
-                    cart
-                );
-
 
                 return;
 
             }
 
+        } catch (error) {
 
-            cart = [];
-
-
-            showMessage(
-                error.message ||
-                "Unable to load your cart."
+            console.error(
+                "MongoDB cart failed:",
+                error
             );
 
         }
 
+
+        /*
+         * STEP 2
+         * MongoDB empty/failed.
+         * Try localStorage.
+         */
+
+        const localCart =
+            getLocalCart();
+
+
+        console.log(
+            "LocalStorage cart:",
+            localCart
+        );
+
+
+        if (
+            localCart.length > 0
+        ) {
+
+            cart =
+                localCart;
+
+
+            console.log(
+                "Using localStorage cart ✅"
+            );
+
+
+            renderProducts();
+
+            updateSummary();
+
+            enableOrderButton();
+
+            clearMessage();
+
+            return;
+
+        }
+
+
+        /*
+         * STEP 3
+         * Nothing found.
+         */
+
+        cart = [];
+
+
+        console.log(
+            "NO CART ITEMS FOUND ❌"
+        );
+
+
+        renderProducts();
+
+        updateSummary();
+
+        disableOrderButton();
+
+
+        showMessage(
+            "Your cart is empty."
+        );
+
     }
 
 
-    /* ==========================================
-       CALCULATE
-    ========================================== */
+    /* =========================================================
+       ENABLE ORDER BUTTON
+    ========================================================= */
 
-    function calculate() {
+    function enableOrderButton() {
 
-        let sub = 0;
+        if (!placeOrder) {
+            return;
+        }
 
-        let count = 0;
+        placeOrder.disabled =
+            false;
+
+        placeOrder.style.opacity =
+            "1";
+
+        placeOrder.style.cursor =
+            "pointer";
+
+    }
+
+
+    /* =========================================================
+       DISABLE ORDER BUTTON
+    ========================================================= */
+
+    function disableOrderButton() {
+
+        if (!placeOrder) {
+            return;
+        }
+
+        placeOrder.disabled =
+            true;
+
+        placeOrder.style.opacity =
+            "0.6";
+
+        placeOrder.style.cursor =
+            "not-allowed";
+
+    }
+
+
+    /* =========================================================
+       RENDER PRODUCTS
+    ========================================================= */
+
+    function renderProducts() {
+
+        if (!orderItems) {
+
+            console.warn(
+                "order-items element not found."
+            );
+
+            return;
+
+        }
+
+
+        orderItems.innerHTML =
+            "";
+
+
+        if (
+            cart.length === 0
+        ) {
+
+            const empty =
+                document.createElement(
+                    "p"
+                );
+
+
+            empty.textContent =
+                "Your cart is empty.";
+
+
+            orderItems.appendChild(
+                empty
+            );
+
+
+            return;
+
+        }
 
 
         cart.forEach(
             function (item) {
 
-                sub +=
+                const row =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                row.className =
+                    "order-item";
+
+
+                /* IMAGE */
+
+                const image =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                image.src =
+                    item.image;
+
+                image.alt =
+                    item.name;
+
+                image.loading =
+                    "lazy";
+
+
+                image.onerror =
+                    function () {
+
+                        this.style.display =
+                            "none";
+
+                    };
+
+
+                /* INFO */
+
+                const info =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                info.className =
+                    "order-info";
+
+
+                const name =
+                    document.createElement(
+                        "h3"
+                    );
+
+
+                name.textContent =
+                    item.name;
+
+
+                const details =
+                    document.createElement(
+                        "p"
+                    );
+
+
+                details.textContent =
+                    `Size: ${
+                        item.size || "-"
+                    } | Color: ${
+                        item.color || "-"
+                    } | Qty: ${
+                        item.quantity
+                    }`;
+
+
+                info.appendChild(
+                    name
+                );
+
+                info.appendChild(
+                    details
+                );
+
+
+                /* PRICE */
+
+                const price =
+                    document.createElement(
+                        "strong"
+                    );
+
+
+                price.className =
+                    "order-price";
+
+
+                price.textContent =
+                    money(
+                        Number(
+                            item.price
+                        ) *
+                        Number(
+                            item.quantity
+                        )
+                    );
+
+
+                row.appendChild(
+                    image
+                );
+
+                row.appendChild(
+                    info
+                );
+
+                row.appendChild(
+                    price
+                );
+
+
+                orderItems.appendChild(
+                    row
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =========================================================
+       CALCULATE SUMMARY
+    ========================================================= */
+
+    function calculateSummary() {
+
+        let sub =
+            0;
+
+        let count =
+            0;
+
+
+        cart.forEach(
+            function (item) {
+
+                const price =
                     Number(
                         item.price
-                    ) *
+                    ) || 0;
+
+
+                const quantity =
                     Number(
                         item.quantity
-                    );
+                    ) || 1;
+
+
+                sub +=
+                    price *
+                    quantity;
 
 
                 count +=
-                    Number(
-                        item.quantity
-                    );
+                    quantity;
 
             }
         );
@@ -650,253 +880,31 @@ document.addEventListener("DOMContentLoaded", function () {
                 finalTotal,
 
             count:
-                count,
-
-            delivery:
-                deliveryType
+                count
 
         };
 
     }
 
 
-    /* ==========================================
-       RENDER PRODUCTS
-    ========================================== */
-
-    function renderProducts() {
-
-        if (!orderItems) {
-
-            return;
-
-        }
-
-
-        orderItems.innerHTML =
-            "";
-
-
-        if (!cart.length) {
-
-            const empty =
-                document.createElement(
-                    "p"
-                );
-
-
-            empty.textContent =
-                "Your cart is empty.";
-
-
-            empty.style.color =
-                "#888888";
-
-
-            empty.style.fontSize =
-                "13px";
-
-
-            orderItems.appendChild(
-                empty
-            );
-
-
-            return;
-
-        }
-
-
-        cart.forEach(
-            function (item) {
-
-                const row =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                row.className =
-                    "order-item";
-
-
-                /* ==================================
-                   IMAGE
-                ================================== */
-
-                const imageBox =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                imageBox.className =
-                    "order-image";
-
-
-                const image =
-                    document.createElement(
-                        "img"
-                    );
-
-
-                image.src =
-                    item.image;
-
-
-                image.alt =
-                    item.name;
-
-
-                image.loading =
-                    "lazy";
-
-
-                image.addEventListener(
-                    "error",
-                    function () {
-
-                        this.style.display =
-                            "none";
-
-                    }
-                );
-
-
-                imageBox.appendChild(
-                    image
-                );
-
-
-                /* ==================================
-                   INFO
-                ================================== */
-
-                const info =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                info.className =
-                    "order-info";
-
-
-                const name =
-                    document.createElement(
-                        "h3"
-                    );
-
-
-                name.textContent =
-                    item.name;
-
-
-                const quantity =
-                    document.createElement(
-                        "p"
-                    );
-
-
-                quantity.textContent =
-                    "Qty: " +
-                    item.quantity;
-
-
-                const variant =
-                    document.createElement(
-                        "p"
-                    );
-
-
-                variant.textContent =
-                    `Size: ${item.size || "-"} | Color: ${item.color || "-"}`;
-
-
-                info.appendChild(
-                    name
-                );
-
-
-                info.appendChild(
-                    quantity
-                );
-
-
-                info.appendChild(
-                    variant
-                );
-
-
-                /* ==================================
-                   PRICE
-                ================================== */
-
-                const price =
-                    document.createElement(
-                        "strong"
-                    );
-
-
-                price.className =
-                    "order-price";
-
-
-                price.textContent =
-                    money(
-                        Number(
-                            item.price
-                        ) *
-                        Number(
-                            item.quantity
-                        )
-                    );
-
-
-                row.appendChild(
-                    imageBox
-                );
-
-
-                row.appendChild(
-                    info
-                );
-
-
-                row.appendChild(
-                    price
-                );
-
-
-                orderItems.appendChild(
-                    row
-                );
-
-            }
-        );
-
-    }
-
-
-    /* ==========================================
+    /* =========================================================
        UPDATE SUMMARY
-    ========================================== */
+    ========================================================= */
 
     function updateSummary() {
 
-        const data =
-            calculate();
+        const summary =
+            calculateSummary();
 
 
         if (itemCount) {
 
             itemCount.textContent =
-                data.count +
-                (
-                    data.count === 1
-                        ? " Item"
-                        : " Items"
-                );
+                `${summary.count} ${
+                    summary.count === 1
+                        ? "Item"
+                        : "Items"
+                }`;
 
         }
 
@@ -905,7 +913,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             subtotal.textContent =
                 money(
-                    data.subtotal
+                    summary.subtotal
                 );
 
         }
@@ -916,7 +924,7 @@ document.addEventListener("DOMContentLoaded", function () {
             discount.textContent =
                 "- " +
                 money(
-                    data.discount
+                    summary.discount
                 );
 
         }
@@ -925,10 +933,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (shipping) {
 
             shipping.textContent =
-                data.shipping === 0
+                summary.shipping === 0
                     ? "Free"
                     : money(
-                        data.shipping
+                        summary.shipping
                     );
 
         }
@@ -938,7 +946,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             tax.textContent =
                 money(
-                    data.tax
+                    summary.tax
                 );
 
         }
@@ -948,7 +956,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             total.textContent =
                 money(
-                    data.total
+                    summary.total
                 );
 
         }
@@ -956,9 +964,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==========================================
+    /* =========================================================
        DELIVERY CHANGE
-    ========================================== */
+    ========================================================= */
 
     document
         .querySelectorAll(
@@ -969,16 +977,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 input.addEventListener(
                     "change",
-                    updateSummary
+                    function () {
+
+                        updateSummary();
+
+                    }
                 );
 
             }
         );
 
 
-    /* ==========================================
-       EMAIL VALIDATION
-    ========================================== */
+    /* =========================================================
+       VALID EMAIL
+    ========================================================= */
 
     function validEmail(value) {
 
@@ -988,18 +1000,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==========================================
+    /* =========================================================
        VALIDATE CHECKOUT
-    ========================================== */
+    ========================================================= */
 
-    function validate() {
+    function validateCheckout() {
 
         clearMessage();
 
 
         if (
             !email ||
-            !email.value.trim() ||
             !validEmail(
                 email.value.trim()
             )
@@ -1009,25 +1020,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Please enter a valid email address."
             );
 
-
             email?.focus();
-
 
             return false;
 
         }
 
 
-        const phoneValue =
-            phone.value.replace(
-                /\D/g,
-                ""
-            );
+        const phoneNumber =
+            phone
+                ? phone.value.replace(
+                    /\D/g,
+                    ""
+                )
+                : "";
 
 
         if (
             !/^\d{10}$/.test(
-                phoneValue
+                phoneNumber
             )
         ) {
 
@@ -1035,9 +1046,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Please enter a valid 10-digit phone number."
             );
 
-
-            phone.focus();
-
+            phone?.focus();
 
             return false;
 
@@ -1053,9 +1062,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Please enter your first name."
             );
 
-
             firstName?.focus();
-
 
             return false;
 
@@ -1071,9 +1078,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Please enter your last name."
             );
 
-
             lastName?.focus();
-
 
             return false;
 
@@ -1089,9 +1094,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Please enter your address."
             );
 
-
             address?.focus();
-
 
             return false;
 
@@ -1107,9 +1110,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Please enter your city."
             );
 
-
             city?.focus();
-
 
             return false;
 
@@ -1125,9 +1126,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Please enter your state."
             );
 
-
             state?.focus();
-
 
             return false;
 
@@ -1145,9 +1144,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Please enter a valid 6-digit PIN code."
             );
 
-
             pincode?.focus();
-
 
             return false;
 
@@ -1163,9 +1160,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Please accept the checkout terms."
             );
 
-
             terms.focus();
-
 
             return false;
 
@@ -1177,73 +1172,61 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==========================================
+    /* =========================================================
        PLACE ORDER
-    ========================================== */
+    ========================================================= */
 
-    async function placeRealOrder() {
+    async function placeOrderNow() {
 
         /*
-         * Always make sure we have
-         * the latest cart before placing order.
+         * Make sure cart is available.
          */
 
-        if (!cart.length) {
+        if (
+            cart.length === 0
+        ) {
 
             await loadCart();
 
         }
 
 
-        if (!cart.length) {
+        if (
+            cart.length === 0
+        ) {
 
             showMessage(
                 "Your cart is empty."
             );
 
+            return;
+
+        }
+
+
+        if (
+            !validateCheckout()
+        ) {
 
             return;
 
         }
 
 
-        if (!validate()) {
-
-            return;
-
-        }
-
-
-        const currentToken =
+        const token =
             getToken();
 
 
-        if (!currentToken) {
+        if (!token) {
 
             showMessage(
-                "Your session has expired. Please login again."
+                "Please login again."
             );
-
-
-            setTimeout(
-                function () {
-
-                    window.location.href =
-                        "./login.html";
-
-                },
-                1000
-            );
-
 
             return;
 
         }
 
-
-        /* ==========================================
-           PAYMENT METHOD
-        ========================================== */
 
         const selectedPayment =
             document.querySelector(
@@ -1251,27 +1234,17 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-        let paymentMethod =
+        const paymentMethod =
             selectedPayment
-                ? selectedPayment.value
+                ? String(
+                    selectedPayment.value
+                ).toUpperCase()
                 : "COD";
 
 
-        const paymentValue =
-            String(
-                paymentMethod
-            ).toUpperCase();
+        const summary =
+            calculateSummary();
 
-
-        paymentMethod =
-            paymentValue === "ONLINE"
-                ? "ONLINE"
-                : "COD";
-
-
-        /* ==========================================
-           ADDRESS
-        ========================================== */
 
         const shippingAddress = {
 
@@ -1296,15 +1269,10 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
 
-        /* ==========================================
-           BUTTON
-        ========================================== */
-
         if (placeOrder) {
 
             placeOrder.disabled =
                 true;
-
 
             placeOrder.innerHTML =
                 "Placing Order...";
@@ -1312,18 +1280,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        clearMessage();
-
-
         try {
-
-            /* ======================================
-               ORDER API
-            ====================================== */
 
             const response =
                 await fetch(
-                    ORDER_API_URL,
+                    ORDER_API,
                     {
 
                         method: "POST",
@@ -1334,7 +1295,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 "application/json",
 
                             "Authorization":
-                                `Bearer ${currentToken}`
+                                `Bearer ${token}`
 
                         },
 
@@ -1345,7 +1306,22 @@ document.addEventListener("DOMContentLoaded", function () {
                                     shippingAddress,
 
                                 paymentMethod:
-                                    paymentMethod
+                                    paymentMethod,
+
+                                subtotal:
+                                    summary.subtotal,
+
+                                discount:
+                                    summary.discount,
+
+                                shipping:
+                                    summary.shipping,
+
+                                tax:
+                                    summary.tax,
+
+                                total:
+                                    summary.total
 
                             })
 
@@ -1358,14 +1334,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             console.log(
-                "ORDER API RESPONSE:",
+                "SoleAI ORDER RESPONSE:",
                 data
             );
 
-
-            /* ======================================
-               AUTH ERROR
-            ====================================== */
 
             if (
                 response.status === 401
@@ -1376,20 +1348,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-                showMessage(
-                    "Your session has expired. Please login again."
-                );
-
-
-                setTimeout(
-                    function () {
-
-                        window.location.href =
-                            "./login.html";
-
-                    },
-                    1000
-                );
+                window.location.href =
+                    "./login.html";
 
 
                 return;
@@ -1397,11 +1357,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            /* ======================================
-               ORDER ERROR
-            ====================================== */
-
-            if (!response.ok) {
+            if (
+                !response.ok
+            ) {
 
                 throw new Error(
                     data.message ||
@@ -1411,33 +1369,25 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            /* ======================================
-               SUCCESS VALIDATION
-            ====================================== */
-
             if (
-                !data.success ||
-                !data.order
+                !data.success
             ) {
 
                 throw new Error(
-                    "Invalid order response from server."
+                    data.message ||
+                    "Order failed."
                 );
 
             }
 
 
-            console.log(
-                "ORDER CREATED:",
+            /*
+             * Save order.
+             */
+
+            if (
                 data.order
-            );
-
-
-            /* ======================================
-               SAVE ORDER FOR SUCCESS PAGE
-            ====================================== */
-
-            try {
+            ) {
 
                 localStorage.setItem(
                     "soleai_current_order",
@@ -1446,19 +1396,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     )
                 );
 
-            } catch (error) {
-
-                console.error(
-                    "Could not save order confirmation:",
-                    error
-                );
-
             }
 
 
-            /* ======================================
-               SUCCESS
-            ====================================== */
+            /*
+             * Clear frontend cart.
+             */
+
+            saveLocalCart([]);
+
 
             showMessage(
                 "Order placed successfully.",
@@ -1487,7 +1433,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             showMessage(
                 error.message ||
-                "Unable to place order. Please try again."
+                "Unable to place order."
             );
 
 
@@ -1496,9 +1442,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 placeOrder.disabled =
                     false;
 
-
                 placeOrder.innerHTML =
-                    'Place Order <span>→</span>';
+                    "Place Demo Order →";
 
             }
 
@@ -1507,42 +1452,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* ==========================================
-       PLACE ORDER BUTTON
-    ========================================== */
+    /* =========================================================
+       BUTTON
+    ========================================================= */
 
     if (placeOrder) {
 
         placeOrder.addEventListener(
             "click",
-            placeRealOrder
+            placeOrderNow
         );
 
     }
 
 
-    /* ==========================================
-       AI BUTTON
-    ========================================== */
-
-    if (aiButton) {
-
-        aiButton.addEventListener(
-            "click",
-            function () {
-
-                window.location.href =
-                    "./ai-assistant.html";
-
-            }
-        );
-
-    }
-
-
-    /* ==========================================
-       INITIALIZE
-    ========================================== */
+    /* =========================================================
+       START
+    ========================================================= */
 
     loadCart();
 
