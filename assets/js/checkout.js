@@ -178,11 +178,159 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==========================================
-       LOAD CART FROM MONGODB
+       CART
     ========================================== */
 
     let cart = [];
 
+
+    /* ==========================================
+       NORMALIZE CART ITEM
+    ========================================== */
+
+    function normalizeItem(item) {
+
+        return {
+
+            id:
+                item.productId ||
+                item.id ||
+                "",
+
+            productId:
+                item.productId ||
+                item.id ||
+                "",
+
+            name:
+                item.name ||
+                "SoleAI Product",
+
+            brand:
+                item.brand ||
+                "SoleAI",
+
+            price:
+                Number(
+                    item.price
+                ) || 0,
+
+            originalPrice:
+                Number(
+                    item.originalPrice
+                ) || 0,
+
+            image:
+                item.image ||
+                "",
+
+            size:
+                item.size ||
+                "",
+
+            color:
+                item.color ||
+                "",
+
+            quantity:
+                Math.max(
+                    1,
+                    Number(
+                        item.quantity
+                    ) || 1
+                )
+
+        };
+
+    }
+
+
+    /* ==========================================
+       LOCAL CART
+    ========================================== */
+
+    function getLocalCart() {
+
+        try {
+
+            const stored =
+                localStorage.getItem(
+                    "soleai_cart"
+                );
+
+
+            if (!stored) {
+
+                return [];
+
+            }
+
+
+            const localCart =
+                JSON.parse(
+                    stored
+                );
+
+
+            if (
+                !Array.isArray(
+                    localCart
+                )
+            ) {
+
+                return [];
+
+            }
+
+
+            return localCart.map(
+                normalizeItem
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Local cart error:",
+                error
+            );
+
+            return [];
+
+        }
+
+    }
+
+
+    /* ==========================================
+       SAVE LOCAL CART
+    ========================================== */
+
+    function saveLocalCart(items) {
+
+        try {
+
+            localStorage.setItem(
+                "soleai_cart",
+                JSON.stringify(
+                    items
+                )
+            );
+
+        } catch (error) {
+
+            console.error(
+                "Unable to save local cart:",
+                error
+            );
+
+        }
+
+    }
+
+
+    /* ==========================================
+       LOAD CART FROM MONGODB
+    ========================================== */
 
     async function loadCart() {
 
@@ -192,12 +340,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 await fetch(
                     CART_API_URL,
                     {
+
                         method: "GET",
 
                         headers: {
 
                             "Authorization":
-                                `Bearer ${getToken()}`
+                                `Bearer ${getToken()}`,
+
+                            "Accept":
+                                "application/json"
 
                         }
 
@@ -209,93 +361,96 @@ document.addEventListener("DOMContentLoaded", function () {
                 await response.json();
 
 
-            if (!response.ok) {
-
-                if (
-                    response.status === 401
-                ) {
-
-                    localStorage.removeItem(
-                        TOKEN_KEY
-                    );
+            console.log(
+                "CART API RESPONSE:",
+                data
+            );
 
 
-                    window.location.href =
-                        "./login.html";
+            /* ======================================
+               AUTH ERROR
+            ====================================== */
 
-                    return;
+            if (
+                response.status === 401
+            ) {
 
-                }
-
-
-                throw new Error(
-                    data.message ||
-                    "Unable to load cart."
+                localStorage.removeItem(
+                    TOKEN_KEY
                 );
+
+
+                window.location.href =
+                    "./login.html";
+
+
+                return;
 
             }
 
 
+            /* ======================================
+               MONGODB CART HAS ITEMS
+            ====================================== */
+
             if (
+                response.ok &&
                 data.cart &&
                 Array.isArray(
                     data.cart.items
-                )
+                ) &&
+                data.cart.items.length > 0
             ) {
 
                 cart =
                     data.cart.items.map(
-                        function (item) {
-
-                            return {
-
-                                id:
-                                    item.productId,
-
-                                productId:
-                                    item.productId,
-
-                                name:
-                                    item.name ||
-                                    "SoleAI Product",
-
-                                brand:
-                                    item.brand ||
-                                    "SoleAI",
-
-                                price:
-                                    Number(
-                                        item.price
-                                    ) || 0,
-
-                                image:
-                                    item.image ||
-                                    "",
-
-                                size:
-                                    item.size ||
-                                    "",
-
-                                color:
-                                    item.color ||
-                                    "",
-
-                                quantity:
-                                    Math.max(
-                                        1,
-                                        Number(
-                                            item.quantity
-                                        ) || 1
-                                    )
-
-                            };
-
-                        }
+                        normalizeItem
                     );
+
+
+                /*
+                 * Keep local cart synchronized.
+                 */
+
+                saveLocalCart(
+                    cart
+                );
+
+
+                console.log(
+                    "Checkout MongoDB cart:",
+                    cart
+                );
 
             } else {
 
-                cart = [];
+                /* ==================================
+                   MONGODB CART EMPTY
+                   FALL BACK TO LOCAL CART
+                ================================== */
+
+                const localCart =
+                    getLocalCart();
+
+
+                if (
+                    localCart.length > 0
+                ) {
+
+                    cart =
+                        localCart;
+
+
+                    console.log(
+                        "Checkout using local cart fallback:",
+                        cart
+                    );
+
+                } else {
+
+                    cart = [];
+
+                }
 
             }
 
@@ -314,9 +469,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }
 
+
                 showMessage(
                     "Your cart is empty."
                 );
+
+            } else {
+
+                if (placeOrder) {
+
+                    placeOrder.disabled =
+                        false;
+
+                }
+
+
+                clearMessage();
 
             }
 
@@ -327,6 +495,53 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Cart loading error:",
                 error
             );
+
+
+            /*
+             * If backend request fails,
+             * use local cart.
+             */
+
+            const localCart =
+                getLocalCart();
+
+
+            if (
+                localCart.length > 0
+            ) {
+
+                cart =
+                    localCart;
+
+
+                renderProducts();
+
+                updateSummary();
+
+
+                if (placeOrder) {
+
+                    placeOrder.disabled =
+                        false;
+
+                }
+
+
+                clearMessage();
+
+
+                console.log(
+                    "Checkout loaded local cart after API error:",
+                    cart
+                );
+
+
+                return;
+
+            }
+
+
+            cart = [];
 
 
             showMessage(
@@ -354,20 +569,22 @@ document.addEventListener("DOMContentLoaded", function () {
             function (item) {
 
                 sub +=
-                    Number(item.price) *
-                    Number(item.quantity);
+                    Number(
+                        item.price
+                    ) *
+                    Number(
+                        item.quantity
+                    );
+
 
                 count +=
-                    Number(item.quantity);
+                    Number(
+                        item.quantity
+                    );
 
             }
         );
 
-
-        /*
-         * Keep the same checkout pricing
-         * logic from your existing page.
-         */
 
         const discountAmount =
             sub >= 5000
@@ -411,7 +628,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         const finalTotal =
-            taxable + gst;
+            taxable +
+            gst;
 
 
         return {
@@ -449,7 +667,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderProducts() {
 
         if (!orderItems) {
+
             return;
+
         }
 
 
@@ -500,7 +720,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     "order-item";
 
 
-                /* IMAGE */
+                /* ==================================
+                   IMAGE
+                ================================== */
 
                 const imageBox =
                     document.createElement(
@@ -546,7 +768,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-                /* INFO */
+                /* ==================================
+                   INFO
+                ================================== */
 
                 const info =
                     document.createElement(
@@ -579,6 +803,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     item.quantity;
 
 
+                const variant =
+                    document.createElement(
+                        "p"
+                    );
+
+
+                variant.textContent =
+                    `Size: ${item.size || "-"} | Color: ${item.color || "-"}`;
+
+
                 info.appendChild(
                     name
                 );
@@ -589,7 +823,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-                /* PRICE */
+                info.appendChild(
+                    variant
+                );
+
+
+                /* ==================================
+                   PRICE
+                ================================== */
 
                 const price =
                     document.createElement(
@@ -603,8 +844,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 price.textContent =
                     money(
-                        item.price *
-                        item.quantity
+                        Number(
+                            item.price
+                        ) *
+                        Number(
+                            item.quantity
+                        )
                     );
 
 
@@ -774,11 +1019,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         const phoneValue =
-            phone.value
-                .replace(
-                    /\D/g,
-                    ""
-                );
+            phone.value.replace(
+                /\D/g,
+                ""
+            );
 
 
         if (
@@ -800,74 +1044,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
 
-        if (!firstName.value.trim()) {
+        if (
+            !firstName ||
+            !firstName.value.trim()
+        ) {
 
             showMessage(
                 "Please enter your first name."
             );
 
 
-            firstName.focus();
-
-
-            return false;
-
-        }
-
-
-        if (!lastName.value.trim()) {
-
-            showMessage(
-                "Please enter your last name."
-            );
-
-
-            lastName.focus();
-
-
-            return false;
-
-        }
-
-
-        if (!address.value.trim()) {
-
-            showMessage(
-                "Please enter your address."
-            );
-
-
-            address.focus();
-
-
-            return false;
-
-        }
-
-
-        if (!city.value.trim()) {
-
-            showMessage(
-                "Please enter your city."
-            );
-
-
-            city.focus();
-
-
-            return false;
-
-        }
-
-
-        if (!state.value.trim()) {
-
-            showMessage(
-                "Please enter your state."
-            );
-
-
-            state.focus();
+            firstName?.focus();
 
 
             return false;
@@ -876,6 +1063,79 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         if (
+            !lastName ||
+            !lastName.value.trim()
+        ) {
+
+            showMessage(
+                "Please enter your last name."
+            );
+
+
+            lastName?.focus();
+
+
+            return false;
+
+        }
+
+
+        if (
+            !address ||
+            !address.value.trim()
+        ) {
+
+            showMessage(
+                "Please enter your address."
+            );
+
+
+            address?.focus();
+
+
+            return false;
+
+        }
+
+
+        if (
+            !city ||
+            !city.value.trim()
+        ) {
+
+            showMessage(
+                "Please enter your city."
+            );
+
+
+            city?.focus();
+
+
+            return false;
+
+        }
+
+
+        if (
+            !state ||
+            !state.value.trim()
+        ) {
+
+            showMessage(
+                "Please enter your state."
+            );
+
+
+            state?.focus();
+
+
+            return false;
+
+        }
+
+
+        if (
+            !pincode ||
             !/^\d{6}$/.test(
                 pincode.value.trim()
             )
@@ -886,7 +1146,7 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-            pincode.focus();
+            pincode?.focus();
 
 
             return false;
@@ -918,10 +1178,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     /* ==========================================
-       PLACE REAL ORDER
+       PLACE ORDER
     ========================================== */
 
     async function placeRealOrder() {
+
+        /*
+         * Always make sure we have
+         * the latest cart before placing order.
+         */
+
+        if (!cart.length) {
+
+            await loadCart();
+
+        }
+
 
         if (!cart.length) {
 
@@ -985,12 +1257,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 : "COD";
 
 
-        /*
-         * Backend accepts:
-         * COD
-         * ONLINE
-         */
-
         const paymentValue =
             String(
                 paymentMethod
@@ -1031,7 +1297,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         /* ==========================================
-           BUTTON LOADING
+           BUTTON
         ========================================== */
 
         if (placeOrder) {
@@ -1051,9 +1317,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
 
-            /* ==========================================
-               SEND ORDER TO MONGODB
-            ========================================== */
+            /* ======================================
+               ORDER API
+            ====================================== */
 
             const response =
                 await fetch(
@@ -1076,11 +1342,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             JSON.stringify({
 
                                 shippingAddress:
-
                                     shippingAddress,
 
                                 paymentMethod:
-
                                     paymentMethod
 
                             })
@@ -1099,9 +1363,9 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-            /* ==========================================
+            /* ======================================
                AUTH ERROR
-            ========================================== */
+            ====================================== */
 
             if (
                 response.status === 401
@@ -1133,9 +1397,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            /* ==========================================
+            /* ======================================
                ORDER ERROR
-            ========================================== */
+            ====================================== */
 
             if (!response.ok) {
 
@@ -1147,9 +1411,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            /* ==========================================
-               SUCCESS
-            ========================================== */
+            /* ======================================
+               SUCCESS VALIDATION
+            ====================================== */
 
             if (
                 !data.success ||
@@ -1169,11 +1433,9 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
 
-            /* ==========================================
-               SAVE CURRENT ORDER FOR SUCCESS PAGE
-               Only for displaying confirmation.
-               MongoDB remains the source of truth.
-            ========================================== */
+            /* ======================================
+               SAVE ORDER FOR SUCCESS PAGE
+            ====================================== */
 
             try {
 
@@ -1194,19 +1456,15 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
 
-            /* ==========================================
-               SUCCESS MESSAGE
-            ========================================== */
+            /* ======================================
+               SUCCESS
+            ====================================== */
 
             showMessage(
                 "Order placed successfully.",
                 "success"
             );
 
-
-            /* ==========================================
-               REDIRECT
-            ========================================== */
 
             setTimeout(
                 function () {
