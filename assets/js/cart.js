@@ -20,9 +20,116 @@ const LOGIN_REDIRECT_KEY =
 ============================================================ */
 
 function getToken() {
+    return localStorage.getItem(TOKEN_KEY);
+}
 
-    return localStorage.getItem(
-        TOKEN_KEY
+
+/* ============================================================
+   SAVE LOCAL CART
+============================================================ */
+
+function saveLocalCart(cart) {
+
+    localStorage.setItem(
+        "soleai_cart",
+        JSON.stringify(
+            Array.isArray(cart)
+                ? cart
+                : []
+        )
+    );
+
+}
+
+
+/* ============================================================
+   GET LOCAL CART
+============================================================ */
+
+function getLocalCart() {
+
+    try {
+
+        const cart =
+            JSON.parse(
+                localStorage.getItem(
+                    "soleai_cart"
+                )
+            );
+
+        return Array.isArray(cart)
+            ? cart
+            : [];
+
+    } catch (error) {
+
+        console.error(
+            "Local cart error:",
+            error
+        );
+
+        return [];
+
+    }
+
+}
+
+
+/* ============================================================
+   NORMALIZE CART
+============================================================ */
+
+function normalizeCart(cart) {
+
+    if (
+        !cart ||
+        !Array.isArray(cart.items)
+    ) {
+
+        return [];
+
+    }
+
+    return cart.items.map(
+        item => ({
+
+            id:
+                item.productId,
+
+            productId:
+                item.productId,
+
+            name:
+                item.name || "SoleAI Product",
+
+            brand:
+                item.brand || "SoleAI",
+
+            price:
+                Number(
+                    item.price
+                ) || 0,
+
+            originalPrice:
+                Number(
+                    item.originalPrice
+                ) || 0,
+
+            image:
+                item.image || "",
+
+            size:
+                item.size || "",
+
+            color:
+                item.color || "",
+
+            quantity:
+                Number(
+                    item.quantity
+                ) || 1
+
+        })
     );
 
 }
@@ -37,13 +144,11 @@ async function getCartFromBackend() {
     const token =
         getToken();
 
-
     if (!token) {
 
         return null;
 
     }
-
 
     const response =
         await fetch(
@@ -54,15 +159,31 @@ async function getCartFromBackend() {
                 headers: {
 
                     "Authorization":
-                        `Bearer ${token}`
+                        `Bearer ${token}`,
+
+                    "Accept":
+                        "application/json"
 
                 }
+
             }
         );
 
 
-    const data =
-        await response.json();
+    let data;
+
+    try {
+
+        data =
+            await response.json();
+
+    } catch (error) {
+
+        throw new Error(
+            "Invalid response from cart server."
+        );
+
+    }
 
 
     if (!response.ok) {
@@ -77,7 +198,6 @@ async function getCartFromBackend() {
 
         }
 
-
         throw new Error(
             data.message ||
             "Unable to load cart."
@@ -86,51 +206,89 @@ async function getCartFromBackend() {
     }
 
 
-    return data.cart;
+    return data.cart || {
+        items: []
+    };
 
 }
 
 
 /* ============================================================
-   SAVE CART LOCALLY
-   Temporary fallback only
+   LOAD CART
 ============================================================ */
 
-function getLocalCart() {
+async function loadCart() {
 
-    try {
+    const token =
+        getToken();
 
-        const cart =
-            JSON.parse(
-                localStorage.getItem(
-                    "soleai_cart"
-                )
+
+    /*
+     * Logged-in user:
+     * MongoDB is the source of truth.
+     */
+
+    if (token) {
+
+        try {
+
+            const backendCart =
+                await getCartFromBackend();
+
+
+            const items =
+                normalizeCart(
+                    backendCart
+                );
+
+
+            /*
+             * Synchronize local storage
+             * with MongoDB cart.
+             */
+
+            saveLocalCart(
+                items
             );
 
 
-        return Array.isArray(cart)
-            ? cart
-            : [];
+            console.log(
+                "SoleAI cart loaded:",
+                items
+            );
 
-    } catch {
 
-        return [];
+            return items;
+
+        } catch (error) {
+
+            console.error(
+                "Backend cart error:",
+                error
+            );
+
+
+            /*
+             * If backend fails,
+             * temporarily use local cart.
+             */
+
+            const localCart =
+                getLocalCart();
+
+
+            return localCart;
+
+        }
 
     }
 
-}
 
+    /*
+     * Guest cart.
+     */
 
-function saveLocalCart(
-    cart
-) {
-
-    localStorage.setItem(
-        "soleai_cart",
-        JSON.stringify(
-            cart
-        )
-    );
+    return getLocalCart();
 
 }
 
@@ -139,9 +297,7 @@ function saveLocalCart(
    FORMAT PRICE
 ============================================================ */
 
-function formatPrice(
-    price
-) {
+function formatPrice(price) {
 
     return "₹" +
         Number(
@@ -175,138 +331,8 @@ function redirectToLogin() {
         "checkout.html"
     );
 
-
     window.location.href =
         "login.html";
-
-}
-
-
-/* ============================================================
-   NORMALIZE BACKEND CART
-============================================================ */
-
-function normalizeCart(
-    cart
-) {
-
-    if (
-        !cart ||
-        !Array.isArray(
-            cart.items
-        )
-    ) {
-
-        return [];
-
-    }
-
-
-    return cart.items.map(
-        item => ({
-
-            id:
-                item.productId,
-
-            productId:
-                item.productId,
-
-            name:
-                item.name,
-
-            brand:
-                item.brand ||
-                "SoleAI",
-
-            price:
-                Number(
-                    item.price
-                ),
-
-            originalPrice:
-                Number(
-                    item.originalPrice ||
-                    0
-                ),
-
-            image:
-                item.image,
-
-            size:
-                item.size,
-
-            color:
-                item.color,
-
-            quantity:
-                Number(
-                    item.quantity
-                )
-
-        })
-    );
-
-}
-
-
-/* ============================================================
-   LOAD CART
-============================================================ */
-
-async function loadCart() {
-
-    const token =
-        getToken();
-
-
-    /*
-     * Logged-in users:
-     * MongoDB cart is the source of truth.
-     */
-
-    if (token) {
-
-        try {
-
-            const cart =
-                await getCartFromBackend();
-
-
-            const items =
-                normalizeCart(
-                    cart
-                );
-
-
-            /*
-             * Keep local cart synchronized
-             * for compatibility with other pages.
-             */
-
-            saveLocalCart(
-                items
-            );
-
-
-            return items;
-
-        } catch (error) {
-
-            console.error(
-                "Backend cart error:",
-                error
-            );
-
-        }
-
-    }
-
-
-    /*
-     * Guest fallback.
-     */
-
-    return getLocalCart();
 
 }
 
@@ -345,12 +371,11 @@ async function renderCart() {
     }
 
 
-    container.innerHTML =
-        `
+    container.innerHTML = `
         <div class="cart-loading">
             Loading your cart...
         </div>
-        `;
+    `;
 
 
     const cart =
@@ -427,7 +452,7 @@ async function renderCart() {
 
 
     /* ========================================================
-       RENDER
+       RENDER ITEMS
     ======================================================== */
 
     cart.forEach(
@@ -450,7 +475,8 @@ async function renderCart() {
                     <a
                         href="product.html?id=${encodeURIComponent(
                             item.id
-                        )}">
+                        )}"
+                    >
 
                         <img
                             src="${escapeHTML(
@@ -459,7 +485,8 @@ async function renderCart() {
                             alt="${escapeHTML(
                                 item.name
                             )}"
-                            loading="lazy">
+                            loading="lazy"
+                        >
 
                     </a>
 
@@ -483,7 +510,8 @@ async function renderCart() {
                         <a
                             href="product.html?id=${encodeURIComponent(
                                 item.id
-                            )}">
+                            )}"
+                        >
 
                             ${escapeHTML(
                                 item.name
@@ -520,7 +548,8 @@ async function renderCart() {
                         <button
                             type="button"
                             data-action="decrease"
-                            data-index="${index}">
+                            data-index="${index}"
+                        >
 
                             <i class="bi bi-dash"></i>
 
@@ -535,7 +564,8 @@ async function renderCart() {
                         <button
                             type="button"
                             data-action="increase"
-                            data-index="${index}">
+                            data-index="${index}"
+                        >
 
                             <i class="bi bi-plus"></i>
 
@@ -548,7 +578,8 @@ async function renderCart() {
                         type="button"
                         class="remove-item"
                         data-action="remove"
-                        data-index="${index}">
+                        data-index="${index}"
+                    >
 
                         <i class="bi bi-trash3"></i>
 
@@ -602,12 +633,10 @@ async function renderCart() {
 
 
 /* ============================================================
-   SUMMARY
+   UPDATE SUMMARY
 ============================================================ */
 
-function updateSummary(
-    cart
-) {
+function updateSummary(cart) {
 
     let subtotal = 0;
 
@@ -621,7 +650,6 @@ function updateSummary(
                 Number(
                     item.quantity
                 ) || 0;
-
 
             const price =
                 Number(
@@ -662,24 +690,20 @@ function updateSummary(
             "cart-subtotal"
         );
 
-
     const deliveryElement =
         document.getElementById(
             "cart-delivery"
         );
-
 
     const discountElement =
         document.getElementById(
             "cart-discount"
         );
 
-
     const totalElement =
         document.getElementById(
             "cart-total"
         );
-
 
     const countText =
         document.getElementById(
@@ -728,16 +752,13 @@ function updateSummary(
     if (countText) {
 
         countText.textContent =
-
             totalItems === 0
-
                 ? "Your shopping cart is empty."
-
                 : `${totalItems} ${
                     totalItems === 1
                         ? "item"
                         : "items"
-                  } in your cart.`;
+                } in your cart.`;
 
     }
 
@@ -748,9 +769,7 @@ function updateSummary(
    CART ACTION
 ============================================================ */
 
-async function handleCartAction(
-    event
-) {
+async function handleCartAction(event) {
 
     const button =
         event.target.closest(
@@ -886,7 +905,7 @@ async function handleCartAction(
 
 
     /* ========================================================
-       GUEST LOCAL CART
+       GUEST CART
     ======================================================== */
 
     if (
@@ -954,7 +973,7 @@ async function handleCartAction(
 
 
 /* ============================================================
-   UPDATE BACKEND ITEM
+   UPDATE BACKEND CART ITEM
 ============================================================ */
 
 async function updateBackendCartItem(
@@ -1014,11 +1033,28 @@ async function updateBackendCartItem(
 
     }
 
+
+    /*
+     * Keep local cart synchronized
+     */
+
+    if (
+        data.cart
+    ) {
+
+        saveLocalCart(
+            normalizeCart(
+                data.cart
+            )
+        );
+
+    }
+
 }
 
 
 /* ============================================================
-   REMOVE BACKEND ITEM
+   REMOVE BACKEND CART ITEM
 ============================================================ */
 
 async function removeBackendCartItem(
@@ -1070,6 +1106,23 @@ async function removeBackendCartItem(
         throw new Error(
             data.message ||
             "Unable to remove item."
+        );
+
+    }
+
+
+    /*
+     * Keep local cart synchronized
+     */
+
+    if (
+        data.cart
+    ) {
+
+        saveLocalCart(
+            normalizeCart(
+                data.cart
+            )
         );
 
     }
@@ -1139,9 +1192,7 @@ function initializeCheckout() {
    ESCAPE HTML
 ============================================================ */
 
-function escapeHTML(
-    value
-) {
+function escapeHTML(value) {
 
     const div =
         document.createElement(
